@@ -1,0 +1,23 @@
+{
+  "name": "2dekans-veilingen",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "php -S localhost:8080",
+    "prettier": "prettier \"./**/*.php\" --write",
+    "db:migrate": "ts-node ./src/database/migrate.ts",
+    "db:seed": "ts-node ./src/database/seed/seed.ts",
+    "db:refreshdates": "ts-node ./src/database/seed/countdown-refresh.ts"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "@prettier/plugin-php": "^0.21.0",
+    "lint-staged": "^15.0.2",
+    "prettier": "3.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "argon2": "^0.31.1",
+    "mysql2": "^3.6.2"
+  }
+}
