@@ -11,6 +11,7 @@ module.exports = {
     themes: ["light", "dark", "cupcake"],
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('daisyui')
   ]
 }
