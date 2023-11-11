@@ -1,3 +1,11 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+require_once DATABASE . '/connect.php';
+require_once ROUTES;
+require_once LIB . '/util/util.php';
+echo "Hello woooooolrld!";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +24,4 @@
 </body>
 </html>
 
-<?php
 
-echo "Hello woooooolrld!";
