@@ -1,6 +1,17 @@
 <?php
 require "connect.php";
 echo "Hello woooooolrld!";
+
+$qu="INSERT INTO users(username, password) VALUES ('values1', 'values2')";
+
+//query execution
+if ($conn->query($qu)===TRUE) {
+    echo "Inserted Successfully";
+    $conn->close();
+} else {
+    echo "Insert Failed ".$conn->error;
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
