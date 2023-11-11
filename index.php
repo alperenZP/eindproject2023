@@ -1,6 +1,6 @@
 <?php
     require "connect.php";
-    echo "This is a simple Webpage"."<br><br>";
+    echo "This is a simple Webpege"."<br><br>";
 
     // SQL query to fetch data
     $sql = "SELECT * FROM users";
