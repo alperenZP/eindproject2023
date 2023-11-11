@@ -38,6 +38,7 @@ $conn->close();
     <button class="btn">Button</button>
     <br>
     <h1 class="text-3xl">grgddgjfdkgl</h1>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>
