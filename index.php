@@ -5,7 +5,7 @@
     
     // Database Variables
     $dbname     = "biblwnot_database";
-    $username   = "roman4";
+    $username   = "biblwnot_roman4";
     $password   = "es,RV.J3&7Bg'U=";
     
     // Create connection
