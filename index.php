@@ -34,13 +34,9 @@ $conn->close();
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
+    <br><br>
     <button class="btn">Button</button>
-    <button class="btn btn-neutral">Neutral</button>
-    <button class="btn btn-primary">Primary</button>
-    <button class="btn btn-secondary">Secndary</button>
-    <button class="btn btn-accent">Accent</button>
-    <button class="btn btn-ghost">Ghost</button>
-    <button class="btn btn-link">Link</button>
+    <br>
 </body>
 
 </html>
