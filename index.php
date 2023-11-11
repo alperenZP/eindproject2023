@@ -1,35 +1,40 @@
 <?php
-require "connect.php";
-echo "Hello woooooolrld!";
+    echo "This is a simple Webpage"."<br><br>";
 
-$qu="INSERT INTO users(username, password) VALUES ('values1', 'values2')";
+    $servername = "localhost";
+    
+    // Database Variables
+    $dbname     = "biblwnot_database";
+    $username   = "roman4";
+    $password   = "es,RV.J3&7Bg'U=";
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Checking Connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-//query execution
-if ($conn->query($qu)===TRUE) {
-    echo "Inserted Successfully";
+    // SQL query to fetch data
+    $sql = "SELECT * FROM users";
+
+    $result = $conn->query($sql);
+    
+    if ($result = $conn-> query($sql)) 
+    {
+        while ($row = $result->fetch_assoc()) 
+        {
+            echo $row['id']." ";
+            echo $row['username']." ";
+            echo $row['password']." ";
+        }
+    }
+    
+    else {
+        echo "Error:" . $sql . "<br>" . $conn->error;
+    }
+    
+    // Closing the connection
     $conn->close();
-} else {
-    echo "Insert Failed ".$conn->error;
-    $conn->close();
-}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
-    <button class="btn">Button</button>
-    <button class="btn btn-neutral">Neutral</button>
-    <button class="btn btn-primary">Primary</button>
-    <button class="btn btn-secondary">Secondary</button>
-    <button class="btn btn-accent">Accent</button>
-    <button class="btn btn-ghost">Ghost</button>
-    <button class="btn btn-link">Link</button>
-</body>
-</html>
-
-
