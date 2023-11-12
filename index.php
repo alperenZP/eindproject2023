@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-theme="cupcake">
+<html>
 
 <head>
     <meta charset="UTF-8">
