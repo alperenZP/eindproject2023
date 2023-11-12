@@ -33,6 +33,6 @@ $conn->close();
     Hello world!
   </h1>
 
-  <button class="btn btn-primary">Button</button>
+  <button class="btn btn-primary">Bton</button>
 </body>
 </html>
