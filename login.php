@@ -63,7 +63,7 @@
                       <label
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         for="grid-password"
-                        >Email</label
+                        > </label
                       ><input
                         type="email"
                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
@@ -75,7 +75,7 @@
                       <label
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         for="grid-password"
-                        >Password</label
+                        > </label
                       ><input
                         type="password"
                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
