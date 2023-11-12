@@ -1,3 +1,7 @@
+<?php
+  require "connect.php";
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +22,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"
     />
-    <title>Login | Bibliotheek.live</title>
+    <title>Signup | Bibliotheek.live</title>
   </head>
   <body class="text-gray-800 antialiased">
     <nav
