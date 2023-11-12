@@ -8,28 +8,54 @@
 </head>
 
 <body>
-    <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-        <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-            <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-        </div>
-        <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-            <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-        </div>
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <p class="text-sm leading-6 text-gray-900">
-                <strong class="font-semibold">GeneriCon 2023</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
-                    <circle cx="1" cy="1" r="1" />
-                </svg>Join us in Denver from June 7 – 9 to see what’s coming next.
-            </p>
-            <a href="#" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Register now <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="flex flex-1 justify-end">
-            <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
-                <span class="sr-only">Dismiss</span>
-                <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-                </svg>
-            </button>
+    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+        <img src="/img/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+        <div class="absolute inset-0 bg-[url(/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+        <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+            <div class="mx-auto max-w-md">
+                <img src="/img/logo.svg" class="h-6" alt="Tailwind Play" />
+                <div class="divide-y divide-gray-300/50">
+                    <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+                        <p>An advanced online playground for Tailwind CSS, including support for things like:</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="11" />
+                                    <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                                </svg>
+                                <p class="ml-4">
+                                    Customizing your
+                                    <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
+                                </p>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="11" />
+                                    <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                                </svg>
+                                <p class="ml-4">
+                                    Extracting classes with
+                                    <code class="text-sm font-bold text-gray-900">@apply</code>
+                                </p>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="11" />
+                                    <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
+                                </svg>
+                                <p class="ml-4">Code completion with instant preview</p>
+                            </li>
+                        </ul>
+                        <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
+                    </div>
+                    <div class="pt-8 text-base font-semibold leading-7">
+                        <p class="text-gray-900">Want to dig deeper into Tailwind?</p>
+                        <p>
+                            <a href="https://tailwindcss.com/docs" class="text-sky-500 hover:text-sky-600">Read the docs &rarr;</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
