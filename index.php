@@ -10,7 +10,7 @@
     Hello world!
   </h1>
 
-  <button class="btn btn-primary">Bton</button>
+  <button class="btn btn-primary">Button</button>
 </body>
 </html>
 
