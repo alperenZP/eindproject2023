@@ -19,11 +19,10 @@ echo "This is a simple Webpege" . "<br><br>";
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
-  <title>Bibliotheek.Live</title>
+  <title>Landing | Tailwind Starter Kit by Creative Tim</title>
 </head>
 
 <body class="text-gray-800 antialiased">
-  <!-- Nav bar start -->
   <div class="flex flex-wrap py-2">
     <div class="w-full px-4">
       <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 rounded">
@@ -61,7 +60,6 @@ echo "This is a simple Webpege" . "<br><br>";
       </nav>
     </div>
   </div>
-  <!-- Nav bar end -->
 </body>
 <script>
   function toggleNavbar(collapseID) {
