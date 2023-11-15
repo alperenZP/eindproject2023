@@ -1,16 +1,14 @@
 <?php
-    $servername = "localhost";
-    
-    // Database Variables
-    $dbname     = "biblwnot_database";
-    $username   = "biblwnot_roman4";
-    $password   = "es,RV.J3&7Bg'U=";
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    // Checking Connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+
+$servername = DB_SERVER;
+$dbname = DB_NAME;
+$username = DB_USERNAME;
+$password = DB_PASSWORD;
+
+$connection = new mysqli($servername, $username, $password, $dbname);
+
+if ($connection->connect_error) {
+  die('Connection failed: ' . $connection->connect_error);
+}
 ?>

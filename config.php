@@ -1,9 +1,9 @@
 <?php
 // Database credentials
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', '2dekansveilingen');
+define('DB_USERNAME', 'biblwnot_roman4');
+define('DB_PASSWORD', "es,RV.J3&7Bg'U=");
+define('DB_NAME', 'biblwnot_database');
 
 // Import aliases
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
