@@ -1,7 +1,7 @@
 <?php
 
 $routes = [
-  '/' => [
+  '/index' => [
     'view' => 'index.php',
     'title' => 'Home',
     'nav' => true,
