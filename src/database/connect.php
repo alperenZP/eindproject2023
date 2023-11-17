@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 
 $servername = DB_SERVER;
 $dbname = DB_NAME;
