@@ -1,7 +1,7 @@
 <?php
 
 $routes = [
-  '/alperenGit/index' => [
+  '/alperenGit/index.php' => [
     'view' => 'index.php',
     'title' => 'Home',
     'nav' => true,
