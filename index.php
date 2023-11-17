@@ -16,7 +16,7 @@ $data = fetch('SELECT * FROM user_profile WHERE userid = ?', [
   'type' => 'i',
   'value' => $userid,
 ]);
-$theme = $data ? THEME_MAPPING[$data['theme']] : THEME_MAPPING['default'];
+$theme = "dark";
 
 $error = $_GET['error'] ?? false;
 $succes = $_GET['success'] ?? false;
@@ -63,8 +63,6 @@ if ($succes) {
 
 
 $containerClasses = $route['container'] ? 'container mx-auto px-2 pt-4 pb-12 md:pt-12 md:pb-24 md:px-0' : '';
-$language = isset($_SESSION["user"]) ? $_SESSION["user"]["language"] : $_SESSION["guest"]["language"] ?? 'text_en';
-$translations = fetch('SELECT id, ' . $language . ' FROM translations');
 
 ?>
 
