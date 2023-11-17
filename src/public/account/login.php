@@ -4,6 +4,7 @@ if (isset($_SESSION['user'])) {
   exit();
 } ?>
 
+<!DOCTYPE html>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
   <div class="w-full flex justify-center text-sm breadcrumbs mb-2">
     <ul>
