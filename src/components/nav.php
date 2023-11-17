@@ -47,7 +47,7 @@ $searchTerm = $_GET['search'] ?? '';
             </details>
           </li>
           '
-          : '<li><a href="alperenGit/account/login" class="text-neutral-content">Login</a></li>'
+          : '<li><a href="alperenGit/account/login" class="text-neutral-content">Lgin</a></li>'
         ?>
         <!-- Language Select -->
         <li>
