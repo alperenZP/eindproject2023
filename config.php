@@ -10,7 +10,7 @@ define('DB_PASSWORD', "es,RV.J3&7Bg'U=");
 define('DB_NAME', 'biblwnot_database');
 
 // Import aliases
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/alperenGit');
 define('ROUTES', ROOT . '/routes.php');
 define('PUBLIC_R', ROOT . '/public');
 define('SRC', ROOT . '/src');
