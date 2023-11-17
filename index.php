@@ -77,10 +77,6 @@ $containerClasses = $route['container'] ? 'container mx-auto px-2 pt-4 pb-12 md:
 
   <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
-  <script src="/public/js/countdown.js"></script>
-  <script src="/public/js/share.js"></script>
-  <script src="/public/js/bid.js"></script>
-
   <link rel="stylesheet" href="/public/css/theme.css">
   <title>2dekans veilingen -
     <?php echo $route['title']; ?>
