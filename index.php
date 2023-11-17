@@ -8,7 +8,7 @@ session_start();
 
 $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
 
-$route = array_key_exists($uri, $routes) ? $routes[$uri] : $routes['/'];
+$route = array_key_exists($uri, $routes) ? $routes[$uri] : $routes['/404'];
 
 $userid = isset($_SESSION['user']) ? $_SESSION['user']['id'] : null;
 
