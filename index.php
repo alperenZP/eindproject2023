@@ -1,86 +1,114 @@
 <?php
-require "connect.php";
-echo "This is a simple Webpege" . "<br><br>";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+require_once DATABASE . '/connect.php';
+require_once ROUTES;
+require_once LIB . '/util/util.php';
 
-// SQL query to fetch data
-$sql = "SELECT * FROM users";
+session_start();
 
-$result = $conn->query($sql);
+$uri = explode('?', $_SERVER['REQUEST_URI'])[0];
 
-if ($result = $conn->query($sql)) {
-  while ($row = $result->fetch_assoc()) {
-    echo $row['id'] . " ";
-    echo $row['username'] . " ";
-    echo $row['password'] . " ";
-  }
-} else {
-  echo "Error:" . $sql . "<br>" . $conn->error;
+$route = array_key_exists($uri, $routes) ? $routes[$uri] : $routes['/404'];
+
+$userid = isset($_SESSION['user']) ? $_SESSION['user']['id'] : null;
+
+$data = fetch('SELECT * FROM user_profile WHERE userid = ?', [
+  'type' => 'i',
+  'value' => $userid,
+]);
+$theme = $data ? THEME_MAPPING[$data['theme']] : THEME_MAPPING['default'];
+
+$error = $_GET['error'] ?? false;
+$succes = $_GET['success'] ?? false;
+$alert = '';
+
+if ($error) {
+  $alert = '
+    <div class="alert alert-error w-fit grid-flow-col md:pr-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>' . (ERROR_MAPPING[$error] ?? 'Something went wrong!') . '</span>
+    </div>
+    <script>
+    setTimeout(function() {
+      var alerts = document.querySelectorAll(".alert");
+      alerts.forEach(function(alert) {
+        alert.style.display = "none";
+      });
+    }, 5000);
+  </script>
+  ';
 }
 
-// Closing the connection
-$conn->close();
+if ($succes) {
+  $alert = '
+  <div class="alert alert-success w-fit grid-flow-col md:pr-6">
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span>' . (SUCCES_MAPPING[$succes] ?? 'We think it worked!') . '</span>
+  </div>
+  <script>
+    setTimeout(function() {
+      var alerts = document.querySelectorAll(".alert");
+      alerts.forEach(function(alert) {
+        alert.style.display = "none";
+      });
+    }, 2000);
+  </script>
+  ';
+
+}
+
+
+$containerClasses = $route['container'] ? 'container mx-auto px-2 pt-4 pb-12 md:pt-12 md:pb-24 md:px-0' : '';
+$language = isset($_SESSION["user"]) ? $_SESSION["user"]["language"] : $_SESSION["guest"]["language"] ?? 'text_en';
+$translations = fetch('SELECT id, ' . $language . ' FROM translations');
+
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en" class="bg-base-200" data-theme='<?php echo $theme; ?>'>
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
-  <title>Bibliotheek.Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
+
+  <script src="/public/js/countdown.js"></script>
+  <script src="/public/js/share.js"></script>
+  <script src="/public/js/bid.js"></script>
+
+  <link rel="stylesheet" href="/public/css/theme.css">
+  <title>2dekans veilingen -
+    <?php echo $route['title']; ?>
+  </title>
 </head>
 
-<body class="text-gray-800 antialiased">
-  <!-- Nav bar start -->
-  <div class="flex flex-wrap py-2">
-    <div class="w-full px-4">
-      <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 rounded">
-        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#pablo">
-              Bibliotheek.<i>Live</i>
-            </a>
-            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button">
-              <span class="block relative w-6 h-px rounded-sm bg-white"></span>
-              <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-              <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-            </button>
-          </div>
-          <div class="flex lg:flex-grow items-center" id="example-navbar-info">
-            <ul class="flex flex-col lg:flex-row list-none ml-auto">
-              <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  Discover
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  Profile
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  Settings
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<body>
+  <div class="min-h-screen">
+    <?php $route['nav'] ? include COMPONENTS . '/nav.php' : null; ?>
+
+    <div class="relative <?php echo $containerClasses ?>">
+      <?php
+      echo strlen($alert) > 0
+        ? '
+      <div class="absolute px-4 flex justify-center w-full md:w-auto left-1/2 transform -translate-x-1/2 top-8 z-50">
+        ' . $alert . '
+      </div>
+      '
+        : null;
+      ?>
+
+      <?php include PUBLIC_S . '/' . $route['view']; ?>
     </div>
+
+    <?php $route['footer'] ? include COMPONENTS . '/footer.php' : null; ?>
   </div>
-  <!-- Nav bar end -->
 </body>
-<script>
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
-</script>
 
 </html>
