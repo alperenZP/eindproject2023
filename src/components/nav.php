@@ -42,7 +42,7 @@ $searchTerm = $_GET['search'] ?? '';
                 <li><a href="/dashboard/products/review?seller=' . $user['username'] . '">Reviews</a></li>
                 <li><a href="/account/settings/edit">Settings</a></li>
                 
-                <li><a href="/account/logout"> EEERRR </a></li>
+                <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
               </ul>
             </details>
           </li>

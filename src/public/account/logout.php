@@ -1,8 +1,8 @@
 <?php
 if (!isset($_SESSION['user'])) {
-  header('Location: /account/login');
+  header('Location: https://bibliotheek.live/');
   return;
 }
 
 session_destroy();
-header('Location: /');
+header('Location: https://bibliotheek.live/');
