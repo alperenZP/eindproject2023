@@ -60,7 +60,7 @@ function register($formData) {
 function insertUser($username, $password, $email, $firstname, $lastname, $isLeraar) {
   global $connection;
   $userData = insert(
-    'INSERT INTO users (username, password, email, firstname, lastname, isLeraar) VALUES (?, ?, ?, ?, ?, ?)',
+    'INSERT INTO users (username, password, email, firstname, lastname, isTeacher) VALUES (?, ?, ?, ?, ?, ?)',
     ['type' => 's', 'value' => $username],
     ['type' => 's', 'value' => $password],
     ['type' => 's', 'value' => $email],
