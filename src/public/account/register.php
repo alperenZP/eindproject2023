@@ -3,7 +3,6 @@ if (isset($_SESSION['user'])) {
   header('Location: /');
   exit();
 } 
-echo LIB . '/util/util.php';
 ?>
 
 <!DOCTYPE html>
