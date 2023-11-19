@@ -58,7 +58,7 @@ $searchTerm = $_GET['search'] ?? '';
   <!-- Right - User actions -->
   <div class="hidden flex-1 justify-end gap-4 md:flex">
     <?php
-    echo 'Hello, ' . $_SESSION["user"]["username"] . ' ' . $_SESSION['user']["lastname"] . '!';
+    echo 'Hallo, ' . $_SESSION["user"]["username"] . ' ' . $_SESSION['user']["lastname"] . '!';
 
     echo isset($_SESSION['user'])
       ? '
