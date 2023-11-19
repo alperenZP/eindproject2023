@@ -62,7 +62,7 @@ $searchTerm = $_GET['search'] ?? '';
       <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
-            <img src="https://avatars.githubusercontent.com/u/64209400?v=4" />
+            <img src="https://commons.wikimedia.org/wiki/File:Profile_photo_placeholder_square.svg" />
           </div>
         </summary>
         <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
