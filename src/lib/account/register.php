@@ -68,18 +68,5 @@ function insertUser($username, $password, $email, $firstname, $lastname) {
   );
 
   $userId = mysqli_insert_id($connection);
-
-  $userProfileData = insert(
-    'INSERT INTO user_profile (userid, profilePictureUrl, about) VALUES (?, ?, ?, ?, ?)',
-    ['type' => 'i', 'value' => $userId],
-    [
-      'type' => 's',
-      'value' => 'https://avatars.githubusercontent.com/u/64209400?v=4',
-    ],
-    ['type' => 's', 'value' => 'Hello!'],
-    ['type' => 's', 'value' => 'light'],
-    ['type' => 's', 'value' => 'text_en'],
-  );
-
-  return $userData && $userProfileData;
+  return $userData;
 }
