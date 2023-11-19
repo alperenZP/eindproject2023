@@ -64,6 +64,19 @@ if (isset($_SESSION['user'])) {
           <input type="text" name="username" placeholder="john.doe" class="input input-bordered w-full" required />
         </div>
       </div>
+
+      <div class="form-control">
+        <label class="label cursor-pointer">
+          <span class="label-text">Leraar</span>
+          <input type="radio" name="isLeraar" value="1" class="radio checked:bg-red-500" checked />
+        </label>
+      </div>
+      <div class="form-control">
+        <label class="label cursor-pointer">
+          <span class="label-text">Student</span>
+          <input type="radio" name="isLeraar" value="0" class="radio checked:bg-blue-500" checked />
+        </label>
+      </div>
       
       <div class="flex flex-col gap-4 md:flex-row">
         <div class="form-control md:flex-1">

@@ -18,6 +18,7 @@ function register($formData) {
   $username = $formData['username'];
   $password = $formData['password'];
   $passwordConfirm = $formData['passwordConfirm'];
+  $isLeraar = $formData["isLeraar"];
   
   $data = fetch('SELECT * FROM users WHERE email = ?', [
     'type' => 's',
@@ -45,7 +46,7 @@ function register($formData) {
   }
   
   $password = password_hash($password, PASSWORD_ARGON2ID);
-  $initialized = insertUser($username, $password, $email, $firstname, $lastname);
+  $initialized = insertUser($username, $password, $email, $firstname, $lastname, $isLeraar);
 
   if (!$initialized) {
     header('Location: /account/register?error=server');
@@ -56,15 +57,16 @@ function register($formData) {
   exit();
 }
 
-function insertUser($username, $password, $email, $firstname, $lastname) {
+function insertUser($username, $password, $email, $firstname, $lastname, $isLeraar) {
   global $connection;
   $userData = insert(
-    'INSERT INTO users (username, password, email, firstname, lastname) VALUES (?, ?, ?, ?, ?)',
+    'INSERT INTO users (username, password, email, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)',
     ['type' => 's', 'value' => $username],
     ['type' => 's', 'value' => $password],
     ['type' => 's', 'value' => $email],
     ['type' => 's', 'value' => $firstname],
     ['type' => 's', 'value' => $lastname],
+    ['type' => 'i', 'value' => $isLeraar],
   );
 
   $userId = mysqli_insert_id($connection);
