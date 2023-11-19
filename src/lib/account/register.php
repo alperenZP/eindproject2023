@@ -92,6 +92,7 @@ function insertUser($username, $password, $email, $firstname, $lastname) {
   <title>Document</title>
 </head>
 <body>
+  <h1>EJEJEKJKJJKEJKREJ</h1>
   <?php
     if (isset($_POST['register'])) {
       echo "success";
