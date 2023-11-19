@@ -5,7 +5,9 @@ require_once LIB . '/util/util.php';
 
 if (isset($_POST['register'])) {
   register($_POST);
-  exit();
+  echo "success";
+} else {
+  echo "nothing";
 }
 
 header('Location: /register');
