@@ -47,7 +47,7 @@ function login($formData) {
 function authenticate($email, $password) {
   var_dump($email, $password);
   $data = fetch(
-    'SELECT * FROM user_profile WHERE users.email = ?',
+    'SELECT * FROM users WHERE users.email = ?',
     [
       'type' => 's',
       'value' => $email,
