@@ -10,8 +10,6 @@ if (isset($_POST['register'])) {
   echo "nothing";
 }
 
-header('Location: /register');
-exit();
 
 function register($formData) {
   $firstname = $formData['firstname'];
