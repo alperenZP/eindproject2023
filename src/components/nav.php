@@ -58,10 +58,8 @@ $searchTerm = $_GET['search'] ?? '';
   <!-- Right - User actions -->
   <div class="hidden flex-1 justify-end gap-4 md:flex">
     <?php
-    echo 'Hallo, ' . $_SESSION["user"]["username"] . '!';
-
     echo isset($_SESSION['user'])
-      ? '
+      ? 'Hallo, ' . $_SESSION["user"]["username"] . '!
       <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
