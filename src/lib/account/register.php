@@ -8,7 +8,7 @@ if (isset($_POST['register'])) {
   exit();
 }
 
-header('Location: /register');
+header('Location: https://bibliotheek.live');
 exit();
 
 function register($formData) {
