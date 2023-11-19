@@ -2,14 +2,14 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once LIB . '/util/util.php';
-echo "hrhrjhkrge";
+
 if (isset($_POST['register'])) {
-  //register($_POST);
-  //exit();
+  register($_POST);
+  exit();
 }
 
-//header('Location: /register');
-//exit();
+header('Location: /register');
+exit();
 
 function register($formData) {
   $firstname = $formData['firstname'];
