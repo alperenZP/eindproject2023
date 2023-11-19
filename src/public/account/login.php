@@ -49,6 +49,6 @@ if (isset($_SESSION['user'])) {
   </form>
 
   <div class="w-full text-center mt-8">
-    <a class="link" href="./register.php">I don't have an account yet</a>
+    <a class="link" href="./register.php">Register</a>
   </div>
 </div>
