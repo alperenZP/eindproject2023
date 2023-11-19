@@ -52,7 +52,7 @@ function register($formData) {
     return;
   }
   
-  header('Location: /account/login?success=register');
+  header('Location: https://bibliotheek.live');
   exit();
 }
 
