@@ -70,7 +70,7 @@ function insertUser($username, $password, $email, $firstname, $lastname) {
   $userId = mysqli_insert_id($connection);
 
   $userProfileData = insert(
-    'INSERT INTO user_profile (userid, profilePictureUrl, about) VALUES (?, ?, ?)',
+    'INSERT INTO user_profile (userid, profilePictureUrl, about) VALUES (?, ?, ?, ?, ?)',
     ['type' => 'i', 'value' => $userId],
     [
       'type' => 's',
