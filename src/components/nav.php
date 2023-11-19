@@ -41,7 +41,6 @@ $searchTerm = $_GET['search'] ?? '';
                 <li><a class="justify-between">Profile</a></li>
                 <li><a href="/dashboard/products/review?seller=' . $user['username'] . '">Reviews</a></li>
                 <li><a href="/account/settings/edit">Settings</a></li>
-                
                 <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
               </ul>
             </details>
@@ -71,7 +70,7 @@ $searchTerm = $_GET['search'] ?? '';
           <li><a href="/account/favorites">Favorites</a></li>      
           <li><a href="/account/settings/edit">Settings</a></li>
           <div class="divider px-4 my-2"></div> 
-          <li><a href="/account/logout"> ERERERER </a></li>
+          <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
           <div class="divider px-4 mb-2">TEMP</div>
           <li>
             <details class="dropdown dropdown-left">
