@@ -47,7 +47,7 @@ $searchTerm = $_GET['search'] ?? '';
             </details>
           </li>
           '
-          : '<li><a href="./src/public/account/login.php" class="text-neutral-content">HUGHGERJKJG</a></li>'
+          : '<li><a href="./src/public/account/login.php" class="text-neutral-content">Login</a></li>'
         ?>
         <!-- Language Select -->
         <li>
