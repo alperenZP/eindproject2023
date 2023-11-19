@@ -57,7 +57,10 @@ $searchTerm = $_GET['search'] ?? '';
 
   <!-- Right - User actions -->
   <div class="hidden flex-1 justify-end gap-4 md:flex">
-    <?php echo isset($_SESSION['user'])
+    <?php
+    echo $_SESSION['user']["id"];
+
+    echo isset($_SESSION['user'])
       ? '
       <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
