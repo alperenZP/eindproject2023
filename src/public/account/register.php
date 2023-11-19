@@ -4,6 +4,21 @@ if (isset($_SESSION['user'])) {
   exit();
 } ?>
 
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
+  <title>2dekans veilingen -
+    <?php echo $route['title']; ?>
+  </title>
+</head>
+
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center px-8 py-8">
   <div class="w-full flex justify-center text-sm breadcrumbs mb-2">
     <ul>
