@@ -4,11 +4,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once LIB . '/util/util.php';
 
 if (isset($_POST['register'])) {
-  echo "success";
-} else {
-  echo "nothing";
+  register($_POST);
+  exit();
 }
 
+header('Location: /register');
+exit();
 
 function register($formData) {
   $firstname = $formData['firstname'];
@@ -82,23 +83,3 @@ function insertUser($username, $password, $email, $firstname, $lastname) {
 
   return $userData && $userProfileData;
 }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>EJEJEKJKJJKEJKREJ</h1>
-  <?php
-    if (isset($_POST['register'])) {
-      echo "success";
-    } else {
-      echo "nothing";
-    }
-  ?>
-</body>
-</html>
