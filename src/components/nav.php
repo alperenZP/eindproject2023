@@ -49,19 +49,6 @@ $searchTerm = $_GET['search'] ?? '';
           '
           : '<li><a href="./src/public/account/login.php" class="text-neutral-content">Login</a></li>'
         ?>
-        <!-- Language Select -->
-        <li>
-          <details>
-            <summary class="text-neutral-content"><?php echo $languageDisplay ?></summary>
-            <ul>
-              <form action="/src/lib/user/member/change-language.php" method="post">
-                <li><input type="submit" name="text_en" value='English'></li>
-                <li><input type="submit" name="text_nl" value='Nederlands'></li>
-                <li><input type="submit" name="text_fr" value='Français'></li>
-              </form>
-            </ul>
-          </details>
-        </li>
       </ul>
     </div>
 
