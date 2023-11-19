@@ -12,10 +12,6 @@ $route = array_key_exists($uri, $routes) ? $routes[$uri] : $routes['/404'];
 
 $userid = isset($_SESSION['user']) ? $_SESSION['user']['id'] : null;
 
-$data = fetch('SELECT * FROM user_profile WHERE userid = ?', [
-  'type' => 'i',
-  'value' => $userid,
-]);
 $theme = "dark";
 
 $error = $_GET['error'] ?? false;
