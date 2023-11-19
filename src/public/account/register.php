@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
 
   <h1 class="md:text-center text-4xl font-bold mb-8">Create a new account</h1>
 
-  <form action='.../lib/account/register.php' method="post" class="flex flex-col gap-8 w-full md:max-w-2xl">
+  <form action="https://bibliotheek.live/alperenGit/src/lib/account/register.php" method="post" class="flex flex-col gap-8 w-full md:max-w-2xl">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-4 md:flex-row">
         <div class="form-control md:flex-1">
