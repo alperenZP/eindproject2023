@@ -29,7 +29,7 @@ if (isset($_SESSION['user'])) {
     </ul>
   </div>
 
-  <h1 class="md:text-center text-4xl font-bold mb-8">Create a new account</h1>
+  <h1 class="md:text-center text-4xl font-bold mb-8">Make a new account</h1>
 
   <form action="https://bibliotheek.live/alperenGit/src/lib/account/register.php" method="post" class="flex flex-col gap-8 w-full md:max-w-2xl">
     <div class="flex flex-col gap-4">
