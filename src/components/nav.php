@@ -97,7 +97,7 @@ $searchTerm = $_GET['search'] ?? '';
         </ul>
       </details>
       '
-    : '<a href="/alperenGit/account/login" class="btn">HUGHGERJKJG</a>'; ?>
+    : '<a href="./src/public/account/login.php" class="btn">Login</a>'; ?>
   </div>
 </div>
 
