@@ -29,7 +29,7 @@ if (isset($_SESSION['user'])) {
 
   <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Log in to your account</h1>
   
-  <form action="/src/lib/account/login.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+  <form action="https://bibliotheek.live/alperenGit/src/lib/account/login.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
     <div class="flex flex-col gap-4">
       <div class="form-control">
         <label class="label">

@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
   return;
 }
 
-header('Location: /');
+header('Location: https://bibliotheek.live');
 exit();
 
 function login($formData) {
@@ -40,7 +40,7 @@ function login($formData) {
   $_SESSION['user']['theme'] = $auth['theme'];
   $_SESSION['user']['language'] = $auth['language'];
   
-  header('Location: /');
+  header('Location: https://bibliotheek.live');
   exit();
 }
 
