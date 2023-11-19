@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once LIB . '/util/util.php';
 
 if (isset($_POST['register'])) {
