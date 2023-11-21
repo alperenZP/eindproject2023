@@ -31,6 +31,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
     <title>Creëer nieuw boek</title>
 </head>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
+    <?php include COMPONENTS . '/nav.php' ?>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw boek</h1>
     <ul class="steps">
         <li class="step step-primary">Creëer nieuw boek</li>

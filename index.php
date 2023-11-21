@@ -79,7 +79,7 @@ $containerClasses = $route['container'] ? 'container mx-auto px-2 pt-4 pb-12 md:
 
 <body>
   <div class="min-h-screen">
-    <?php $route['nav'] ? include COMPONENTS . '/nav.php' : null; ?>
+    <?php include COMPONENTS . '/nav.php' ?>
 
     <div class="relative <?php echo $containerClasses ?>">
       <?php
