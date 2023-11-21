@@ -14,9 +14,7 @@ if (isset($_SESSION['user'])) {
   <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-  <title>2dekans veilingen -
-    <?php echo $route['title']; ?>
-  </title>
+  <title>Login</title>
 </head>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
   <div class="w-full flex justify-center text-sm breadcrumbs mb-2">
