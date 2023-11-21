@@ -1,8 +1,8 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
-session_start();
 
 if (!isset($_SESSION['user'])) {
   header('Location: /');
