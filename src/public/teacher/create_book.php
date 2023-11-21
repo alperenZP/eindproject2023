@@ -15,11 +15,15 @@ if (isset($_SESSION['user'])) {
     <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-    <title>Create book</title>
+    <title>Creëer nieuw boek</title>
 </head>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Create new book</h1>
-
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw boek</h1>
+    <ul class="steps">
+        <li class="step step-primary">Creëer nieuw boek</li>
+        <li class="step">Voeg hoofdstukken toe</li>
+        <li class="step">Deel invite-code</li>
+    </ul>
     <form action="https://bibliotheek.live/alperenGit/src/lib/account/login.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
