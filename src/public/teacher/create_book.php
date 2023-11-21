@@ -38,6 +38,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
         <li class="step">Voeg hoofdstukken toe</li>
         <li class="step">Deel invite-code</li>
     </ul>
+    <br><br>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_book.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
