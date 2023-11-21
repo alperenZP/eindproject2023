@@ -1,8 +1,14 @@
 <?php
 if (isset($_SESSION['user'])) {
-    header('Location: /');
+    header('Location: https://bibliotheek.live');
     exit();
-} ?>
+} 
+
+if (!$_SESSION["user"]["isTeacher"]) {
+    header('Location: https://bibliotheek.live');
+    exit();
+} 
+?>
 
 <!DOCTYPE html>
 
@@ -28,12 +34,12 @@ if (isset($_SESSION['user'])) {
         <div class="flex flex-col gap-4">
             <div class="form-control">
                 <label class="label">
-                    <span class="label-text">Book title</span>
+                    <span class="label-text">Titel</span>
                 </label>
-                <input type="text" name="title" placeholder="Title" class="input input-bordered" required />
+                <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
             </div>
             <select class="select select-primary w-full max-w-xs" name="bookSubject">
-                <option disabled selected>Subject of book</option>
+                <option disabled selected>Onderwerp</option>
                 <option>Game of Thrones</option>
                 <option>Lost</option>
                 <option>Breaking Bad</option>
