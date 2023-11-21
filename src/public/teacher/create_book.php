@@ -5,14 +5,16 @@ if (!isset($_SESSION['user'])) {
     header('Location: https://bibliotheek.live');
     exit();
 } 
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
-require_once DATABASE . '/connect.php';
-require_once LIB . '/util/util.php';
 if (!$_SESSION["user"]["isTeacher"]) {
     header('Location: https://bibliotheek.live');
     exit();
 } 
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
+require_once DATABASE . '/connect.php';
+require_once LIB . '/util/util.php';
+
+$book_subjects = fetch("SELECT * FROM book_subjects");
 ?>
 
 <!DOCTYPE html>
@@ -45,17 +47,14 @@ if (!$_SESSION["user"]["isTeacher"]) {
             </div>
             <select class="select select-primary w-full max-w-xs" name="bookSubject">
                 <option disabled selected>Onderwerp</option>
-                <option>Game of Thrones</option>
-                <option>Lost</option>
-                <option>Breaking Bad</option>
-                <option>Walking Dead</option>
+                <?php
+                    foreach ($book_subjects as $book_subject) {
+                        echo '<option value="'.$book_subject["id"].'">'.$book_subject["title"].'</option>';
+                    };
+                ?>
             </select>
         </div>
 
         <button name="login" class="btn btn-primary">Sign in</button>
     </form>
-
-    <div class="w-full text-center mt-8">
-        <a class="link" href="./register.php">Register</a>
-    </div>
 </div>
