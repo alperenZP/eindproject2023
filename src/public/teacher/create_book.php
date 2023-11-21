@@ -45,11 +45,8 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                 </label>
                 <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
             </div>
-            <label class="label" for="bookSubject">
-                    <span class="label-text">Onderwerp</span>
-            </label>
             <select class="select select-primary w-full max-w-xs" name="bookSubject" required>
-                <option disabled selected>Onderwerp</option>
+                <option disabled selected value="">Onderwerp</option>
                 <?php
                     foreach ($book_subjects as $book_subject) {
                         echo '<option value="'.$book_subject["id"].'">'.$book_subject["title"].'</option>';
