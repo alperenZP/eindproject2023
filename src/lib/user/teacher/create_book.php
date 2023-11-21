@@ -19,15 +19,18 @@ if (isset($_POST['create'])) {
   $subjectid = $_POST['bookSubject'];
   $title = $_POST['title'];
   $description = $_POST['description'];
+  $accessCode = uniqid();
 
-  $query = 'INSERT INTO books (creatorid, title, subjectid, description) VALUES (?, ?, ?, ?)';
+  $query = 'INSERT INTO books (creatorid, title, subjectid, description, accessCode) VALUES (?, ?, ?, ?, ?)';
   insert(
     $query,
     ['type' => 'i', 'value' => $creatorid],
     ['type' => 's', 'value' => ''.$title.''],
     ['type' => 'i', 'value' => $subjectid],
     ['type' => 's', 'value' => ''.$description.''],
+    ['type' => 's', 'value' => ''.$accessCode.''],
   );  
+  header('Location: https://bibliotheek.live');
   return;
 }
 
