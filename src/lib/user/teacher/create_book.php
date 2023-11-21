@@ -29,5 +29,5 @@ if (isset($_POST['create'])) {
     ['type' => 's', 'value' => ''.$description.''],
   );  
 }
-header('Location: https://bibliotheek.live');
-return;
+
+echo $_SESSION["user"];
