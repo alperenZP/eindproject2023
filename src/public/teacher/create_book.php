@@ -37,12 +37,9 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
         <li class="step">Voeg hoofdstukken toe</li>
         <li class="step">Deel invite-code</li>
     </ul>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/account/login.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_book.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Titel</span>
-                </label>
                 <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
             </div>
             <select class="select select-primary w-full max-w-xs" name="bookSubject" required>
@@ -53,8 +50,9 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                     };
                 ?>
             </select>
+            <textarea class="textarea textarea-bordered" placeholder="Beschrijving van boek" name="description"></textarea>
         </div>
 
-        <button name="login" class="btn btn-primary">Sign in</button>
+        <button name="create" class="btn btn-primary">Creëer boek</button>
     </form>
 </div>
