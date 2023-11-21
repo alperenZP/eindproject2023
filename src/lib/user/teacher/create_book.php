@@ -16,7 +16,7 @@ if (!$_SESSION["user"]["isTeacher"]) {
 
 if (isset($_POST['create'])) {
   $creatorid = $_SESSION["user"]["id"];
-  $subjectid = $_POST['book_subject'];
+  $subjectid = $_POST['bookSubject'];
   $title = $_POST['title'];
   $description = $_POST['description'];
 
