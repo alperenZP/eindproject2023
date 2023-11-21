@@ -26,6 +26,7 @@ define('USER_STRUCTURE', [
   'email' => null,
   'theme' => null,
   'language' => null,
+  'isTeacher' => false,
 ]);
 
 // Error mapping
