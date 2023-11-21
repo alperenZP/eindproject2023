@@ -28,6 +28,8 @@ if (isset($_POST['create'])) {
     ['type' => 'i', 'value' => $subjectid],
     ['type' => 's', 'value' => ''.$description.''],
   );  
+  return;
 }
 
-echo $_SESSION["user"];
+header('Location: https://bibliotheek.live');
+exit();
