@@ -30,4 +30,4 @@ if (isset($_POST['create'])) {
   );
 }
 
-echo 'helo';
+echo $description;
