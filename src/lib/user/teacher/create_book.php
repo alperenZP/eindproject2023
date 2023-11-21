@@ -1,18 +1,18 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
+require_once DATABASE . '/connect.php';
+require_once LIB . '/util/util.php';
 session_start();
 
 if (!isset($_SESSION['user'])) {
   header('Location: /');
   exit();
 }
+
 if (!$_SESSION["user"]["isTeacher"]) {
     header('Location: https://bibliotheek.live');
     exit();
 } 
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
-require_once DATABASE . '/connect.php';
-require_once LIB . '/util/util.php';
 
 if (isset($_POST['create'])) {
   $creatorid = $_SESSION["user"]["id"];
@@ -27,7 +27,7 @@ if (isset($_POST['create'])) {
     ['type' => 's', 'value' => ''.$title.''],
     ['type' => 'i', 'value' => $subjectid],
     ['type' => 's', 'value' => ''.$description.''],
-  );
+  );  
 }
-
-echo $description;
+header('Location: https://bibliotheek.live');
+return;
