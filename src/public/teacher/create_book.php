@@ -42,9 +42,9 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_book.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <input type="text" name="title" placeholder="Titel" class="input input-primary" required />
+                <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
             </div>
-            <select class="select select-primary w-full max-w-xs" name="bookSubject" required>
+            <select class="select select-bordered w-full max-w-xs" name="bookSubject" required>
                 <option disabled selected value="">Onderwerp</option>
                 <?php
                     foreach ($book_subjects as $book_subject) {
@@ -52,7 +52,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                     };
                 ?>
             </select>
-            <textarea class="textarea textarea-primary" placeholder="Beschrijving van boek" name="description"></textarea>
+            <textarea class="textarea textarea-bordered" placeholder="Beschrijving van boek" name="description"></textarea>
         </div>
 
         <button name="create" class="btn btn-primary">Creëer boek</button>
