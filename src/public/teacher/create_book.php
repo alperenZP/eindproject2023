@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (!isset($_SESSION['user'])) {
     header('Location: https://bibliotheek.live');
     exit();
@@ -7,7 +9,6 @@ if (!isset($_SESSION['user'])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
-session_start();
 if (!$_SESSION["user"]["isTeacher"]) {
     header('Location: https://bibliotheek.live');
     exit();
