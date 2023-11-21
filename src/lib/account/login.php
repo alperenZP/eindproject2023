@@ -37,8 +37,7 @@ function login($formData) {
   $_SESSION['user']['id'] = $auth['id'];
   $_SESSION['user']['email'] = $auth['email'];
   $_SESSION['user']['username'] = $auth['username'];
-  $_SESSION['user']['theme'] = $auth['theme'];
-  $_SESSION['user']['language'] = $auth['language'];
+  $_SESSION['user']['isTeacher'] = $auth["isTeacher"];
   
   header('Location: https://bibliotheek.live');
   exit();
