@@ -32,13 +32,6 @@ $books = fetch('SELECT * FROM books WHERE creatorid = ' . $_SESSION["user"]["id"
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Voeg hoofdstukken toe</h1>
-    <ul class="steps">
-        <li class="step step-primary">Creëer</li>
-        <li class="step step-primary">Schrijf</li>
-        <li class="step">Deel</li>
-    </ul>
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
     if (isset($_GET["chapterAdded"])) {
         echo '
@@ -50,6 +43,13 @@ $books = fetch('SELECT * FROM books WHERE creatorid = ' . $_SESSION["user"]["id"
         ';
     }
     ?>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Voeg hoofdstukken toe</h1>
+    <ul class="steps">
+        <li class="step step-primary">Creëer</li>
+        <li class="step step-primary">Schrijf</li>
+        <li class="step">Deel</li>
+    </ul>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
