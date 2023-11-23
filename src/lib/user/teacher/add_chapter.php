@@ -38,9 +38,6 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => '' . $title . ''],
         ['type' => 'i', 'value' => $lastChapterIndex + 1]
     );
-    header('Location: https://bibliotheek.live/alperenGit/src/public/teacher/add_chapter.php');
-    exit();
 }
 
-header('Location: https://bibliotheek.live');
-exit();
+echo isset($lastChapter["chapterIndex"]);
