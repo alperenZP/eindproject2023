@@ -42,19 +42,19 @@ $books = fetch('SELECT * FROM books WHERE creatorid = '.$_SESSION["user"]["id"].
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_book.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
+                <input type="text" name="title" placeholder="Hoofdstuk titel" class="input input-bordered" required />
             </div>
-            <select class="select select-bordered w-full max-w-xs" name="bookSubject" required>
-                <option disabled selected value="">Onderwerp</option>
+            <select class="select select-bordered w-full max-w-xs" name="bookid" required>
+                <option disabled selected value="">Boek</option>
                 <?php
-                    foreach ($book_subjects as $book_subject) {
-                        echo '<option value="'.$book_subject["id"].'">'.$book_subject["title"].'</option>';
+                    foreach ($books as $book) {
+                        echo '<option value="'.$book["id"].'">'.$book["title"].'</option>';
                     };
                 ?>
             </select>
             <textarea class="textarea textarea-bordered" placeholder="Beschrijving van boek" name="description"></textarea>
         </div>
 
-        <button name="create" class="btn btn-primary">Creëer boek</button>
+        <button name="create" class="btn btn-primary">Voeg hoofdstuk toe</button>
     </form>
 </div>
