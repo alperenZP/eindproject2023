@@ -88,7 +88,7 @@ $searchTerm = $_GET['search'] ?? '';
       </details>
       '
     : '
-    <a href="./src/public/account/login.php" class="btn">Logiin</a>
+    <a href="./src/public/account/login.php" class="btn">Logion</a>
     '; ?>
   </div>
 </div>
