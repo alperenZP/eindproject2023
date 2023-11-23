@@ -39,7 +39,7 @@ $books = fetch('SELECT * FROM books WHERE creatorid = '.$_SESSION["user"]["id"].
         <li class="step">Deel</li>
     </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_book.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
                 <input type="text" name="title" placeholder="Hoofdstuk titel" class="input input-bordered" required />
