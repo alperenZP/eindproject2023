@@ -47,7 +47,7 @@ $searchTerm = $_GET['search'] ?? '';
           </li>
           '
           : '
-          <li><a href="./src/public/account/login.php" class="text-neutral-content">Login</a></li>
+          <li><a href="./src/public/account/login.php" class="text-neutral-content">Logiin</a></li>
           <li><a href="./src/public/account/register.php" class="text-neutral-content">Register</a></li>
           '
         ?>
