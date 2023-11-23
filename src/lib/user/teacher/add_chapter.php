@@ -25,7 +25,7 @@ if (isset($_POST['add'])) {
     );
 
     if (isset($lastChapter["chapterIndex"])){
-        $lastChapterIndex = $lastChapter["chapterIndex"];
+        $lastChapterIndex = $lastChapter["chapterIndex"] + 1;
     } else {
         $lastChapterIndex = 0;
     }
@@ -36,7 +36,7 @@ if (isset($_POST['add'])) {
         $query,
         ['type' => 'i', 'value' => $bookid],
         ['type' => 's', 'value' => '' . $title . ''],
-        ['type' => 'i', 'value' => $lastChapterIndex + 1]
+        ['type' => 'i', 'value' => $lastChapterIndex]
     );
 }
 
