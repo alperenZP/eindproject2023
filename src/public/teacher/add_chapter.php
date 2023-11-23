@@ -52,7 +52,7 @@ $books = fetch('SELECT * FROM books WHERE creatorid = '.$_SESSION["user"]["id"].
                     };
                 ?>
             </select>
-            <textarea class="textarea textarea-bordered" placeholder="Beschrijving van boek" name="description"></textarea>
+            <input type="text" placeholder="Titel van hoofdstuk" class="input input-bordered w-full max-w-xs" name="titel"/>
         </div>
 
         <button name="create" class="btn btn-primary">Voeg hoofdstuk toe</button>
