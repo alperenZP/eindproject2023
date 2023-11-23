@@ -19,7 +19,7 @@ if (isset($_POST['add'])) {
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
 
-    $lastChapter = fetchSingle(
+    $lastChapter = fetch(
         'SELECT * FROM book_chapters WHERE bookid = ? ORDER BY chapterIndex DESC LIMIT 1',
         ["type" => "i", "value" => $bookid]
     );
