@@ -54,6 +54,6 @@ $books = fetch('SELECT * FROM books WHERE creatorid = '.$_SESSION["user"]["id"].
             </select>
         </div>
 
-        <button name="create" class="btn btn-primary">Voeg hoofdstuk toe</button>
+        <button name="add" class="btn btn-primary">Voeg hoofdstuk toe</button>
     </form>
 </div>

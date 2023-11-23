@@ -14,7 +14,7 @@ if (!$_SESSION["user"]["isTeacher"]) {
     exit();
 }
 
-if (isset($_POST['create'])) {
+if (isset($_POST['add'])) {
     $creatorid = $_SESSION["user"]["id"];
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
@@ -38,7 +38,7 @@ if (isset($_POST['create'])) {
         ['type' => 's', 'value' => '' . $title . ''],
         ['type' => 'i', 'value' => $lastChapterIndex + 1]
     );
-    header('Location: https://bibliotheek.live/src/public/teacher/add_chapters.php');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/teacher/add_chapters.php');
     exit();
 }
 
