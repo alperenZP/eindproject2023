@@ -18,7 +18,7 @@ if (!isset($_GET["bookid"])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
-$book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "i", "value" => $_GET["bookid"]], ["type" => "i", "value" => $_SESSION["user"]["id"]]);
+$book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "i", "value" => $_GET["bookid"]], ["type" => "i", "value" => $_SESSION["user"]["id"]]);
 ?>
 
 <!DOCTYPE html>
