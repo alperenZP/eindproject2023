@@ -30,7 +30,7 @@ if (isset($_POST['create'])) {
         ['type' => 's', 'value' => '' . $description . ''],
         ['type' => 's', 'value' => '' . $accessCode . ''],
     );
-    header('Location: https://bibliotheek.live/src/public/teacher/add_chapters.php');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/teacher/add_chapters.php');
     exit();
 }
 
