@@ -41,6 +41,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                 <div class="collapse-content">
                     <p>hello</p>
                 </div>
+                <br><br>
             </div>
         ';
     }
