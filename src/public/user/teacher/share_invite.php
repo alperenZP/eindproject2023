@@ -22,16 +22,6 @@ $book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "
 ?>
 
 <!DOCTYPE html>
-<script>
-    function myFunction() {
-        // Get the text field
-        var copyText = <?php echo $book["accessCode"]?>;
-
-        // Copy the text inside the text field
-        navigator.clipboard.writeText(copyText.value);
-    }
-
-</script>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +50,15 @@ $book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "
                 </b></div>
         </div>
         <div class="flex justify-center px-4 py-16 bg-neutr">
-            <button class="btn btn-active btn-neutral" onclick="myFunction()">Kopieer toegang code van <?php echo $book["title"]?></button>
+            <button class="btn btn-active btn-neutral" onclick="copyText()">Kopieer toegang code van <?php echo $book["title"]?></button>
         </div>
     </div>
+    <script>
+        function copyText() {
+     
+            /* Copy text into clipboard */
+            navigator.clipboard.writeText
+                ($book["accessCode"]);
+        }
+    </script>
 </div>
