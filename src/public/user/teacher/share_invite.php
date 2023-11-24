@@ -22,6 +22,16 @@ $book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type
 ?>
 
 <!DOCTYPE html>
+<script>
+    function myFunction() {
+        // Get the text field
+        var copyText = <?php echo $book["accessCode"]?>;
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+
+</script>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,10 +55,12 @@ $book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <div class="mockup-browser border bg-secondary">
         <div class="mockup-browser-toolbar">
-            <div class="input">https://daisyui.com</div>
+            <div class="input">Toegang code: <b>
+                    <?php echo $book["accessCode"] ?>
+                </b></div>
         </div>
         <div class="flex justify-center px-4 py-16 bg-neutr">
-            <button class="btn btn-active btn-neutral">Neutral</button>
+            <button class="btn btn-active btn-neutral" onclick="myFunction()">Kopieer toegang code van <?php echo $book["title"]?></button>
         </div>
     </div>
 </div>
