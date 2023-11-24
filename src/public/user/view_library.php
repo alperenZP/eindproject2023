@@ -10,6 +10,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
+$book_subjects = fetch("SELECT * FROM book_subjects");
+
 ?>
 
 <!DOCTYPE html>
@@ -28,31 +30,22 @@ require_once LIB . '/util/util.php';
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boeken</h1>
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" checked="checked" />
-        <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-        </div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-        </div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
-    <div class="collapse collapse-plus bg-base-200">
-        <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">
-            Click to open this one and close others
-        </div>
-        <div class="collapse-content">
-            <p>hello</p>
-        </div>
-    </div>
+    <?php
+    foreach ($book_subjects as $book_subject) {
+        echo '
+            <div class="collapse collapse-plus bg-base-200">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title text-xl font-medium">
+                    '.$book_subject["title"].'
+                </div>
+                <div class="collapse-content">
+                    <p>hello</p>
+                </div>
+            </div>
+        ';
+    }
+
+    
+    ?>
+
 </div>
