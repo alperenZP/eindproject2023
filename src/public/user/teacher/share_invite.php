@@ -46,9 +46,6 @@ $book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
         class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
-            <div class="form-control">
-                <input type="text" name="title" placeholder="Deel invite" class="input input-bordered" required />
-            </div>
             <div class="hero min-h-screen bg-base-200">
                 <div class="hero-content text-center">
                     <div class="max-w-md">
