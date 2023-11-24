@@ -43,21 +43,10 @@ $book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type
         <li class="step step-primary">Deel</li>
     </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
-        class="flex flex-col gap-8 w-full sm:w-80">
-        <div class="flex flex-col gap-4">
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content text-center">
-                    <div class="max-w-md">
-                        <h1 class="text-5xl font-bold">Hello there</h1>
-                        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-                            exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button class="btn btn-primary">Get Started</button>
-                    </div>
-                </div>
-            </div>
+    <div class="mockup-browser border bg-base-300">
+        <div class="mockup-browser-toolbar">
+            <div class="input">https://daisyui.com</div>
         </div>
-
-        <button name="add" class="btn btn-primary">Voeg hoofdstuk toe</button>
-    </form>
+        <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+    </div>
 </div>
