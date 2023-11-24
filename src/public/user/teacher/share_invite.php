@@ -43,7 +43,7 @@ $book = fetchSingle('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type
         <li class="step step-primary">Deel</li>
     </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <div class="mockup-browser border bg-base-300">
+    <div class="mockup-browser border bg-secondary">
         <div class="mockup-browser-toolbar">
             <div class="input">https://daisyui.com</div>
         </div>
