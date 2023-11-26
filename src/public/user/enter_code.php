@@ -27,7 +27,7 @@ require_once LIB . '/util/util.php';
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Geef code in</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Geef code van boek in</h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/enter_code.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
