@@ -35,9 +35,7 @@ $subjects = fetch('SELECT * FROM book_subjects');
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Bibliotheek</h1>
 
-
-    <div class="overflow-x-auto">
-        <div class="dropdown">
+    <div class="dropdown">
             <div tabindex="0" role="button" class="btn m-1">Click</div>
             <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                 <?php
@@ -49,6 +47,9 @@ $subjects = fetch('SELECT * FROM book_subjects');
                 ?>
             </ul>
         </div>
+
+    <div class="overflow-x-auto">
+        
         <table class="table table-zebra">
             <tbody>
                 <tr>
