@@ -39,7 +39,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                 foreach ($book_subjects as $book_subject) {
                     echo '
                 <tr>
-                    <th><img src="' . $book_subject["image_link"] . '"></th>
+                    <th><img src="' . $book_subject["image_link"] . '" width="10px" height="10px"></th>
                     <td>' . $book_subject["title"] . '</td>
                     <td>Boeken lijst</td>
                 </tr>
