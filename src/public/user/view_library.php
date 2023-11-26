@@ -29,17 +29,16 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boken</h1>
+    <div role="tablist" class="tabs tabs-lifted">
     <?php
     foreach ($book_subjects as $book_subject) {
         echo '
-            <div role="tablist" class="tabs tabs-lifted">
                 <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="'.$book_subject["id"].'" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">'.$book_subject["title"].'</div>
         ';
     }
-
-
     ?>
+    </div>
 
     <div class="overflow-x-auto">
         <table class="table">
