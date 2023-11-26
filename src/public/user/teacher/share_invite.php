@@ -43,12 +43,12 @@ $book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "
         <li class="step step-primary">Deel</li>
     </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <div class="mockup-browser border bg-secondary">
+    <div class="mockup-browser border bg-neutral">
         <div class="mockup-browser-toolbar">
             <div class="input">Toegang code: <b id="myText"><?php echo $book["accessCode"]?></b></div>
         </div>
         <div class="flex justify-center px-4 py-16 bg-neutr">
-            <button class="btn btn-active btn-neutral" onclick="copyContent()">Kopieer toegang code van <?php echo $book["title"] ?></button>
+            <button class="btn btn-active btn-secondary" onclick="copyContent()">Kopieer toegang code van <?php echo $book["title"] ?></button>
         </div>
     </div>
 
