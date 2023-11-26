@@ -30,14 +30,14 @@ if (isset($_SESSION['user'])) {
           <label class="label">
             <span class="label-text">Voornaam</span>
           </label>
-          <input type="text" name="firstname" placeholder="John" class="input input-bordered w-full" required />
+          <input type="text" name="firstname" placeholder="Voornaam" class="input input-bordered w-full" required />
         </div>
         
         <div class="form-control md:flex-1">
           <label class="label">
             <span class="label-text">Familienaam</span>
           </label>
-          <input type="text" name="lastname" placeholder="Doe" class="input input-bordered w-full" required />
+          <input type="text" name="lastname" placeholder="Familienaam" class="input input-bordered w-full" required />
         </div>
       </div>
       
@@ -46,14 +46,14 @@ if (isset($_SESSION['user'])) {
           <label class="label">
             <span class="label-text">Email</span>
           </label>
-          <input type="email" name="email" placeholder="john.doe@gmail.com" class="input input-bordered w-full" required />
+          <input type="email" name="email" placeholder="email@example.com" class="input input-bordered w-full" required />
         </div>
         
         <div class="form-control md:flex-1">
           <label class="label">
             <span class="label-text">Gebruikersnaam</span>
           </label>
-          <input type="text" name="username" placeholder="john.doe" class="input input-bordered w-full" required />
+          <input type="text" name="username" placeholder="Gebruikersnaam" class="input input-bordered w-full" required />
         </div>
       </div>
 
@@ -73,24 +73,24 @@ if (isset($_SESSION['user'])) {
       <div class="flex flex-col gap-4 md:flex-row">
         <div class="form-control md:flex-1">
           <label class="label">
-            <span class="label-text">Password</span>
+            <span class="label-text">Wachtwoord</span>
           </label>
-          <input type="password" name="password" placeholder="Make it a good one!" class="input input-bordered w-full" required />
+          <input type="password" name="password" placeholder="Wachtwoord" class="input input-bordered w-full" required />
         </div>
         
         <div class="form-control md:flex-1">
           <label class="label">
-            <span class="label-text">Confirm password</span>
+            <span class="label-text">Bevestig wachtwoord</span>
           </label>
-          <input type="password" name="passwordConfirm" placeholder="Confirm..." class="input input-bordered w-full" required />
+          <input type="password" name="passwordConfirm" placeholder="Wachtwoord" class="input input-bordered w-full" required />
         </div>
       </div>
     </div>
 
-    <button name="register" class="btn btn-primary">Register</button>
+    <button name="register" class="btn btn-primary">Registreren</button>
   </form>
 
   <div class="w-full text-center mt-8">
-    <a class="link" href="/account/login">I already have an account</a>
+    <a class="link" href="https://bibliotheek.live/alperenGit/src/public/account/login.php">Login</a>
   </div>
 </div>
