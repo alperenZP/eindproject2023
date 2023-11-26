@@ -36,7 +36,7 @@ $subjects = fetch('SELECT * FROM book_subjects');
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Bibliotheek</h1>
 
     <div class="dropdown">
-            <div tabindex="0" role="button" class="btn m-1">Click</div>
+            <div tabindex="0" role="button" class="btn m-1">Sorteer op onderwerp</div>
             <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                 <?php
                     foreach ($subjects as $subject) {
