@@ -35,7 +35,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
             <div class="collapse collapse-plus bg-neutral text-neutral-content">
                 <input type="radio" name="my-accordion-3" checked="unchecked" />
                 <div class="collapse-title text-xl font-medium">
-                    '.$book_subject["title"].'
+                    ' . $book_subject["title"] . '
                 </div>
                 <div class="collapse-content">
                     <p>hello</p>
@@ -45,7 +45,34 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
         ';
     }
 
-    
+
     ?>
+
+    <div class="overflow-x-auto">
+        <table class="table">
+            <tbody>
+                <!-- row 1 -->
+                <tr>
+                    <th>
+                        <label>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                    </th>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle w-12 h-12">
+                                    <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">Hart Hagerty</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
