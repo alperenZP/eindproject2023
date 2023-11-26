@@ -82,14 +82,8 @@ $searchTerm = $_GET['search'] ?? '';
           <div class="divider px-4 my-2"></div> 
           <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
           <div class="divider px-4 mb-2">TEMP</div>
-          <li>
-            <details class="dropdown dropdown-left">
-              <summary class="m-1">Member Dashboard</summary>
-              <ul class="mr-4 p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
-                <li><a href="/member/dashboard">Dashboard</a></li>
-              </ul>
-            </details>
-          </li>
+          <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Bekijk boeken</a></li>
+          <li><a href="https://bibliotheek.live/alperenGit/src/public/user/enter_code.php">Log uit</a></li>
         </ul>
       </details>
       '
