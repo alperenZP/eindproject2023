@@ -28,7 +28,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boken</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boeken</h1>
 
 
     <div class="overflow-x-auto">
@@ -42,6 +42,16 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                     <th><img src="' . $book_subject["image_link"] . '" width="20px" height="20px"></th>
                     <td>' . $book_subject["title"] . '</td>
                     <td>Boeken lijst</td>
+                </tr>
+                <tr>
+                    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
+                        <div class="collapse-title text-xl font-medium">
+                            Focus me to see content
+                        </div>
+                        <div class="collapse-content"> 
+                            <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                        </div>
+                    </div>
                 </tr>
             ';
                 }
