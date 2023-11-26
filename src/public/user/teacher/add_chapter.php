@@ -14,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-$books = fetch('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
+$books = fetch_as_array('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
 echo var_dump($books);
 echo $books["description"];
 ?>
