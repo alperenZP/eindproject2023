@@ -38,7 +38,7 @@ $books = fetch_as_array('SELECT * FROM `books` WHERE creatorid = '.$_SESSION["us
                 <?php
                     foreach ($books as $book) {
                         echo '
-                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/check_students.php?bookid='.$book["id"].'">'.$book["title"].'</a></li>
+                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid='.$book["id"].'">'.$book["title"].'</a></li>
                         ';
                     }
                 ?>
