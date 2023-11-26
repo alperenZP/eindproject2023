@@ -11,6 +11,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
 $book_subjects = fetch("SELECT * FROM book_subjects");
+$books = fetch('SELECT * FROM `books` INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid ='.$_SESSION["user"]["id"].'')
 
 ?>
 
@@ -36,24 +37,13 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
             <tbody>
                 <!-- row 1 -->
                 <?php
-                foreach ($book_subjects as $book_subject) {
+                foreach ($books as $book) {
                     echo '
-                <tr>
-                    <th><img src="' . $book_subject["image_link"] . '" width="20px" height="20px"></th>
-                    <td>' . $book_subject["title"] . '</td>
-                    <td>
-                        <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
-                            <div class="collapse-title text-xl font-medium">
-                                Boekenlijst
-                            </div>
-                            <div class="collapse-content"> 
-                                <p>tabindex="0" attribute is necessary to make the div focusable</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                
-            ';
+                        <tr>
+                            <td>' . $book["title"] . '</td>
+                            <td>'.$book["description"].'</td>
+                        </tr>
+                    ';
                 }
                 ?>
             </tbody>
