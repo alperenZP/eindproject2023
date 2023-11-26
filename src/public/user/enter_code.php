@@ -36,6 +36,6 @@ require_once LIB . '/util/util.php';
             </div>
         </div>
 
-        <button name="create" class="btn btn-primary">Creëer boek</button>
+        <button name="create" class="btn btn-primary">Geef code in</button>
     </form>
 </div>
