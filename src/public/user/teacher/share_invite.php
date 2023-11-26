@@ -50,15 +50,21 @@ $book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "
                 </b></div>
         </div>
         <div class="flex justify-center px-4 py-16 bg-neutr">
-            <button class="btn btn-active btn-neutral" onclick="copyText()">Kopieer toegang code van <?php echo $book["title"]?></button>
+            <button class="btn btn-active btn-neutral" onclick="copyText()">Kopieer toegang code van <?php echo $book["title"] ?></button>
         </div>
     </div>
+    <p id="myText">Hello World</p>
+    <button class="btn" onclick="copyContent()">Copy!</button>
+
     <script>
-        function copyText() {
-     
-            /* Copy text into clipboard */
-            navigator.clipboard.writeText
-                ($book["accessCode"]);
+        let text = document.getElementById('myText').innerHTML;
+        const copyContent = async () => {
+            try {
+                await navigator.clipboard.writeText(text);
+                console.log('Content copied to clipboard');
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
         }
     </script>
 </div>
