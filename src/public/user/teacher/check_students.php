@@ -15,6 +15,8 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
     ['type' => 'i', 'value' => $_GET["bookid"]],
     ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
 );
+
+echo (var_dump($users));
 ?>
 
 <!DOCTYPE html>
