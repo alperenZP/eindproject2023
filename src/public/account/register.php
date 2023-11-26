@@ -21,29 +21,21 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center px-8 py-8">
-  <div class="w-full flex justify-center text-sm breadcrumbs mb-2">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li>Account</li>
-      <li><a href="/account/register">Register</a></li>
-    </ul>
-  </div>
-
-  <h1 class="md:text-center text-4xl font-bold mb-8">Register a new account</h1>
+  <h1 class="md:text-center text-4xl font-bold mb-8">Registreren</h1>
 
   <form action="https://bibliotheek.live/alperenGit/src/lib/account/register.php" method="post" class="flex flex-col gap-8 w-full md:max-w-2xl">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-4 md:flex-row">
         <div class="form-control md:flex-1">
           <label class="label">
-            <span class="label-text">Firstname</span>
+            <span class="label-text">Voornaam</span>
           </label>
           <input type="text" name="firstname" placeholder="John" class="input input-bordered w-full" required />
         </div>
         
         <div class="form-control md:flex-1">
           <label class="label">
-            <span class="label-text">Lastname</span>
+            <span class="label-text">Familienaam</span>
           </label>
           <input type="text" name="lastname" placeholder="Doe" class="input input-bordered w-full" required />
         </div>
@@ -59,7 +51,7 @@ if (isset($_SESSION['user'])) {
         
         <div class="form-control md:flex-1">
           <label class="label">
-            <span class="label-text">Username</span>
+            <span class="label-text">Gebruikersnaam</span>
           </label>
           <input type="text" name="username" placeholder="john.doe" class="input input-bordered w-full" required />
         </div>
