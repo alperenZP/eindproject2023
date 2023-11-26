@@ -48,7 +48,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
                 <option disabled selected value="">Onderwerp</option>
                 <?php
                     foreach ($book_subjects as $book_subject) {
-                        echo '<option value="'.$book_subject["id"].'">'.$book_subject["title"].'</option>';
+                        echo '<option value="'.$book_subject["id"].'">'.$book_subject["name"].'</option>';
                     };
                 ?>
             </select>
