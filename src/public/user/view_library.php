@@ -53,11 +53,6 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
             <tbody>
                 <!-- row 1 -->
                 <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" class="checkbox" />
-                        </label>
-                    </th>
                     <td>
                         <div class="flex items-center gap-3">
                             <div class="avatar">
