@@ -24,7 +24,7 @@ if (isset($_POST['add'])) {
             ['type' => 'i', 'value' => $book["id"]],
             ['type' => 'i', 'value' => $userid],
         );
-        
+        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid='.$book["id"].'');
     } else {
         header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure=1');
     }
