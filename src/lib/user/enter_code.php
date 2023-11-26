@@ -18,15 +18,25 @@ if (isset($_POST['add'])) {
     $userid = $_SESSION["user"]["id"];
 
     if (isset($book["id"])) {
-        $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
-        insert(
-            $query,
+        $book_connection = fetch(
+            'SELECT *, count(*) AS "aantal" FROM book_connections WHERE bookid = ? AND userid = ?',
             ['type' => 'i', 'value' => $book["id"]],
             ['type' => 'i', 'value' => $userid],
         );
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid='.$book["id"].'');
+
+        if ($book_connection["aantal"] > 0) {
+            header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure="ac"');
+        } else {
+            $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
+            insert(
+                $query,
+                ['type' => 'i', 'value' => $book["id"]],
+                ['type' => 'i', 'value' => $userid],
+            );
+            header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid=' . $book["id"] . '');
+        }
     } else {
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure=1');
+        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure="de"');
     }
 
 
