@@ -47,9 +47,9 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
                 foreach ($users as $user) {
                     echo '
                         <tr>
-                            <td>'.$users["firstname"].'</td>
-                            <td>'.$users["lastname"].'</td>
-                            <td>'.$users["username"].'</td>
+                            <td>'.$user["firstname"].'</td>
+                            <td>'.$user["lastname"].'</td>
+                            <td>'.$user["username"].'</td>
                         </tr>        
                     ';
                 }
