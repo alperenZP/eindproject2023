@@ -29,48 +29,24 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boken</h1>
-    <div role="tablist" class="tabs tabs-lifted">
-  <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 1" />
-  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 1</div>
 
-  <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 2" checked />
-  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 2</div>
-
-  <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 3" />
-  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 3</div>
-</div>
-    <div role="tablist" class="tabs tabs-lifted">
-        
-    <?php
-    foreach ($book_subjects as $book_subject) {
-        echo '
-            <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="'.$book_subject["id"].'" />
-            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">'.$book_subject["title"].'</div>
-        ';
-    }
-    ?>
-    </div>
 
     <div class="overflow-x-auto">
-        <table class="table">
+        <table class="table table-zebra">
             <tbody>
                 <!-- row 1 -->
+                <?php
+                foreach ($book_subjects as $book_subject) {
+                    echo '
                 <tr>
-                    <td>
-                        <div class="flex items-center gap-3">
-                            <div class="avatar">
-                                <div class="mask mask-squircle w-12 h-12">
-                                    <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                </div>
-                            </div>
-                            <div>
-                                <div class="font-bold">Hart Hagerty</div>
-                            </div>
-                        </div>
-                    </td>
+                    <th><img src="' . $book_subject["image_link"] . '"></th>
+                    <td>' . $book_subject["title"] . '</td>
+                    <td>Boeken lijst</td>
                 </tr>
+            ';
+                }
+                ?>
             </tbody>
         </table>
     </div>
-
 </div>
