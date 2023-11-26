@@ -28,7 +28,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boeken</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boken</h1>
     <?php
     foreach ($book_subjects as $book_subject) {
         echo '
