@@ -32,16 +32,9 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
     <?php
     foreach ($book_subjects as $book_subject) {
         echo '
-            <div class="collapse collapse-plus bg-neutral text-neutral-content">
-                <input type="radio" name="my-accordion-3" checked="unchecked" />
-                <div class="collapse-title text-xl font-medium">
-                    ' . $book_subject["title"] . '
-                </div>
-                <div class="collapse-content">
-                    <p>hello</p>
-                </div>
-            </div>
-            <div class="divider"></div> 
+            <div role="tablist" class="tabs tabs-lifted">
+                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 1" />
+            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">'.$book_subject["title"].'</div>
         ';
     }
 
