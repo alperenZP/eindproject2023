@@ -29,24 +29,23 @@ $books = fetch("SELECT * FROM books");
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boken</h1>
-    <div class="join join-vertical lg:join-horizontal">
-        <?php
-        foreach ($books as $book) {
-            echo '
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">'.$book["title"].'</h2>
-                        <p>'.$book["description"].'</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Bekijk</button>
-                        </div>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boeken</h1>
+    <?php
+    foreach ($books as $book) {
+        echo '
+            <div class="card w-96 bg-neutral-200 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">'.$book["title"].'</h2>
+                    <p>'.$book["description"].'</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Bekijk</button>
                     </div>
                 </div>
-            ';
-        }
-        ?>
-    </div>
+            </div>
+        ';
+    }
 
+
+    ?>
 
 </div>
