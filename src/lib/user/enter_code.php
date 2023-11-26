@@ -21,7 +21,7 @@ if (isset($_POST['add'])) {
         $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
         insert(
             $query,
-            ['type' => 'i', 'value' => $bookid],
+            ['type' => 'i', 'value' => $book["id"]],
             ['type' => 'i', 'value' => $userid],
         );
         
