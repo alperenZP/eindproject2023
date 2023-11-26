@@ -44,7 +44,7 @@ $books = fetch_as_array('SELECT * FROM `books` INNER JOIN book_subjects ON (book
                 foreach ($books as $book) {
                     echo '
                         <tr>
-                            <td>' . $book["image_link"] . '</td>
+                            <td><img src="' . $book["image_link"] . '" height="20px" width="20px"></td>
                             <td>' . $book["title"] . '</td>
                             <td>'.$book["description"].'</td>
                         </tr>
