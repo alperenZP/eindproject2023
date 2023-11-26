@@ -15,6 +15,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
 $books = fetch('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
+echo var_dump($books);
 ?>
 
 <!DOCTYPE html>
