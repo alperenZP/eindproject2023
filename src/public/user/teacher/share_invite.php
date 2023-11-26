@@ -48,7 +48,7 @@ $book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "
             <div class="input">Toegang code: <b id="myText"><?php echo $book["accessCode"]?></b></div>
         </div>
         <div class="flex justify-center px-4 py-16 bg-neutr">
-            <button class="btn btn-active btn-neutral" onclick="copyText()">Kopieer toegang code van <?php echo $book["title"] ?></button>
+            <button class="btn btn-active btn-neutral" onclick="copyContent()">Kopieer toegang code van <?php echo $book["title"] ?></button>
         </div>
     </div>
 
