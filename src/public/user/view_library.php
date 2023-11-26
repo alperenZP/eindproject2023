@@ -10,7 +10,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-$book_subjects = fetch("SELECT * FROM book_subjects");
 $books = fetch('SELECT * FROM `books` INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid ='.$_SESSION["user"]["id"].'')
 
 ?>
