@@ -27,7 +27,7 @@ $books = fetch_as_array('SELECT * FROM `books` WHERE creatorid = '.$_SESSION["us
     <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-    <title></title>
+    <title>Bekijk studenten</title>
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
