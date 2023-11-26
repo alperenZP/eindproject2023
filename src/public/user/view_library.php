@@ -43,7 +43,7 @@ $subjects = fetch('SELECT * FROM book_subjects');
                 <?php
                     foreach ($subjects as $subject) {
                         echo '
-                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php?subject="'.$subject["id"].'>'.$subject["name"].'</a></li>
+                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php?subject='.$subject["id"].'">'.$subject["name"].'</a></li>
                         ';
                     }
                 ?>
