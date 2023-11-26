@@ -38,6 +38,7 @@ $subjects = fetch('SELECT * FROM book_subjects');
     <div class="dropdown">
             <div tabindex="0" role="button" class="btn m-1">Sorteer op onderwerp</div>
             <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Alles</a></li>
                 <?php
                     foreach ($subjects as $subject) {
                         echo '
