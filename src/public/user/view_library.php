@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-$books = fetch('SELECT * FROM `books` INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid ='.$_SESSION["user"]["id"].'')
+$books = fetch_as_array('SELECT * FROM `books` INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid ='.$_SESSION["user"]["id"].'')
 
 ?>
 
@@ -34,11 +34,17 @@ $books = fetch('SELECT * FROM `books` INNER JOIN book_connections ON (books.id =
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
-                <!-- row 1 -->
+                <tr>
+                    <td>Onderwerp</td>
+                    <td>Titel</td>
+                    <td>Beschrijving</td>
+                </tr>
+                <!-- row -->
                 <?php
                 foreach ($books as $book) {
                     echo '
                         <tr>
+                            <td>' . $book["image_link"] . '</td>
                             <td>' . $book["title"] . '</td>
                             <td>'.$book["description"].'</td>
                         </tr>
