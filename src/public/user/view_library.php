@@ -35,7 +35,7 @@ $book_subjects = fetch("SELECT * FROM book_subjects");
             <div class="collapse collapse-plus bg-neutral text-neutral-content">
                 <input type="radio" name="my-accordion-3" checked="unchecked" />
                 <div class="collapse-title text-xl font-medium">
-                    '.$book_subject["emoji"].' | '.$book_subject["title"].'
+                    '.$book_subject["title"].'
                 </div>
                 <div class="collapse-content">
                     <p>hello</p>
