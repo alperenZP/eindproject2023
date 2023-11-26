@@ -13,7 +13,7 @@ if (isset($_POST['add'])) {
     $code = $_POST['code'];
     $book = fetch(
         'SELECT * FROM books WHERE accessCode = ? LIMIT 1',
-        ["type" => "i", "value" => $code]
+        ["type" => "s", "value" => $code]
     );
     $userid = $_SESSION["user"]["id"];
 
@@ -22,7 +22,7 @@ if (isset($_POST['add'])) {
         insert(
             $query,
             ['type' => 'i', 'value' => $bookid],
-            ['type' => 's', 'value' => $userid],
+            ['type' => 'i', 'value' => $userid],
         );
         header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid=' . $bookid . '');
     } else {
