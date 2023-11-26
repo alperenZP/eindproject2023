@@ -39,16 +39,16 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
                 <tr>
                     <td>Voornaam</td>
                     <td>Naam</td>
-                    <td>Beschrijving</td>
+                    <td>Gebruikersnaam</td>
                 </tr>
                 <!-- row -->
                 <?php
-                foreach ($books as $book) {
+                foreach ($users as $user) {
                     echo '
                         <tr>
-                            <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://www.example.com"><u>' . $book["title"] . '</u></a></td>
-                            <td>' . $book["description"] . '</td>
+                            <td>'.$users["firstname"].'</td>
+                            <td>'.$users["lastname"].'</td>
+                            <td>'.$users["username"].'</td>
                         </tr>        
                     ';
                 }
