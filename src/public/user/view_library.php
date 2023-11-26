@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-$books = fetch("SELECT * FROM books");
+$book_subjects = fetch("SELECT * FROM book_subjects");
 
 ?>
 
@@ -31,21 +31,22 @@ $books = fetch("SELECT * FROM books");
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Jouw boeken</h1>
     <?php
-    foreach ($books as $book) {
+    foreach ($book_subjects as $book_subject) {
         echo '
-            <div class="card w-96 bg-neutral-200 shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title">'.$book["title"].'</h2>
-                    <p>'.$book["description"].'</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Bekijk</button>
-                    </div>
+            <div class="collapse collapse-plus bg-neutral text-neutral-content">
+                <input type="radio" name="my-accordion-3" checked="unchecked" />
+                <div class="collapse-title text-xl font-medium">
+                    '.$book_subject["emoji"].' | '.$book_subject["title"].'
+                </div>
+                <div class="collapse-content">
+                    <p>hello</p>
                 </div>
             </div>
+            <div class="divider"></div> 
         ';
     }
 
-
+    
     ?>
 
 </div>
