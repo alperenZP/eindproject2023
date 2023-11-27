@@ -13,6 +13,8 @@ if (!$_SESSION["user"]["isTeacher"]) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
+$theme = 'dark';
+
 
 $books = fetch_as_array('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
 ?>
