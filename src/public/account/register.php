@@ -23,6 +23,26 @@ if (isset($_SESSION['user'])) {
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center px-8 py-8">
   <h1 class="md:text-center text-4xl font-bold mb-8">Registreren</h1>
 
+  <?php
+    if(isset($_GET["error"])){
+      if ($_GET["error"] == "password"){
+        $error_msg = "Het geschreven wachtwoord komt niet overeen met het validatiewachtwoord.";
+      } elseif ($_GET["error"] == "email"){
+        $error_msg = "Er bestaat al een account met dit emailadres.";
+      } elseif ($_GET["error"] == "username"){
+        $error_msg = "Er bestaat al een account met dit gebruikersnaam.";
+      } elseif ($_GET["server"]){
+        $error_msg = "Registratie mislukt vanwege een storing van de server.";
+      }
+
+      echo '
+        <div role="alert" class="alert alert-error">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>'.$error_msg.'</span>
+        </div>
+      ';
+    }
+  ?>
   <form action="https://bibliotheek.live/alperenGit/src/lib/account/register.php" method="post" class="flex flex-col gap-8 w-full md:max-w-2xl">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-4 md:flex-row">

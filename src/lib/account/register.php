@@ -26,7 +26,7 @@ function register($formData) {
   ]);
 
   if ($data) {
-    header('Location: /account/register?error=email');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/register.php?error=email');
     exit();
   }
   
@@ -36,12 +36,12 @@ function register($formData) {
   ]);
   
   if ($data) {
-    header('Location: /account/register?error=username');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/register.php?error=username');
     exit();
   }
   
   if ($password !== $passwordConfirm) {
-    header('Location: /account/register?error=password');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/register.php?error=password');
     exit();
   }
   
@@ -49,7 +49,7 @@ function register($formData) {
   $initialized = insertUser($username, $password, $email, $firstname, $lastname, $isLeraar);
 
   if (!$initialized) {
-    header('Location: /account/register?error=server');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/register.php?error=server');
     return;
   }
   
