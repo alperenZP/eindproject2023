@@ -14,23 +14,23 @@ exit();
 
 function login($formData) {
   if (!isset($formData['email']) || !isset($formData['password'])) {
-    header('Location: /account/login?error=missing');
-    return;
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/login.php?error=missing');
+    exit();
   }
   
   $email = $formData['email'];
   $password = $formData['password'];
   
   if (empty($email) || empty($password)) {
-    header('Location: /account/login?error=empty');
-    return;
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/login.php?error=empty');
+    exit();
   }
   
   $auth = authenticate($email, $password);
   
   if (!$auth) {
-    header('Location: /account/login?error=invalid');
-    return;
+    header('Location: https://bibliotheek.live/alperenGit/src/public/account/login.php?error=invalid');
+    exit();
   }
   
   $_SESSION['user'] = USER_STRUCTURE;

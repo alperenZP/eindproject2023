@@ -17,23 +17,32 @@ if (isset($_SESSION['user'])) {
   <title>Login</title>
 </head>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-  <div class="w-full flex justify-center text-sm breadcrumbs mb-2">
-    <ul>
-      <li><a href="/">Home</a></li> 
-      <li>Account</li>
-      <li><a href="/account/login">Login</a></li>
-    </ul>
-  </div>
+  <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Log in</h1>
+  <?php
+    if(isset($_GET["error"])){
+      if ($_GET["error"] == "empty"){
+        $error_msg = "Er is geen tekst of wachtwoord ingevoerd.";
+      } elseif ($_GET["error"] == "missing"){
+        $error_msg = "De invoervelden zijn leeg.";
+      } elseif ($_GET["error"] == "invalid"){
+        $error_msg = "Fout wachtwoord / emailadres.";
+      }
 
-  <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Log in to your account</h1>
-  
+      echo '
+        <div role="alert" class="alert alert-error">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>'.$error_msg.'</span>
+        </div>
+      ';
+    }
+  ?>
   <form action="https://bibliotheek.live/alperenGit/src/lib/account/login.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
     <div class="flex flex-col gap-4">
       <div class="form-control">
         <label class="label">
           <span class="label-text">Email</span>
         </label>
-        <input type="email" name="email" placeholder="john.doe@gmail.com" class="input input-bordered" required />
+        <input type="email" name="email" placeholder="account@example.com" class="input input-bordered" required />
       </div>
       <div class="form-control">
         <label class="label">
