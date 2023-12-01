@@ -81,7 +81,7 @@ $searchTerm = $_GET['search'] ?? '';
           '.$teacher_links.'
           <div class="divider px-4 my-2"></div> 
           <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
-          <div class="divider px-4 mb-2">TEMP</div>
+          <div class="divider px-4 mb-2"> </div>
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Bekijk boeken</a></li>
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/enter_code.php">Geef code in</a></li>
         </ul>
