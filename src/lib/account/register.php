@@ -52,6 +52,9 @@ function register($formData) {
     header('Location: https://bibliotheek.live/alperenGit/src/public/account/register.php?error=server');
     return;
   }
+
+  session_start();
+  login($_POST);
   
   header('Location: https://bibliotheek.live');
   exit();
@@ -71,4 +74,56 @@ function insertUser($username, $password, $email, $firstname, $lastname, $isLera
 
   $userId = mysqli_insert_id($connection);
   return $userData;
+}
+
+function login($formData) {
+  if (!isset($formData['email']) || !isset($formData['password'])) {
+    header('Location: /account/login?error=missing');
+    return;
+  }
+  
+  $email = $formData['email'];
+  $password = $formData['password'];
+  
+  if (empty($email) || empty($password)) {
+    header('Location: /account/login?error=empty');
+    return;
+  }
+  
+  $auth = authenticate($email, $password);
+  
+  if (!$auth) {
+    header('Location: /account/login?error=invalid');
+    return;
+  }
+  
+  $_SESSION['user'] = USER_STRUCTURE;
+  $_SESSION['user']['id'] = $auth['id'];
+  $_SESSION['user']['email'] = $auth['email'];
+  $_SESSION['user']['username'] = $auth['username'];
+  $_SESSION['user']['isTeacher'] = $auth["isTeacher"];
+  
+  header('Location: https://bibliotheek.live');
+  exit();
+}
+
+function authenticate($email, $password) {
+  var_dump($email, $password);
+  $data = fetch(
+    'SELECT * FROM users WHERE users.email = ?',
+    [
+      'type' => 's',
+      'value' => $email,
+    ],
+  );
+
+  if (!$data) {
+    return false;
+  }
+
+  if (!password_verify($password, $data['password'])) {
+    return false;
+  }
+
+  return $data;
 }
