@@ -40,7 +40,7 @@ $chapters = fetch_as_array(
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
-        <?php echo $book["title"] ?>
+        <?php echo $book["title"] ?>ergeregrehuirejiorgjio
     </h1>
 
     <div class="overflow-x-auto">
