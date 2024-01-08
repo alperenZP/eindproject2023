@@ -45,6 +45,7 @@ $chapters = fetch_as_array(
         if (isset($book["title"])){
             echo '<br><br>hrhrjhkre';
         }
+        echo $book["title"];
         ?>
         
     </h1>
