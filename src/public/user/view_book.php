@@ -41,14 +41,15 @@ $chapters = fetch_as_array(
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
         <?php 
-        echo var_dump($book);
-        if (isset($book["title"])){
-            echo '<br><br>hrhrjhkre';
-        }
-        echo $book["title"];
+            echo $book["title"];
         ?>
-        
     </h1>
+    <div class="badge badge-secondary">
+        <?php
+            echo $book["description"];
+        ?>
+    </div>
+
 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
