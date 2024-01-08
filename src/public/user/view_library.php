@@ -15,7 +15,7 @@ if (isset($_GET["subject"])) {
 } else {
     $book_query = "";
 }
-$books = fetch_as_array('SELECT * FROM `books` INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid =' . $_SESSION["user"]["id"] . ' ' . $book_query);
+$books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid =' . $_SESSION["user"]["id"] . ' ' . $book_query);
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
@@ -65,7 +65,7 @@ $theme = 'dark';
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["books.id"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["bookid"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
                             <td>' . $book["description"] . '</td>
                         </tr>        
                     ';
