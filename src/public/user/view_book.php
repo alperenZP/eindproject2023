@@ -17,7 +17,7 @@ $book = fetchSingle(
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 $chapters = fetch_as_array(
-    'SELECT *, book_chapters.title AS "chapterTitle" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
+    'SELECT *, book_chapters.title AS "chapterTitle", books.id AS bookid, chapters.id AS chapterid FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
@@ -60,7 +60,7 @@ $chapters = fetch_as_array(
                         <tr>
                             <td>' . $chapterIndex . '</td>
                             <td>' . $chapter["chapterTitle"] . '</td>
-                            <td><a title="Joe Roe, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:PDF_icon.svg"><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
+                            <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/bid'.$chapter["bookid"].'_hid'.$chapter["chapterid"].'"><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                             <td><a href="https://www.example.com"><u>Forum</u></a></td>
                         </tr>        
                     ';
