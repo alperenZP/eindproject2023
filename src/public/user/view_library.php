@@ -16,6 +16,7 @@ if (isset($_GET["subject"])){
     $book_query = "";
 }
 $books = fetch_as_array('SELECT * FROM `books` INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid =' . $_SESSION["user"]["id"] . ' ' . $book_query);
+echo var_dump($books);
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
