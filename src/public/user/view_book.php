@@ -12,10 +12,12 @@ require_once LIB . '/util/util.php';
 
 $theme = 'dark';
 
-$book = fetchSingle('SELECT * FROM books WHERE id = ?', 
+$book = fetchSingle(
+    'SELECT * FROM books WHERE id = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
-$chapters = fetch_as_array('SELECT *, book_chapters.title AS "chapterTitle" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
+$chapters = fetch_as_array(
+    'SELECT *, book_chapters.title AS "chapterTitle" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
@@ -31,20 +33,24 @@ $chapters = fetch_as_array('SELECT *, book_chapters.title AS "chapterTitle" FROM
     <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-    <title><?php echo $book["title"]?></title>
+    <title>
+        <?php echo $book["title"] ?>
+    </title>
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"><?php echo $book["title"]?></h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
+        <?php echo $book["title"] ?>
+    </h1>
 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
                 <tr>
-                    <td> </td>
-                    <td>Hoofdstuk</td>
-                    <td>PDF</td>
-                    <td>Vragen</td>
+                    <th> </th>
+                    <th>Hoofdstuk</th>
+                    <th>PDF</th>
+                    <th>Vragen</th>
                 </tr>
                 <!-- row -->
                 <?php
@@ -52,8 +58,8 @@ $chapters = fetch_as_array('SELECT *, book_chapters.title AS "chapterTitle" FROM
                     $chapterIndex = $chapter["chapterIndex"] + 1;
                     echo '
                         <tr>
-                            <td>'.$chapterIndex.'</td>
-                            <td>'.$chapter["chapterTitle"].'</td>
+                            <td>' . $chapterIndex . '</td>
+                            <td>' . $chapter["chapterTitle"] . '</td>
                             <td><a title="Joe Roe, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:PDF_icon.svg"><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                             <td><a href="https://www.example.com"><u>Forum</u></a></td>
                         </tr>        
@@ -63,15 +69,15 @@ $chapters = fetch_as_array('SELECT *, book_chapters.title AS "chapterTitle" FROM
             </tbody>
         </table>
     </div>
-    
+
     <?php
-        if (count($chapters) == 0){
-            echo '
+    if (count($chapters) == 0) {
+        echo '
                 <div role="alert" class="alert alert-info">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span>Er staan geen boek hier.</span>
                 </div>
             ';
-        }
+    }
     ?>
 </div>
