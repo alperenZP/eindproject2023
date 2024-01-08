@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-if (isset($_GET["subject"])){
+if (isset($_GET["subject"])) {
     $book_query = "AND book_subjects.id = " . $_GET["subject"];
 } else {
     $book_query = "";
@@ -38,18 +38,18 @@ $theme = 'dark';
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Bibliotheek</h1>
 
     <div class="dropdown">
-            <div tabindex="0" role="button" class="btn m-1">Sorteer op onderwerp</div>
-            <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <div tabindex="0" role="button" class="btn m-1">Sorteer op onderwerp</div>
+        <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Alles</a></li>
-                <?php
-                    foreach ($subjects as $subject) {
-                        echo '
-                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php?subject='.$subject["id"].'">'.$subject["name"].'</a></li>
+            <?php
+            foreach ($subjects as $subject) {
+                echo '
+                            <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php?subject=' . $subject["id"] . '">' . $subject["name"] . '</a></li>
                         ';
-                    }
-                ?>
-            </ul>
-        </div>
+            }
+            ?>
+        </ul>
+    </div>
 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
@@ -61,13 +61,11 @@ $theme = 'dark';
                 </tr>
                 <!-- row -->
                 <?php
-                echo var_dump($books);
-
                 foreach ($books as $book) {
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book='.$book["id"].'"><u>' . $book["id"] . $book["title"] . '</u></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["books.id"] . '"><u>' . $book["title"] . '</u></a></td>
                             <td>' . $book["description"] . '</td>
                         </tr>        
                     ';
@@ -76,15 +74,15 @@ $theme = 'dark';
             </tbody>
         </table>
     </div>
-    
+
     <?php
-        if (count($books) == 0){
-            echo '
+    if (count($books) == 0) {
+        echo '
                 <div role="alert" class="alert alert-info">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span>Er staan geen boeken in deze lijst.</span>
                 </div>
             ';
-        }
+    }
     ?>
 </div>
