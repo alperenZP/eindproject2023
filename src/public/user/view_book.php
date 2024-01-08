@@ -49,9 +49,10 @@ $chapters = fetch_as_array('SELECT * FROM `book_chapters` INNER JOIN books ON (b
                 <!-- row -->
                 <?php
                 foreach ($chapters as $chapter) {
+                    $chapterIndex = $chapter["chapterIndex"] + 1;
                     echo '
                         <tr>
-                            <td>'.$chapter["chapterIndex"].'</td>
+                            <td>'.$chapterIndex.'</td>
                             <td>'.$chapter["title"].'</td>
                             <td><a title="Joe Roe, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:PDF_icon.svg"><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                             <td><a href="https://www.example.com"><u>' . $book["title"] . '</u></a></td>
