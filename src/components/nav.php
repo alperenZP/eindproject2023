@@ -33,14 +33,10 @@ $searchTerm = $_GET['search'] ?? '';
             <details>
               <summary class="text-lg">
               <div class="w-8">
-                <img class="rounded-full" src="https://avatars.githubusercontent.com/u/64209400?v=4" />
               </div>
               Account
               </summary>
               <ul>
-                <li><a class="justify-between">Profile</a></li>
-                <li><a href="/dashboard/products/review?seller=' . $user['username'] . '">Reviews</a></li>
-                <li><a href="/account/settings/edit">Settings</a></li>
                 <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
               </ul>
             </details>
@@ -70,7 +66,7 @@ $searchTerm = $_GET['search'] ?? '';
     }
 
     echo isset($_SESSION['user'])
-      ? 'Hallo, ' . $_SESSION["user"]["username"] . '!
+      ? 'Hallo, ' . $_SESSION["user"]["username"] . '! ID: '.$_SESSION["user"]["id"].'
       <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
