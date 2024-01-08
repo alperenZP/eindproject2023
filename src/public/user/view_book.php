@@ -12,7 +12,7 @@ require_once LIB . '/util/util.php';
 
 $theme = 'dark';
 
-$book = fetchSingle(
+$book = fetch(
     'SELECT * FROM books WHERE id = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
