@@ -54,9 +54,6 @@ $chapters = fetch_as_array(
             </p>
         </div>
     </div>
-    <div class="badge badge-secondary">
-
-    </div>
 
 
     <div class="overflow-x-auto">
