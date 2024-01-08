@@ -17,7 +17,7 @@ $book_access = fetch(
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
-if ($book_access["amount"] = 0){
+if ($book_access["amount"] == 0){
     header('Location: https://bibliotheek.live');
     exit();
 }
