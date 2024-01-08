@@ -40,14 +40,22 @@ $chapters = fetch_as_array(
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
-        <?php 
-            echo $book["title"];
+        <?php
+        echo $book["title"];
         ?>
     </h1>
+
+    <div class="card w-96 bg-primary text-primary-content">
+        <div class="card-body">
+            <p>
+                <?php
+                    echo $book["description"];
+                ?>
+            </p>
+        </div>
+    </div>
     <div class="badge badge-secondary">
-        <?php
-            echo $book["description"];
-        ?>
+
     </div>
 
 
@@ -69,10 +77,10 @@ $chapters = fetch_as_array(
                             <td>' . $chapterIndex . '</td>
                             <td>' . $chapter["chapterTitle"] . '</td>
                     ';
-                    
-                    if ($chapter["hasText"]){
+
+                    if ($chapter["hasText"]) {
                         echo '
-                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/bid'.$chapter["bookid"].'_hid'.$chapter["chapterid"].'.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
+                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/bid' . $chapter["bookid"] . '_hid' . $chapter["chapterid"] . '.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                         ';
                     } else {
                         echo '
