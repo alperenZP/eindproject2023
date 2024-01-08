@@ -15,7 +15,7 @@ $theme = 'dark';
 $book = fetchSingle('SELECT * FROM books WHERE id = ?', 
     ['type' => 'i', 'value' => $_GET["book"]]
 );
-$chapters = fetch_as_array('SELECT * FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
+$chapters = fetch_as_array('SELECT *, book_chapters.title AS "chapterTitle" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
@@ -53,7 +53,7 @@ $chapters = fetch_as_array('SELECT * FROM `book_chapters` INNER JOIN books ON (b
                     echo '
                         <tr>
                             <td>'.$chapterIndex.'</td>
-                            <td>'.$chapter["title"].'</td>
+                            <td>'.$chapter["chapterTitle"].'</td>
                             <td><a title="Joe Roe, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:PDF_icon.svg"><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                             <td><a href="https://www.example.com"><u>Forum</u></a></td>
                         </tr>        
