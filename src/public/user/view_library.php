@@ -65,7 +65,7 @@ $theme = 'dark';
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["books.id"] . '"><u>' . $book["title"] . '</u></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["books.id"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
                             <td>' . $book["description"] . '</td>
                         </tr>        
                     ';
