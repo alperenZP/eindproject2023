@@ -17,7 +17,7 @@ $book = fetchSingle(
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 $chapters = fetch_as_array(
-    'SELECT *, book_chapters.title AS "chapterTitle", books.id AS bookid, chapters.id AS chapterid FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
+    'SELECT *, book_chapters.title AS "chapterTitle", books.id AS "bookid", chapters.id AS "chapterid" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
