@@ -109,8 +109,8 @@ $chapters = fetch_as_array(
                     ';
                     if ($_SESSION['user']['isTeacher']){
                         echo '
-                            <td><button class="btn btn-warning">✏️</button></td>
-                            <td><button class="btn btn-error">❌</button></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_chapter.php?id='.$chapter["id"].'"><button class="btn btn-warning">✏️</button></a></td>
+                            <td><a><button class="btn btn-error">❌</button></a></td>
                         ';
                     }
                     echo '
