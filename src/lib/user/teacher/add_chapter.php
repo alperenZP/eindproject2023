@@ -21,33 +21,35 @@ if (isset($_POST['add'])) {
     $file = $_FILES['pdf'];
 
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-$imageName = uniqid() . '.' . $extension;
-$imageTmpName = $file['tmp_name'];
+    $pdfCode = uniqid();
+    $pdfName = $pdfCode . '.' . $extension;
+    $pdfTmpName = $file['tmp_name'];
 
-$targetDir = PUBLIC_R . "/images/";
-$targetFile = $targetDir . $imageName;
-move_uploaded_file($imageTmpName, $targetFile);
+    $targetDir = PUBLIC_R . "/pdf/";
+    $targetFile = $targetDir . $pdfName;
+    move_uploaded_file($pdfTmpName, $targetFile);
 
     $lastChapter = fetch(
         'SELECT * FROM book_chapters WHERE bookid = ? ORDER BY chapterIndex DESC LIMIT 1',
         ["type" => "i", "value" => $bookid]
     );
 
-    if (isset($lastChapter["chapterIndex"])){
+    if (isset($lastChapter["chapterIndex"])) {
         $lastChapterIndex = $lastChapter["chapterIndex"] + 1;
     } else {
         $lastChapterIndex = 0;
     }
 
 
-    $query = 'INSERT INTO book_chapters (bookid, title, chapterIndex) VALUES (?, ?, ?)';
+    $query = 'INSERT INTO book_chapters (bookid, title, chapterIndex, pdf_code) VALUES (?, ?, ?, ?)';
     insert(
         $query,
         ['type' => 'i', 'value' => $bookid],
         ['type' => 's', 'value' => '' . $title . ''],
-        ['type' => 'i', 'value' => $lastChapterIndex]
+        ['type' => 'i', 'value' => $lastChapterIndex],
+        ['type' => 's', 'value' => $pdfCode],
     );
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php?bookid='.$bookid.'');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php?bookid=' . $bookid . '');
     exit();
 }
 
