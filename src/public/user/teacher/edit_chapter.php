@@ -16,8 +16,9 @@ require_once LIB . '/util/util.php';
 $theme = 'dark';
 $chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["id"]]);
 $chapters = fetch_as_array(
-    'SELECT * FROM `book_chapters` WHERE bookid = ?',
-    ['type' => 'i', 'value' => $chapter["bookid"]]
+    'SELECT * FROM `book_chapters` WHERE bookid = ? AND id != ?',
+    ['type' => 'i', 'value' => $chapter["bookid"]],
+    ['type' => 'i', 'value' => $_GET["id"]]
 );
 ?>
 
@@ -51,6 +52,15 @@ $chapters = fetch_as_array(
                 <input type="file" name="pdf" accept=".pdf" class="file-input file-input-bordered w-full max-w-xs"/>
             </label>
         </div>
+        <select class="select select-bordered w-full max-w-xs" name="new_position" required>
+            <option disabled selected value="">Positie instellen op vóór:</option>
+            <?php
+                foreach ($chapters as $chap) {
+                    $chapterIndex = $chap["chapterIndex"] + 1;
+                    echo '<option value="' . $chap["id"] . '">'.$chapterIndex.' | ' . $chap["title"] . '</option>';
+                };
+            ?>
+        </select>
 
         <button name="edit" class="btn btn-primary">Wijzig hoofdstuk</button>
     </form>
