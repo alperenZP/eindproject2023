@@ -35,7 +35,7 @@ $books = fetch_as_array('SELECT * FROM `books` WHERE creatorid = '.$_SESSION["us
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Controleer wie er aan uw boeken is gekoppeld</h1>
     <div class="dropdown">
-            <div tabindex="0" role="button" class="btn m-1">Sorteer op boek</div>
+            <div tabindex="0" role="button" class="btn btn-primary m-1">Sorteer op boek</div>
             <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                 <?php
                     foreach ($books as $book) {
