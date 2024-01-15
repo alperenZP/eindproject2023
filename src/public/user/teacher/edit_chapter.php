@@ -15,6 +15,10 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 $chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["id"]]);
+$chapters = fetch_as_array(
+    'SELECT * FROM `book_chapters` WHERE bookid = ?',
+    ['type' => 'i', 'value' => $chapter["bookid"]]
+);
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +52,6 @@ $chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'va
             </label>
         </div>
 
-        <button name="add" class="btn btn-primary">Voeg hoofdstuk toe</button>
+        <button name="edit" class="btn btn-primary">Wijzig hoofdstuk</button>
     </form>
 </div>
