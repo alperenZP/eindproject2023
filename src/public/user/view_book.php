@@ -76,6 +76,14 @@ $chapters = fetch_as_array(
                     <th>Hoofdstuk</th>
                     <th>PDF</th>
                     <th>Vragen</th>
+                    <?php
+                        if ($_SESSION['user']['isTeacher']){
+                            echo '
+                                <th> </th>
+                                <th> </th>
+                            ';
+                        }
+                    ?>
                 </tr>
                 <!-- row -->
                 <?php
@@ -96,9 +104,16 @@ $chapters = fetch_as_array(
                             <td> </td>
                         ';
                     }
-
                     echo '        
                             <td><a href="https://www.example.com"><u>Forum</u></a></td>
+                    ';
+                    if ($_SESSION['user']['isTeacher']){
+                        echo '
+                            <td><button class="btn btn-warning">✏️</button></td>
+                            <td><button class="btn btn-error">❌</button></td>
+                        ';
+                    }
+                    echo '
                         </tr>
                     ';
                 }
