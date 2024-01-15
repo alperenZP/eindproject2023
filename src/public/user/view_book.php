@@ -17,7 +17,9 @@ $book_access = fetch(
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
-if ($book_access["amount"] == 0){
+$book_creator = fetch('SELECT *, count(*) AS "amount" FROM books WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' AND books.id = ?', ['type' => 'i', 'value' => $_GET["book"]]);
+
+if ($book_access["amount"] == 0 || $book_creator["amount"] == 0){
     header('Location: https://bibliotheek.live');
     exit();
 }
