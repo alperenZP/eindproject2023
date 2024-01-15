@@ -64,7 +64,7 @@ $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON
                 <!-- row -->
 
                 <?php
-                foreach ($book as $created_books) {
+                foreach ($created_books as $book) {
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
