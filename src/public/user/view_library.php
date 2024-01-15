@@ -19,6 +19,8 @@ $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN 
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
+$created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' GROUP BY books.id');
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +62,18 @@ $theme = 'dark';
                     <td>Beschrijving</td>
                 </tr>
                 <!-- row -->
+
                 <?php
+                foreach ($book as $created_books) {
+                    echo '
+                        <tr>
+                            <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["bookid"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
+                            <td>' . $book["description"] . '</td>
+                        </tr>        
+                    ';
+                }
+
                 foreach ($books as $book) {
                     echo '
                         <tr>
