@@ -39,7 +39,7 @@ $books = fetch_as_array('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i
         echo '
             <div role="alert" class="alert alert-success">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Het hoofdstuk is met succes aan het boek toegevoegd. Klik <a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid='.$_GET["bookid"].'"><b>hier</b></a> om uw boek te delen.</span>
+                <span>Het hoofdstuk is met succes aan het boek toegevoegd. Klik <a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid=' . $_GET["bookid"] . '"><b>hier</b></a> om uw boek te delen.</span>
             </div>
             <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
         ';
@@ -52,17 +52,25 @@ $books = fetch_as_array('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i
         <li class="step">Deel</li>
     </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
+        enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
                 <input type="text" name="title" placeholder="Hoofdstuk titel" class="input input-bordered" required />
             </div>
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Upload een PDF-bestand</span>
+                </div>
+                <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+            </label>
             <select class="select select-bordered w-full max-w-xs" name="bookid" required>
                 <option disabled selected value="">Boek</option>
                 <?php
                 foreach ($books as $book) {
                     echo '<option value="' . $book["id"] . '">' . $book["title"] . '</option>';
-                };
+                }
+                ;
                 ?>
             </select>
         </div>
