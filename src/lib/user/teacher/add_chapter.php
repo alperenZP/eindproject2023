@@ -18,6 +18,15 @@ if (isset($_POST['add'])) {
     $creatorid = $_SESSION["user"]["id"];
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
+    $file = $_FILES['pdf'];
+
+    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+$imageName = uniqid() . '.' . $extension;
+$imageTmpName = $file['tmp_name'];
+
+$targetDir = PUBLIC_R . "/images/";
+$targetFile = $targetDir . $imageName;
+move_uploaded_file($imageTmpName, $targetFile);
 
     $lastChapter = fetch(
         'SELECT * FROM book_chapters WHERE bookid = ? ORDER BY chapterIndex DESC LIMIT 1',

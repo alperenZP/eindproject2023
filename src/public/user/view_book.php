@@ -87,9 +87,9 @@ $chapters = fetch_as_array(
                             <td>' . $chapter["chapterTitle"] . '</td>
                     ';
 
-                    if ($chapter["hasText"]) {
+                    if ($chapter["pdf_code"] != "") {
                         echo '
-                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/bid' . $chapter["bookid"] . '_hid' . $chapter["chapterid"] . '.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
+                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/'.$chapter["pdf_code"].'.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                         ';
                     } else {
                         echo '
