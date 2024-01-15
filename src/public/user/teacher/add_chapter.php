@@ -62,7 +62,7 @@ $books = fetch_as_array('SELECT * FROM books WHERE creatorid = ?', ['type' => 'i
                 <div class="label">
                     <span class="label-text">Upload een PDF-bestand</span>
                 </div>
-                <input type="file" accept=".pdf" class="file-input file-input-bordered w-full max-w-xs" />
+                <input type="file" name="pdf" accept=".pdf" class="file-input file-input-bordered w-full max-w-xs" />
             </label>
             <select class="select select-bordered w-full max-w-xs" name="bookid" required>
                 <option disabled selected value="">Boek</option>
