@@ -5,7 +5,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
 if (isset($_POST['edit'])) {
-    $bookid = $_POST['bookid'];
+    $chapterid = $_POST['chapterid'];
     $title = $_POST['title'];
     $new_position = $_POST["new_position"];
 
@@ -21,12 +21,12 @@ if (isset($_POST['edit'])) {
         move_uploaded_file($pdfTmpName, $targetFile);
     }
 
-    $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE bookid = ?';
+    $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE id = ?';
     insert(
         $query,
         ['type' => 's', 'value' => '' . $title . ''],
         ['type' => 'i', 'value' => $new_position],
-        ['type' => 'i', 'value' => $bookid],
+        ['type' => 'i', 'value' => $chapterid],
     );
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
