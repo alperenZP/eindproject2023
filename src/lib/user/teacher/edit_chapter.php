@@ -10,14 +10,16 @@ if (isset($_POST['edit'])) {
     $file = $_FILES['pdf'];
     $new_position = $_POST["new_position"];
 
-    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $pdfCode = $_POST["pdf_code"];
-    $pdfName = $pdfCode . '.' . $extension;
-    $pdfTmpName = $file['tmp_name'];
+    if (isset($file)) {
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $pdfCode = $_POST["pdf_code"];
+        $pdfName = $pdfCode . '.' . $extension;
+        $pdfTmpName = $file['tmp_name'];
 
-    $targetDir = PUBLIC_R . "/pdf/";
-    $targetFile = $targetDir . $pdfName;
-    move_uploaded_file($pdfTmpName, $targetFile);
+        $targetDir = PUBLIC_R . "/pdf/";
+        $targetFile = $targetDir . $pdfName;
+        move_uploaded_file($pdfTmpName, $targetFile);
+    }
 
     $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE bookid = ?';
     insert(
