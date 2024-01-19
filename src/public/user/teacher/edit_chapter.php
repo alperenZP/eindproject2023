@@ -56,6 +56,7 @@ $chapters = fetch_as_array(
             echo '
                 <input type="hidden" value="'.$chapter["pdf_code"].'" name="pdf_code">
                 <input type="hidden" value="'.$_GET["id"].'" name="chapterid">
+                <input type="hidden" value="'.$chapter["bookid"].'" name="bookid">
             ';
         ?>
         <button name="edit" class="btn btn-primary">Wijzig hoofdstuk</button>
