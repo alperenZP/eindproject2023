@@ -36,7 +36,7 @@ if (isset($_POST['edit'])) {
         ['type' => 's', 'value' => '' . $title . ''],
         ['type' => 'i', 'value' => $lastChapterIndex],
     );
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?bookid=' . $bookid . '');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
 }
 
