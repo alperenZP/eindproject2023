@@ -52,7 +52,7 @@ $chapters = fetch_as_array(
                 <input type="file" name="pdf" accept=".pdf" class="file-input file-input-bordered w-full max-w-xs"/>
             </label>
         </div>
-        <select class="select select-bordered w-full max-w-xs" name="new_position" required>
+        <select class="select select-bordered w-full max-w-xs" name="new_position">
             <option disabled selected value="">Positie instellen op vóór:</option>
             <?php
                 foreach ($chapters as $chap) {
