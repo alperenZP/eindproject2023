@@ -15,6 +15,7 @@ if (!$_SESSION["user"]["isTeacher"]) {
 }
 
 if (isset($_POST['edit'])) {
+    $bookid = $_POST['bookid'];
     $title = $_POST['title'];
     $file = $_FILES['pdf'];
     $new_position = $_POST["new_position"];

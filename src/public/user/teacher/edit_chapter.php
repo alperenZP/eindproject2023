@@ -62,7 +62,10 @@ $chapters = fetch_as_array(
             ?>
         </select>
         <?php
-            echo '<input type="hidden" value="'.$chapter["pdf_code"].'" name="pdf_code">';
+            echo '
+                <input type="hidden" value="'.$chapter["pdf_code"].'" name="pdf_code">
+                <input type="hidden" value="'.$chapter["bookid"].'" name="bookid">
+            ';
         ?>
         <button name="edit" class="btn btn-primary">Wijzig hoofdstuk</button>
     </form>
