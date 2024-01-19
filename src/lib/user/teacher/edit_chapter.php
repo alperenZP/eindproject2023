@@ -24,7 +24,7 @@ if (isset($_POST['edit'])) {
         $query,
         ['type' => 'i', 'value' => $bookid],
         ['type' => 's', 'value' => '' . $title . ''],
-        ['type' => 'i', 'value' => $lastChapterIndex],
+        ['type' => 'i', 'value' => $new_position],
     );
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
