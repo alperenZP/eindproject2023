@@ -24,9 +24,9 @@ if (isset($_POST['edit'])) {
     $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE bookid = ?';
     insert(
         $query,
-        ['type' => 'i', 'value' => $bookid],
         ['type' => 's', 'value' => '' . $title . ''],
         ['type' => 'i', 'value' => $new_position],
+        ['type' => 'i', 'value' => $bookid],
     );
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
