@@ -61,10 +61,12 @@ $chapters = fetch_as_array(
         <div class="card-body">
             <p>
                 <?php
-                    echo $book["description"] . '
-                    <br><br>
-                    <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid='.$_GET["book"].'">Link naar code</a></b>
-                    ';
+                    echo $book["description"];
+
+                    if ($_SESSION['user']['isTeacher']){
+                        echo '<br><br>
+                        <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid='.$_GET["book"].'">Link naar code</a></b>';
+                    }
                 ?>
             </p>
         </div>
