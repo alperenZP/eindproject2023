@@ -5,6 +5,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
 if (isset($_POST['edit'])) {
+    $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $title = $_POST['title'];
     $new_position = $_POST["new_position"];
