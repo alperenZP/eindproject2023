@@ -7,10 +7,10 @@ require_once LIB . '/util/util.php';
 if (isset($_POST['edit'])) {
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
-    $file = $_FILES['pdf'];
     $new_position = $_POST["new_position"];
 
-    if (isset($file)) {
+    if (isset($_FILES['pdf'])) {
+        $file = $_FILES['pdf'];
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $pdfCode = $_POST["pdf_code"];
         $pdfName = $pdfCode . '.' . $extension;
