@@ -22,6 +22,13 @@ if (isset($_POST['edit'])) {
         move_uploaded_file($pdfTmpName, $targetFile);
     }
 
+    $query = 'UPDATE book_chapters SET chapterIndex = chapterIndex - 1 WHERE bookid = ? AND chapterIndex = ?';
+    insert(
+        $query,
+        ['type' => 'i', 'value' => $bookid],
+        ['type' => 'i', 'value' => $new_position + 1],
+    );
+
     $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE id = ?';
     insert(
         $query,
@@ -30,12 +37,7 @@ if (isset($_POST['edit'])) {
         ['type' => 'i', 'value' => $chapterid],
     );
 
-    $query = 'UPDATE book_chapters SET chapterIndex = chapterIndex + 1 WHERE bookid = ? AND chapterIndex > ?';
-    insert(
-        $query,
-        ['type' => 'i', 'value' => $bookid],
-        ['type' => 'i', 'value' => $new_position],
-    );
+    
 
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
