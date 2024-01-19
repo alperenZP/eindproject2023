@@ -8,7 +8,6 @@ if (isset($_POST['edit'])) {
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $title = $_POST['title'];
-    $new_position = $_POST["new_position"];
 
     if (isset($_FILES['pdf'])) {
         $file = $_FILES['pdf'];
@@ -22,18 +21,10 @@ if (isset($_POST['edit'])) {
         move_uploaded_file($pdfTmpName, $targetFile);
     }
 
-    $query = 'UPDATE book_chapters SET chapterIndex = chapterIndex - 1 WHERE bookid = ? AND chapterIndex = ?';
-    insert(
-        $query,
-        ['type' => 'i', 'value' => $bookid],
-        ['type' => 'i', 'value' => $new_position + 1],
-    );
-
-    $query = 'UPDATE book_chapters SET title = ?, chapterIndex = ? WHERE id = ?';
+    $query = 'UPDATE book_chapters SET title = ? WHERE id = ?';
     insert(
         $query,
         ['type' => 's', 'value' => '' . $title . ''],
-        ['type' => 'i', 'value' => $new_position],
         ['type' => 'i', 'value' => $chapterid],
     );
 
