@@ -29,7 +29,7 @@ $book = fetch(
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 $chapters = fetch_as_array(
-    'SELECT *, book_chapters.title AS "chapterTitle", books.id AS "bookid", book_chapters.id AS "chapterid" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ?',
+    'SELECT *, book_chapters.title AS "chapterTitle", books.id AS "bookid", book_chapters.id AS "chapterid" FROM `book_chapters` INNER JOIN books ON (books.id = book_chapters.bookid) WHERE bookid = ? ORDER BY ',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
@@ -92,11 +92,13 @@ $chapters = fetch_as_array(
                 </tr>
                 <!-- row -->
                 <?php
+                $counter = 0;
+
                 foreach ($chapters as $chapter) {
-                    $chapterIndex = $chapter["chapterIndex"] + 1;
+                    $counter + 1;
                     echo '
                         <tr>
-                            <td>' . $chapterIndex . '</td>
+                            <td>' . $counter . '</td>
                             <td>' . $chapter["chapterTitle"] . '</td>
                     ';
 
