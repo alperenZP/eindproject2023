@@ -15,7 +15,8 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
-$book = fetch('SELECT * FROM books WHERE id = ?', ['type' => 'i', 'value' => $_GET["book"]]);
+$chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["chapter"]]);
+$book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
 ?>
 
 <!DOCTYPE html>
@@ -29,16 +30,11 @@ $book = fetch('SELECT * FROM books WHERE id = ?', ['type' => 'i', 'value' => $_G
     <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-    <title>Voeg hoofdstuk toe</title>
+    <title>Stuur vraag</title>
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over </h1>
-    <ul class="steps">
-        <li class="step step-primary">Creëer</li>
-        <li class="step step-primary">Schrijf</li>
-        <li class="step">Deel</li>
-    </ul>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">

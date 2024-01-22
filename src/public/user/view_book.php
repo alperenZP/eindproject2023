@@ -111,9 +111,16 @@ $chapters = fetch_as_array(
                             <td> </td>
                         ';
                     }
-                    echo '        
-                            <td><a href="https://www.example.com"><u>Forum</u></a></td>
-                    ';
+                    if ($_SESSION['user']['isTeacher']){
+                        echo '        
+                            <td><a href="https://www.example.com"><u>Vragen</u></a></td>
+                        ';
+                    } else {
+                        echo '
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/start_chat.php?id='.$chapter["chapterid"].'"><button class="btn btn-warning">Stuur vraag</button></a></td>
+                        ';
+                    }
+                    
                     if ($_SESSION['user']['isTeacher']){
                         echo '
                             <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_chapter.php?id='.$chapter["chapterid"].'"><button class="btn btn-warning">✏️</button></a></td>
