@@ -34,31 +34,23 @@ $book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over </h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over <?php echo $chapter["title"];?></h1>
+    <h1 class="sm:text-center md:text-center text-2xl font-bold mb-2">Boek <?php echo $book["title"]?></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <input type="text" name="title" placeholder="Hoofdstuk titel" class="input input-bordered" required />
+                <input type="text" name="title" placeholder="Vraag onderwerp" class="input input-bordered" required />
             </div>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
-                    <span class="label-text">Upload een PDF-bestand</span>
+                    <span class="label-text">Upload een afbeelding als bijlage</span>
                 </div>
-                <input type="file" name="pdf" accept=".pdf" class="file-input file-input-bordered w-full max-w-xs" required/>
+                <input type="file" name="afbeelding" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs" required/>
             </label>
-            <select class="select select-bordered w-full max-w-xs" name="bookid" required>
-                <option disabled selected value="">Boek</option>
-                <?php
-                foreach ($books as $book) {
-                    echo '<option value="' . $book["id"] . '">' . $book["title"] . '</option>';
-                }
-                ;
-                ?>
-            </select>
         </div>
 
-        <button name="add" class="btn btn-primary">Voeg hoofdstuk toe</button>
-    </form>
+        <button name="add" class="btn btn-primary">Stuur vraag</button>
+    </form>t
 </div>
