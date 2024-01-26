@@ -35,7 +35,7 @@ $book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over <?php echo $chapter["title"];?></h1>
-    <h1 class="sm:text-center md:text-center text-2xl font-bold mb-2">Boek <?php echo $book["title"]?></h1>
+    <h1 class="sm:text-center md:text-center text-2xl font-bold mb-2">Boek: <i><?php echo $book["title"]?></i></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
@@ -52,5 +52,5 @@ $book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
         </div>
 
         <button name="add" class="btn btn-primary">Stuur vraag</button>
-    </form>t
+    </form>
 </div>
