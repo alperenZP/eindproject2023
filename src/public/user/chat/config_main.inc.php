@@ -74,7 +74,7 @@
   $timeOffset = 0;
 
   // allow URLs (true = yes, false = no)
-  $allowURLs = false;
+  $allowURLs = true;
 
   // allow HTML tags (true = yes, false = no)
   $allowHTML = false;
