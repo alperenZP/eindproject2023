@@ -6,8 +6,6 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
-$chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["chapter"]]);
-$book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
 ?>
 
 <!DOCTYPE html>
