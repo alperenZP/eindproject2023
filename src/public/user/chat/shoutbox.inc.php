@@ -47,7 +47,7 @@
 // Main
 //========================================================================================================
 
-	if($boxFolder && !preg_match('%/$%', $boxFolder)) $boxFolder .= '/';
+	$boxFolder = 'https://bibliotheek.live/alperenGit/src/public/user/chat/';
 ?>
 <script type="text/javascript"> <!--
 var shout_popup = 0;
