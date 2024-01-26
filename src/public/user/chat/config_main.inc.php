@@ -88,7 +88,7 @@
 
   // enable link check against spam bots (true = yes, false = no)
   // NOTE: works only if $allowURLs is false
-  $enableLinkCheck = true;
+  $enableLinkCheck = false;
 
   // enable user agent check against spam bots (true = yes, false = no)
   // NOTE: if enabled, some browsers might be mistaken for spam bots
