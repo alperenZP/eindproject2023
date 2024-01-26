@@ -27,12 +27,9 @@
 // Includes
 //========================================================================================================
 
-	if($HTTP_HOST == 'localhost' || $HTTP_HOST == '127.0.0.1' || $HTTP_HOST == '192.168.0') {
-		include('config_local.inc.php');
-	}
-	else {
-		include('config_main.inc.php');
-	}
+	
+	include('config_main.inc.php');
+
 	if(!isset($language)) $language = 'en';
 	include("languages/lang_$language.inc.php");
 	include('smilies.inc');
