@@ -95,7 +95,7 @@ $chapters = fetch_as_array(
                 $counter = 0;
 
                 foreach ($chapters as $chapter) {
-                    $counter + 1;
+                    $counter += 1;
                     echo '
                         <tr>
                             <td>' . $counter . '</td>
