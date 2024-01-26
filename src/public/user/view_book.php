@@ -117,7 +117,7 @@ $chapters = fetch_as_array(
                         ';
                     } else {
                         echo '
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/start_chat.php?id='.$chapter["chapterid"].'"><button class="btn btn-warning">Stuur vraag</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/start_chat.php?chapter='.$chapter["chapterid"].'"><button class="btn btn-warning">Stuur vraag</button></a></td>
                         ';
                     }
                     
