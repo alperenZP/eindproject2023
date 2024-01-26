@@ -21,8 +21,9 @@ $theme = 'dark';
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
     <title>Stuur vraag</title>
 </head>
+<?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat box</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over <?php echo $chapter["title"];?></h1>
     <?php
         include 'shoutbox.inc.php';
     ?>
