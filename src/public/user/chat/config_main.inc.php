@@ -46,7 +46,7 @@
   $boxWidth = 1000;
 
   // shout-box height (pixels)
-  $boxHeight = 300;
+  $boxHeight = 500;
 
   // maximum entries in shout-box (higher values = more traffic!)
   $boxEntries = 20;
