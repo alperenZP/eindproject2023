@@ -142,7 +142,7 @@ function checkKeyCode(e) {
 ?>
 	<td colspan="2">
 		<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr>
-		<td class="cssShoutText"><?php echo $msg['message']; ?>:</td>
+		<td class="cssShoutText"><?php echo $msg['message'] .'FROOF'; ?>:</td>
 		<td align="right"><input type="button" value="<?php echo $msg['smilies']; ?>" class="cssShoutButton" onClick="newWindow('<?php echo $boxFolder; ?>smilies.php', 130, 300, 0, 0, 1)"></td>
 		</tr></table>
 <?php
