@@ -201,7 +201,21 @@
 			</div>
 			<div class="<?php echo $class; ?>" style="background-color:<?php echo $bgcolor; ?>">
 			<?php if($email) echo '<a href="mailto:' . $email . '">'; ?>
-			<b><?php echo $name; ?>:</b><?php if($email) echo '</a>'; ?> <?php echo $text . 'FROOF'; ?>
+
+			<b><?php echo '
+				<div class="chat chat-start">
+  				<div class="chat-header">
+    				'.$name.'
+  				</div>';
+				?>:
+			</b>
+			<?php if($email) echo '</a>'; ?> 
+			<?php echo '
+					<div class="chat-bubble">'.$text.'</div>			
+					</div>
+				'; 
+			?>
+
 			</div>
 <?php
 		}
