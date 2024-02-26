@@ -43,7 +43,7 @@
   $boxFolder = "shoutbox";
 
   // shout-box width (pixels)
-  $boxWidth = 180;
+  $boxWidth = 1000;
 
   // shout-box height (pixels)
   $boxHeight = 300;
