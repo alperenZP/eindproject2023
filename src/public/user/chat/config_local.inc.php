@@ -43,10 +43,10 @@
   $boxFolder = "shoutbox";
 
   // shout-box width (pixels)
-  $boxWidth = 180;
+  $boxWidth = 500;
 
   // shout-box height (pixels)
-  $boxHeight = 300;
+  $boxHeight = 500;
 
   // maximum entries in shout-box (higher values = more traffic!)
   $boxEntries = 20;
@@ -74,10 +74,10 @@
   $timeOffset = 0;
 
   // allow URLs (true = yes, false = no)
-  $allowURLs = false;
+  $allowURLs = true;
 
   // allow HTML tags (true = yes, false = no)
-  $allowHTML = false;
+  $allowHTML = true;
 
   // allow UBB codes (true = yes, false = no)
   $allowUBBs = true;
