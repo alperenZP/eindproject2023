@@ -201,7 +201,7 @@
 			</div>
 			<div class="<?php echo $class; ?>" style="background-color:<?php echo $bgcolor; ?>">
 			<?php if($email) echo '<a href="mailto:' . $email . '">'; ?>
-			<b><?php echo $name; ?>:</b><?php if($email) echo '</a>'; ?> <?php echo $text; ?>
+			<b><?php echo $name; ?>:</b><?php if($email) echo '</a>'; ?> <?php echo $text . 'FROOF'; ?>
 			</div>
 <?php
 		}
