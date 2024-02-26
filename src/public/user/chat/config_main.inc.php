@@ -58,7 +58,7 @@
   $inputsPosition = "bottom";
 
   // message order: ASC (new at bottom) or DESC (new on top)
-  $messageOrder = "DESC";
+  $messageOrder = "ASC";
 
   // message background colors (must be 2 colors)
   $messageBGColors = array("#FFFFFF", "#F6F6F6");
@@ -77,7 +77,7 @@
   $allowURLs = true;
 
   // allow HTML tags (true = yes, false = no)
-  $allowHTML = false;
+  $allowHTML = true;
 
   // allow UBB codes (true = yes, false = no)
   $allowUBBs = true;
