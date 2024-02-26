@@ -65,10 +65,10 @@
 
   // maximum word length (0 = no limit)
   // NOTE: should be 0 for non-European languages (Asian, Arabic, etc.)
-  $wordLength = 30;
+  $wordLength = 0;
 
   // maximum text length (0 = no limit)
-  $textLength = 300;
+  $textLength = 0;
 
   // adjust hour of server time (e.g. 1, 2, -1, -2, etc.)
   $timeOffset = 0;
