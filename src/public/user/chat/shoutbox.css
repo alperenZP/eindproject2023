@@ -15,14 +15,14 @@ A:hover {
 .cssShoutBox {
   background-color: #FFFFFF;
   border: 10px solid #EEEEEE;
-  border-radius: 25%;
+  border-radius: 10%;
 }
 .cssShoutForm {
   font-family: Arial, Helvetica;
   font-size: 11px;
   background-color: #E0F0FF;
   border: 2px solid #EEEEEE;
-  border-radius: 25%;
+  border-radius: 10%;
 }
 .cssShoutButton {
   font-family: Arial, Helvetica;
@@ -55,7 +55,7 @@ A:hover {
 .cssShoutPressed {
   background-color: #FFFFC0;
   border: 2px solid #EEEEEE;
-  border-radius: 25%;
+  border-radius: 10%;
   width: 14px;
   height: 14px;
   padding-left: 3px;
