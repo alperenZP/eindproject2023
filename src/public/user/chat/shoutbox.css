@@ -21,7 +21,8 @@ A:hover {
   font-family: Arial, Helvetica;
   font-size: 11px;
   background-color: #E0F0FF;
-  border: 2px inset #EEEEEE;
+  border: 2px solid #EEEEEE;
+  border-radius: 25%;
 }
 .cssShoutButton {
   font-family: Arial, Helvetica;
@@ -53,7 +54,8 @@ A:hover {
 }
 .cssShoutPressed {
   background-color: #FFFFC0;
-  border: 1px inset #EEEEEE;
+  border: 2px solid #EEEEEE;
+  border-radius: 25%;
   width: 14px;
   height: 14px;
   padding-left: 3px;
