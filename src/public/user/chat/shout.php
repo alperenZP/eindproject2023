@@ -165,6 +165,7 @@
 		}
 		else {		
 			$data = read_data();
+			rsort($data);
 		}
 
 		for($i = 0; $i < count($data); $i++) {
