@@ -165,7 +165,6 @@
 		}
 		else {		
 			$data = read_data();
-			if(strtoupper($messageOrder) != 'ASC') rsort($data);
 		}
 
 		for($i = 0; $i < count($data); $i++) {
