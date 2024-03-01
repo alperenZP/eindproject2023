@@ -25,6 +25,7 @@ $theme = 'dark';
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat</h1>
     <?php
+        $_SESSION["lobbyid"] = $_GET["lobbyid"];
         include 'shoutbox.inc.php';
     ?>
 </div>

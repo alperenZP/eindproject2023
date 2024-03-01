@@ -124,9 +124,10 @@
 			$name = $mysqli->real_escape_string($name);
 			$email = $mysqli->real_escape_string($email);
 			$text = $mysqli->real_escape_string($text);
+			$lobbyid = $_SESSION["lobbyid"];
 
 			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid) ";
-			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$sbLobbyid')";
+			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$lobbyid')";
 
 			if(!$mysqli->query($sql)) $error = $mysqli->error;
 			else {
@@ -156,7 +157,8 @@
 			   $boxEntries, $boxWidth, $wordLength, $timeOffset, $reservedNames, $dateFormat;
 
 		if(!empty($mysqli)) {
-			$sql = "SELECT * FROM $tbl_name WHERE $fld_lobbyid = $sbLobbyid ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries";
+			$lobbyid = $_SESSION["lobbyid"];
+			$sql = "SELECT * FROM $tbl_name WHERE $fld_lobbyid = $lobbyid ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries";
 			$result = $mysqli->query($sql);
 			$data = [];
 			while($row = $result->fetch_row()) $data[] = $row;
