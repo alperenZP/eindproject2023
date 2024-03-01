@@ -72,7 +72,7 @@
   $textLength = 0;
 
   // adjust hour of server time (e.g. 1, 2, -1, -2, etc.)
-  $timeOffset = 0;
+  $timeOffset = 6;
 
   // allow URLs (true = yes, false = no)
   $allowURLs = true;
