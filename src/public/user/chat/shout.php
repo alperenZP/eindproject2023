@@ -178,7 +178,7 @@
 		for($i = 0; $i < count($data); $i++) {
 			$id = $data[$i][0];
 			$tstamp = timeStamp($data[$i][1]);			
-			$name = $_SESSION["user"]["username"];
+			$name = !empty($data[$i][2]) ? format($data[$i][2], $wordLength, $boxWidth - 22, true) : '???';			
 			$email = (!empty($data[$i][3]) && strstr($data[$i][3], '@')) ? $data[$i][3] : '';
 			$text = format($data[$i][4], $wordLength, $boxWidth - 22, false);
 			$bgcolor = (empty($bgcolor) || $bgcolor != $messageBGColors[0]) ? $messageBGColors[0] : $messageBGColors[1];
