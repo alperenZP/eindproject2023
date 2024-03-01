@@ -214,11 +214,11 @@
 				<link rel="stylesheet" href="/alperenGit/public/css/theme.css">
 				</head>
 				<div class="chat chat-start">
-				
+
   				<div class="chat-header">
     				'.$name.'
   				</div>';
-				?>:
+				?>
 			</b>
 			<?php if($email) echo '</a>'; ?> 
 			<?php echo '
