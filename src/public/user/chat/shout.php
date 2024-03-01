@@ -151,11 +151,11 @@
 	}
 
 	function read_entries() {
-		global $msg, $mysqli, $tbl_name, $fld_timestamp, $messageOrder, $messageBGColors,
+		global $msg, $mysqli, $tbl_name, $fld_timestamp, $messageOrder, $messageBGColors, $fld_lobbyid,
 			   $boxEntries, $boxWidth, $wordLength, $timeOffset, $reservedNames, $dateFormat;
 
 		if(!empty($mysqli)) {
-			$sql = "SELECT * FROM $tbl_name ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries";
+			$sql = "SELECT * FROM $tbl_name WHERE $fld_lobbyid = 1 ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries";
 			$result = $mysqli->query($sql);
 			$data = [];
 			while($row = $result->fetch_row()) $data[] = $row;
