@@ -109,7 +109,7 @@
 	}
 
 	function new_entry($name, $email, $text) {
-		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email,
+		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email, $fld_lobbyid,
 			   $fld_text, $boxEntries, $reservedNames, $mysqli;
 
 		$error = '';
@@ -123,9 +123,10 @@
 			$name = $mysqli->real_escape_string($name);
 			$email = $mysqli->real_escape_string($email);
 			$text = $mysqli->real_escape_string($text);
+			$currentLobbyid = $_GET["lobbyid"];
 
-			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text) ";
-			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text')";
+			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid) ";
+			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$currentLobbyid')";
 
 			if(!$mysqli->query($sql)) $error = $mysqli->error;
 			else {
@@ -151,11 +152,11 @@
 	}
 
 	function read_entries() {
-		global $msg, $mysqli, $tbl_name, $fld_timestamp, $messageOrder, $messageBGColors,
+		global $msg, $mysqli, $tbl_name, $fld_timestamp, $messageOrder, $messageBGColors, $fld_lobbyid,
 			   $boxEntries, $boxWidth, $wordLength, $timeOffset, $reservedNames, $dateFormat;
 
 		if(!empty($mysqli)) {
-			$sql = "SELECT * FROM $tbl_name ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries";
+			$sql = 'SELECT * FROM $tbl_name WHERE $fld_lobbyid = '.$_GET["lobbyid"].' ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries';
 			$result = $mysqli->query($sql);
 			$data = [];
 			while($row = $result->fetch_row()) $data[] = $row;
