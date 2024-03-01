@@ -84,11 +84,10 @@ function refreshBox() {
 }
 
 function shoutIt() {
-	document.fShout.admin.value = "";
-	document.fShout.submit();
 	setTimeout("document.fShout.sbText.value=''", 1000);
 	setTimeout("document.fShout.Shout.disabled=false", 1000);
-	setTimeout("document.fShout.Refresh.disabled=false", 1000);
+	document.fShout.admin.value = "";
+	document.fShout.submit();
 }
 
 function login() {
