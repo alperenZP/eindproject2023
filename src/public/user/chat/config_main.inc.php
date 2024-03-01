@@ -50,7 +50,7 @@
   $boxHeight = 700;
 
   // maximum entries in shout-box (higher values = more traffic!)
-  $boxEntries = 20;
+  $boxEntries = 1000;
 
   // refresh shout-box every .. seconds (lower values = more traffic!)
   $boxRefresh = 1;
