@@ -88,6 +88,7 @@ function shoutIt() {
 	document.fShout.submit();
 	setTimeout("document.fShout.sbText.value=''", 1000);
 	setTimeout("document.fShout.Shout.disabled=false", 1000);
+	refreshBox();
 }
 
 function login() {
@@ -140,7 +141,6 @@ function checkKeyCode(e) {
 ?>
 <td>
 	<table border="0" cellspacing="0" cellpadding="0" width="<?php echo $boxWidth; ?>"><tr>
-	<td class="cssShoutText"><?php echo $msg['name']; ?>:</td>
 	<td align="right"><input type="hidden" name="sbName" value='<?php echo $_SESSION["user"]["username"]?>'></td>
 	</tr><tr>
 <?php
