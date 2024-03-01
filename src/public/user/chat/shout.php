@@ -324,7 +324,7 @@
 		}
 	}
 	else {
-
+		read_entries();
 		if(!empty($admin) && $admin != $_SESSION['sb_admin']) $error = $msg['wrongPass'];
 		else if(is_admin() && $delete) {
 			$error = delete_entry($delete);
@@ -336,7 +336,7 @@
 
 		if($error) echo '<div class="cssShoutError">' . $error . '</div>';
 
-		read_entries();
+		
 	}
 ?>
 	</body>
