@@ -142,6 +142,7 @@ function checkKeyCode(e) {
 	<table border="0" cellspacing="0" cellpadding="0" width="<?php echo $boxWidth; ?>"><tr>
 	<td class="cssShoutText"><?php echo $msg['name']; ?>:</td>
 	<td align="right"><input type="hidden" name="sbName" value='<?php echo $_SESSION["user"]["username"]?>'></td>
+	<input type="hidden" name="sbLobbyid" value='<?php echo $_GET["lobbyid"]?>'></td>
 	</tr><tr>
 <?php
 	if(!$hideEmail) {

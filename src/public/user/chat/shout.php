@@ -17,6 +17,7 @@
 	$sbEMail = isset($_POST['sbEMail']) ? $_POST['sbEMail'] : '';
 	$sbText = isset($_POST['sbText']) ? $_POST['sbText'] : '';
 	$sbSpr = isset($_POST['sbSpr']) ? $_POST['sbSpr'] : '';
+	$sbLobbyid = isset($_POST['sbLobbyid']) ? $_POST['sbLobbyid'] : '';
 
 	$create = isset($_POST['create']) ? $_POST['create'] : '';
 	$delete = isset($_REQUEST['delete']) ? (int) $_REQUEST['delete'] : 0;
@@ -109,7 +110,7 @@
 	}
 
 	function new_entry($name, $email, $text) {
-		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email,
+		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email, $fld_lobbyid, $sbLobbyid,
 			   $fld_text, $boxEntries, $reservedNames, $mysqli;
 
 		$error = '';
@@ -124,8 +125,8 @@
 			$email = $mysqli->real_escape_string($email);
 			$text = $mysqli->real_escape_string($text);
 
-			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text) ";
-			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text')";
+			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid) ";
+			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$sbLobbyid')";
 
 			if(!$mysqli->query($sql)) $error = $mysqli->error;
 			else {
