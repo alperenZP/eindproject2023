@@ -210,11 +210,6 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 				<link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
-				<script src="https://cdn.tailwindcss.com"></script>
-			
-				<script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
-			
-				<link rel="stylesheet" href="/alperenGit/public/css/theme.css">
 				</head>
 				<div class="chat chat-start">
 
