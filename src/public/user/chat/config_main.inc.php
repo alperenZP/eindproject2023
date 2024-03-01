@@ -59,7 +59,7 @@
   $inputsPosition = "bottom";
 
   // message order: ASC (new at bottom) or DESC (new on top)
-  $messageOrder = "ASC";
+  $messageOrder = "DESC";
 
   // message background colors (must be 2 colors)
   $messageBGColors = array("#FFFFFF", "#F6F6F6");
