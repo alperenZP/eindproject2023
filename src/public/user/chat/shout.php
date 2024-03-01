@@ -123,7 +123,7 @@
 			$name = $mysqli->real_escape_string($name);
 			$email = $mysqli->real_escape_string($email);
 			$text = $mysqli->real_escape_string($text);
-			$currentLobbyid = $_GET["lobbyid"];
+			$currentLobbyid = 1;
 
 			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid) ";
 			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$currentLobbyid')";
@@ -156,7 +156,7 @@
 			   $boxEntries, $boxWidth, $wordLength, $timeOffset, $reservedNames, $dateFormat;
 
 		if(!empty($mysqli)) {
-			$sql = 'SELECT * FROM $tbl_name ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries';
+			$sql = 'SELECT * FROM $tbl_name WHERE $fld_lobbyid = 1 ORDER BY $fld_timestamp $messageOrder LIMIT $boxEntries';
 			$result = $mysqli->query($sql);
 			$data = [];
 			while($row = $result->fetch_row()) $data[] = $row;
