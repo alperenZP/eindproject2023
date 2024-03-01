@@ -88,7 +88,6 @@ function shoutIt() {
 	document.fShout.submit();
 	setTimeout("document.fShout.sbText.value=''", 1000);
 	setTimeout("document.fShout.Shout.disabled=false", 1000);
-	refreshBox()
 }
 
 function login() {
