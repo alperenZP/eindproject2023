@@ -11,20 +11,10 @@
 //========================================================================================================
 // Set variables, if they are not registered globally; needs PHP 4.1.0 or higher
 //========================================================================================================
-	session_start();
 
-	if (!isset($_SESSION['user'])) {
-		header('Location: https://bibliotheek.live');
-		exit();
-	}
-
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
-	require_once DATABASE . '/connect.php';
-	require_once LIB . '/util/util.php';
-
-	$sbID = $_SESSION["user"]["id"];
-	$sbName = $_SESSION["user"]["username"];
-	$sbEMail = $_SESSION['user']['email'];
+	$sbID = isset($_POST['sbID']) ? $_POST['sbID'] : '';
+	$sbName = isset($_POST['sbName']) ? $_POST['sbName'] : '';
+	$sbEMail = isset($_POST['sbEMail']) ? $_POST['sbEMail'] : '';
 	$sbText = isset($_POST['sbText']) ? $_POST['sbText'] : '';
 	$sbSpr = isset($_POST['sbSpr']) ? $_POST['sbSpr'] : '';
 

@@ -34,9 +34,21 @@
 	include("languages/lang_$language.inc.php");
 	include('smilies.inc');
 
+	session_start();
+
+	if (!isset($_SESSION['user'])) {
+		header('Location: https://bibliotheek.live');
+		exit();
+	}
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
+	require_once DATABASE . '/connect.php';
+	require_once LIB . '/util/util.php';
+
 //========================================================================================================
 // Set session variables (message ID); needs PHP 4.1.0 or higher
 //========================================================================================================
+
 
 	if($enableIDs && empty($_SESSION['msgID'])) {
 		srand((double) microtime() * 1000000);
@@ -129,7 +141,7 @@ function checkKeyCode(e) {
 <td>
 	<table border="0" cellspacing="0" cellpadding="0" width="<?php echo $boxWidth; ?>"><tr>
 	<td class="cssShoutText"><?php echo $msg['name']; ?>:</td>
-	<td align="right"><input type="text" name="sbName" maxlength="20" class="cssShoutForm" style="width:<?php echo round($boxWidth * 0.65); ?>px"></td>
+	<td align="right"><input type="hidden" name="sbName" value='<?php echo $_SESSION["user"]["username"]?>'></td>
 	</tr><tr>
 <?php
 	if(!$hideEmail) {
