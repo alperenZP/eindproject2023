@@ -168,7 +168,7 @@
 			if(strtoupper($messageOrder) != 'ASC') rsort($data);
 		}
 
-		for($i = 0; $i < count($data); $i++) {
+		for($i = count($data) - 1; $i >= 0; $i--) {
 			$id = $data[$i][0];
 			$tstamp = timeStamp($data[$i][1]);			
 			$name = !empty($data[$i][2]) ? format($data[$i][2], $wordLength, $boxWidth - 22, true) : '???';			
