@@ -53,7 +53,7 @@
   $boxEntries = 20;
 
   // refresh shout-box every .. seconds (lower values = more traffic!)
-  $boxRefresh = 5;
+  $boxRefresh = 20;
 
   // input fields position (left, right, top, bottom)
   $inputsPosition = "bottom";
