@@ -17,6 +17,16 @@ $theme = 'dark';
 
 $chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["chapter"]]);
 $book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
+
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = '.$_SESSION['user']['id'].' AND bookid = ?',
+    ['type' => 'i', 'value' => $book["id"]]
+);
+
+if ($book_access["amount"] == 0){
+    header('Location: https://bibliotheek.live');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +51,7 @@ $book = fetch ('SELECT * FROM books WHERE id = ' . $chapter["bookid"]);
         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <input type="text" name="title" placeholder="Vraag onderwerp" class="input input-bordered" required />
+                <input type="text" name="title" placeholder="Wat is jouw vraag?" class="input input-bordered" required />
             </div>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
