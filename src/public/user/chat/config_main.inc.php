@@ -78,7 +78,7 @@
   $allowURLs = true;
 
   // allow HTML tags (true = yes, false = no)
-  $allowHTML = true;
+  $allowHTML = false;
 
   // allow UBB codes (true = yes, false = no)
   $allowUBBs = true;
