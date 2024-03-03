@@ -21,8 +21,6 @@ if (isset($_POST['add'])) {
     $question = $_POST['question'];
     $file = $_FILES['image'];
 
-    echo var_dump($_POST);
-
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $imgCode = uniqid();
     $imgName = $imgCode . '.' . $extension;
