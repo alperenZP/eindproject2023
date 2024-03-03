@@ -47,17 +47,19 @@ if ($book_access["amount"] == 0){
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer een vraag over <?php echo $chapter["title"];?></h1>
     <h1 class="sm:text-center md:text-center text-2xl font-bold mb-2">Boek: <i><?php echo $book["title"]?></i></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/add_chapter.php" method="post"
+    <form action="https://bibliotheek.live/alperenGit/src/lib/user/start_chat.php" method="post"
         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
-                <input type="text" name="title" placeholder="Wat is jouw vraag?" class="input input-bordered" required />
+                <input type="text" name="question" placeholder="Wat is jouw vraag?" class="input input-bordered" required />
+                <input type="hidden" name="chapterid" value="<?php echo $chapter["id"]?>" required />
+                <input type="hidden" name="bookid" value="<?php echo $book["id"]?>" required />
             </div>
             <label class="form-control w-full max-w-xs">
                 <div class="label">
                     <span class="label-text">Upload een afbeelding als bijlage</span>
                 </div>
-                <input type="file" name="afbeelding" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs" required/>
+                <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs" required/>
             </label>
         </div>
 
