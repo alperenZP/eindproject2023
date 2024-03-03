@@ -31,6 +31,8 @@ $book_creator = fetch(
     ['type' => 'i', 'value' => $lobby["bookid"]]
 );
 
+echo $book_access["amount"]. '<br> '. $book_creator["amount"];
+
 if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
     if ($lobby["senderid"] != $_SESSION['user']['id'] && !$_SESSION["user"]["isTeacher"]){
         header('Location: https://bibliotheek.live');
