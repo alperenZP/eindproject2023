@@ -9,7 +9,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-if (!$_SESSION["user"]["isTeacher"]) {
+if ($_SESSION["user"]["isTeacher"]) {
     header('Location: https://bibliotheek.live');
     exit();
 }
