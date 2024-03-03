@@ -19,7 +19,7 @@ if (isset($_POST['add'])) {
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $question = $_POST['question'];
-    $file = $_FILES['png'];
+    $file = $_FILES['image'];
 
     echo var_dump($_POST);
 
