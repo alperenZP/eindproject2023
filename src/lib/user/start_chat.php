@@ -40,8 +40,6 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $question],
         ['type' => 's', 'value' => $imgCode],
     );
-    header('Location: https://bibliotheek.live/');
-    exit();
 }
 
 echo "nah";
