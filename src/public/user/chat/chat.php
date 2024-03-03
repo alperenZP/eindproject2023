@@ -45,7 +45,7 @@ if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat</h1>
     <div class="card w-96 bg-warning shadow-xl">
         <div class="card-body">
-            <h2 class="card-title drop-shadow-xl">Vraag:</h2>
+            <h2 class="card-title drop-shadow-xl  bg-black-500">Vraag:</h2>
             <p><?php echo $lobby["question"]; ?></p>
         </div>
         <figure><img width="200px" src="https://bibliotheek.live/alperenGit/public/img/<?php echo $lobby["img_code"]?>.webp" alt="Shoes" /></figure>
