@@ -43,9 +43,6 @@ if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat</h1>
-    <div class="badge badge-primary">Vraag:</div>
-    <div class="badge badge-secondary"></div>
-
     <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
             <h2 class="card-title">Vraag:</h2>
