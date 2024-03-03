@@ -15,7 +15,7 @@ if ($_SESSION["user"]["isTeacher"]) {
 }
 
 if (isset($_POST['add'])) {
-    $creatorid = $_SESSION["user"]["id"];
+    $senderid = $_SESSION["user"]["id"];
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $question = $_POST['question'];
@@ -42,4 +42,6 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $question],
         ['type' => 's', 'value' => $imgCode],
     );
+
+    echo '<br>' . var_dump($query));
 }
