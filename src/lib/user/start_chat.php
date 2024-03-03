@@ -42,6 +42,4 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $question],
         ['type' => 's', 'value' => $imgCode],
     );
-
-    echo '<br>' . var_dump($query));
 }
