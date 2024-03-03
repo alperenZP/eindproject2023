@@ -15,14 +15,13 @@ if ($_SESSION["user"]["isTeacher"]) {
 }
 
 if (isset($_POST['add'])) {
-    echo "erkmjl";
     $creatorid = $_SESSION["user"]["id"];
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $question = $_POST['question'];
     $file = $_FILES['png'];
 
-    var_dump($_POST);
+    echo var_dump($_POST);
 
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $imgCode = uniqid();
@@ -44,5 +43,3 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $imgCode],
     );
 }
-
-echo "nah";
