@@ -6,6 +6,11 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
+if (!isset($_GET["code"])) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
+
 $lobby = fetch(
     'SELECT * FROM lobbies WHERE img_code = ?',
     ['type' => 's', 'value' => ''.$_GET["code"].'']
