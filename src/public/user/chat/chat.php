@@ -6,6 +6,25 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
+$lobby = fetch(
+    'SELECT * FROM lobbies WHERE img_code = ?',
+    ['type' => 's', 'value' => $_GET["code"]]
+);
+
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
+    ['type' => 'i', 'value' => $lobby["bookid"]]
+);
+
+$book_creator = fetch(
+    'SELECT *, count(*) AS "amount" FROM books WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' AND books.id = ?',
+    ['type' => 'i', 'value' => $lobby["bookid"]]
+);
+
+if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +43,18 @@ $theme = 'dark';
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat</h1>
+    <div class="badge badge-primary">Vraag:</div>
+    <div class="badge badge-secondary"></div>
+
+    <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">Vraag:</h2>
+            <p><?php echo $lobby["question"]; ?></p>
+        </div>
+        <figure><img src="https://bibliotheek.live/alperenGit/public/img/'<?php echo $lobby["img_code"]?>'.webp" alt="Shoes" /></figure>
+    </div>
     <?php
-        $_SESSION["lobbyid"] = $_GET["lobbyid"];
-        include 'shoutbox.inc.php';
+    $_SESSION["lobbyid"] = $lobby["id"];
+    include 'shoutbox.inc.php';
     ?>
 </div>
