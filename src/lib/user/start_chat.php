@@ -44,5 +44,4 @@ if (isset($_POST['add'])) {
     exit();
 }
 
-header('Location: https://bibliotheek.live');
-exit();
+echo "nah";
