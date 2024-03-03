@@ -12,9 +12,14 @@ if (!isset($_GET["code"])) {
 }
 
 $lobby = fetch(
-    'SELECT * FROM lobbies WHERE img_code = ?',
+    'SELECT *, count(*) AS "amount" FROM lobbies WHERE img_code = ?',
     ['type' => 's', 'value' => ''.$_GET["code"].'']
 );
+
+if ($lobby["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
 
 $book_access = fetch(
     'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
