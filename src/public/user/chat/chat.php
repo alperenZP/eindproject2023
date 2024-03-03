@@ -8,7 +8,7 @@ $theme = 'dark';
 
 $lobby = fetch(
     'SELECT * FROM lobbies WHERE img_code = ?',
-    ['type' => 's', 'value' => $_GET["code"]]
+    ['type' => 's', 'value' => ''.$_GET["code"].'']
 );
 
 $book_access = fetch(
@@ -51,7 +51,7 @@ if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
             <h2 class="card-title">Vraag:</h2>
             <p><?php echo $lobby["question"]; ?></p>
         </div>
-        <figure><img src="https://bibliotheek.live/alperenGit/public/img/'<?php echo $lobby["img_code"]?>'.webp" alt="Shoes" /></figure>
+        <figure><img src="https://bibliotheek.live/alperenGit/public/img/<?php echo $lobby["img_code"]?>.webp" alt="Shoes" /></figure>
     </div>
     <?php
     $_SESSION["lobbyid"] = $lobby["id"];
