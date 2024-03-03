@@ -43,13 +43,14 @@ if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Chat</h1>
-    <div class="card w-96 bg-green-500 shadow-xl">
+    <div class="card w-96 bg-warning shadow-xl">
         <div class="card-body">
             <h2 class="card-title">Vraag:</h2>
             <p><?php echo $lobby["question"]; ?></p>
         </div>
         <figure><img width="200px" src="https://bibliotheek.live/alperenGit/public/img/<?php echo $lobby["img_code"]?>.webp" alt="Shoes" /></figure>
     </div>
+    <div class="divider divider-secondary">Chat box</div>
     <?php
     $_SESSION["lobbyid"] = $lobby["id"];
     include 'shoutbox.inc.php';
