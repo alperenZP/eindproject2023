@@ -37,7 +37,7 @@ if (isset($_POST['add'])) {
         ['type' => 'i', 'value' => $bookid],
         ['type' => 'i', 'value' => $chapterid],
         ['type' => 'i', 'value' => $senderid],
-        ['type' => 'i', 'value' => $question],
+        ['type' => 's', 'value' => $question],
         ['type' => 's', 'value' => $imgCode],
     );
     header('Location: https://bibliotheek.live/');
