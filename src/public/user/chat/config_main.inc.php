@@ -26,6 +26,7 @@
   $fld_email = "EMail";          // field name: e-mail
   $fld_text = "Text";            // field name: text
   $fld_lobbyid = "Lobbyid";
+  $fld_senderid = "Senderid";
 
 //========================================================================================================
 // Other settings

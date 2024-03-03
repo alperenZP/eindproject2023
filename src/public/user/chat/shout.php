@@ -110,7 +110,7 @@
 	}
 
 	function new_entry($name, $email, $text) {
-		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email, $fld_lobbyid, $sbLobbyid,
+		global $tbl_name, $fld_id, $fld_timestamp, $fld_name, $fld_email, $fld_lobbyid, $fld_senderid, $sbLobbyid,
 			   $fld_text, $boxEntries, $reservedNames, $mysqli;
 
 		$error = '';
@@ -125,9 +125,10 @@
 			$email = $mysqli->real_escape_string($email);
 			$text = $mysqli->real_escape_string($text);
 			$lobbyid = $_SESSION["lobbyid"];
+			$senderid = $_SESSION["user"]["id"];
 
-			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid) ";
-			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$lobbyid')";
+			$sql = "INSERT INTO $tbl_name ($fld_timestamp, $fld_name, $fld_email, $fld_text, $fld_lobbyid, $fld_senderid) ";
+			$sql .= "VALUES ('$tstamp', '$name', '$email', '$text', '$lobbyid', '$senderid')";
 
 			if(!$mysqli->query($sql)) $error = $mysqli->error;
 			else {
