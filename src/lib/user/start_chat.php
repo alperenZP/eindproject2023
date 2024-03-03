@@ -15,6 +15,7 @@ if ($_SESSION["user"]["isTeacher"]) {
 }
 
 if (isset($_POST['add'])) {
+    echo "erkmjl";
     $creatorid = $_SESSION["user"]["id"];
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
