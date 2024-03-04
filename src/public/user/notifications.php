@@ -22,14 +22,14 @@ if ($_SESSION["user"]["isTeacher"]){
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
     INNER JOIN visits ON (visits.visitorid = books.creatorid)
-    WHERE visits.timestamp < Shoutbox.Timestamp AND books.creatorid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
+    WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND books.creatorid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
 	GROUP BY Shoutbox.Lobbyid');
 } else {
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
     INNER JOIN visits ON (lobbies.id = visits.lobbyid AND visits.visitorid = lobbies.senderid)
-    WHERE (visits.timestamp < Shoutbox.Timestamp) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
+    WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
     GROUP BY Shoutbox.Lobbyid');
 }
 ?>
@@ -58,7 +58,7 @@ if ($_SESSION["user"]["isTeacher"]){
                     <th>Van</th>
                     <th>Boek</th>
                     <th>Vraag</th>
-                    <th>Aantal</th>
+                    <th>Nieuw berichten</th>
                 </tr>
             </thead>
             
