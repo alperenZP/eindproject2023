@@ -41,7 +41,7 @@ if ($lobby["senderid"] != $_SESSION['user']['id'] && !$_SESSION["user"]["isTeach
     exit();
 }
 
-$visits = fetch(
+$visits = fetch_as_array(
     'SELECT COUNT(*) AS "amount" FROM visits (visitorid, lobbyid) VALUES (?, ?)',
     ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
     ['type' => 'i', 'value' => $lobby["id"]],
