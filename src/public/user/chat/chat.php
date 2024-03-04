@@ -47,11 +47,13 @@ $visits = fetch(
     ['type' => 'i', 'value' => $lobby["id"]],
 );
 
+$t = ''.time();
+
 if ($visits["amount"] > 0){
     $query = 'UPDATE visits SET timestamp = ? WHERE lobbyid = ? AND visitorid = ?';
     insert(
         $query,
-        ['type' => 'i', 'value' => time()],
+        ['type' => 's', 'value' => $t],
         ['type' => 'i', 'value' => $lobby["id"]],
         ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
     );
