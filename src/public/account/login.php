@@ -46,13 +46,13 @@ if (isset($_SESSION['user'])) {
       </div>
       <div class="form-control">
         <label class="label">
-          <span class="label-text">Password</span>
+          <span class="label-text">Wachtwoord</span>
         </label>
         <input type="password" name="password" placeholder="****" class="input input-bordered" required />
       </div>
     </div>
 
-    <button name="login" class="btn btn-primary">Sign in</button>
+    <button name="login" class="btn btn-primary">Log in</button>
   </form>
 
   <div class="w-full text-center mt-8">
