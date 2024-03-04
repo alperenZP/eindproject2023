@@ -64,7 +64,7 @@ if ($_SESSION["user"]["isTeacher"]){
                 <?php
                     foreach($notifications as $notif){
                         if ($_SESSION["user"]["isTeacher"]){
-                            $pings = $notif["pings"];
+                            $pings = $notif["pings"] / 2;
                         } else {
                             $pings = $notif["pings"] / 2;
                         }
