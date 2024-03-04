@@ -10,17 +10,19 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
-if (isset($_GET["subject"])) {
-    $book_query = "AND book_subjects.id = " . $_GET["subject"];
-} else {
-    $book_query = "";
-}
+
 $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid =' . $_SESSION["user"]["id"] . ' ' . $book_query);
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
 $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' ' . $book_query . ' GROUP BY books.id');
 
+
+if ($_SESSION["user"]["isTeacher"]){
+    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) INNER JOIN books ON (lobbies.bookid = books.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' OR book_connections.userid = ' . $_SESSION["user"]["id"]);
+} else {
+    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) WHERE lobbies.senderid = ' . $_SESSION["user"]["id"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +55,6 @@ $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON
             <tbody>
                 <!-- row 1 -->
                 <tr>
-                    <th>1</th>
                     <td>Cy Ganderton</td>
                     <td>Quality Control Specialist</td>
                     <td>Blue</td>
