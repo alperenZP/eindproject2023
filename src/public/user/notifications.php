@@ -21,14 +21,12 @@ if ($_SESSION["user"]["isTeacher"]){
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
-    INNER JOIN visits ON (visits.visitorid = books.creatorid)
     WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND books.creatorid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
 	GROUP BY Shoutbox.Lobbyid');
 } else {
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
-    INNER JOIN visits ON (lobbies.id = visits.lobbyid AND visits.visitorid = lobbies.senderid)
     WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
     GROUP BY Shoutbox.Lobbyid');
 }
