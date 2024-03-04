@@ -41,13 +41,11 @@ if ($lobby["senderid"] != $_SESSION['user']['id'] && !$_SESSION["user"]["isTeach
     exit();
 }
 
-$visits = fetch_as_array(
+$visits = fetch(
     'SELECT *, COUNT(*) AS "amount" FROM visits WHERE visitorid = ? AND lobbyid = ?',
     ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
     ['type' => 'i', 'value' => $lobby["id"]],
 );
-
-echo var_dump($visits);
 
 if ($visits["amount"] > 0){
     $query = 'UPDATE visits SET timestamp = ? WHERE lobbyid = ? AND visitorid = ?';
