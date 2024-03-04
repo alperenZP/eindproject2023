@@ -28,7 +28,7 @@ if ($_SESSION["user"]["isTeacher"]){
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
-    INNER JOIN visits ON (lobbies.id = visits.lobbyid)
+    INNER JOIN visits ON (lobbies.id = visits.lobbyid AND visits.visitorid = lobbies.senderid)
     WHERE (visits.timestamp < Shoutbox.Timestamp) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
     GROUP BY Shoutbox.Lobbyid');
 }
