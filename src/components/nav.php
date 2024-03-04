@@ -82,8 +82,8 @@ $_SESSION["notifs"] = true;
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Bekijk boeken</a></li>
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/enter_code.php">Geef code in</a></li>
         </ul>
-        <a href="https://bibliotheek.live/alperenGit/src/public/user/notifications.php"><button class="btn btn-outline btn-secondary">📦</button></>
       </details>
+      <a href="https://bibliotheek.live/alperenGit/src/public/user/notifications.php"><button class="btn btn-outline btn-secondary">📦</button></>
       '
     : '
     <a href="./src/public/account/login.php" class="btn btn-primary">Log in</a>
