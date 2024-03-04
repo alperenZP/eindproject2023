@@ -29,7 +29,7 @@ if ($_SESSION["user"]["isTeacher"]){
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
     INNER JOIN visits ON (lobbies.id = visits.lobbyid)
-    WHERE (visits.timestamp < Shoutbox.Timestamp) AND (Shoutbox.Senderid != 93 AND lobbies.senderid = 93)
+    WHERE (visits.timestamp < Shoutbox.Timestamp) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
     GROUP BY Shoutbox.Lobbyid');
 }
 ?>
