@@ -47,23 +47,7 @@ $visits = fetch_as_array(
     ['type' => 'i', 'value' => $lobby["id"]],
 );
 
-if ($visits["amount"] > 0){
-    $query = 'UPDATE visits SET timestamp = ? WHERE lobbyid = ? AND visitorid = ?';
-    insert(
-        $query,
-        ['type' => 's', 'value' => time()],
-        ['type' => 'i', 'value' => $lobby["id"]],
-        ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
-    );
-} else {
-    $query = 'INSERT INTO visits (visitorid, lobbyid) VALUES (?, ?)';
-    insert(
-        $query,
-        ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
-        ['type' => 'i', 'value' => $lobby["id"]],
-    );
-}
-
+echo var_dump($visits);
 
 
 
