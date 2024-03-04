@@ -50,7 +50,7 @@ $visits = fetch(
 $t = ''.time();
 
 if ($visits["amount"] > 0){
-    $query = 'UPDATE visits SET timestamp = Now() WHERE lobbyid = ? AND visitorid = ?';
+    $query = 'UPDATE visits SET timestamp = CURRENT_TIMESTAMP() WHERE lobbyid = ? AND visitorid = ?';
     insert(
         $query,
         ['type' => 'i', 'value' => $lobby["id"]],
