@@ -40,6 +40,13 @@ if ($lobby["senderid"] != $_SESSION['user']['id'] && !$_SESSION["user"]["isTeach
     header('Location: https://bibliotheek.live');
     exit();
 }
+
+$query = 'INSERT INTO visits (visitorid, lobbyid) VALUES (?, ?)';
+    insert(
+        $query,
+        ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
+        ['type' => 'i', 'value' => $lobby["id"]],
+    );
 ?>
 
 <!DOCTYPE html>
