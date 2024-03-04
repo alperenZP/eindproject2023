@@ -65,10 +65,6 @@ if ($visits["amount"] > 0){
 }
 
 
-echo var_dump($visits);
-
-
-
 ?>
 
 <!DOCTYPE html>
