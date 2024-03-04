@@ -48,7 +48,7 @@ $visits = fetch_as_array(
 );
 
 if ($visits["amount"] > 0){
-    $query = 'UPDATE visits SET timestamp = ? WHERE id = ? AND visitorid = ?';
+    $query = 'UPDATE visits SET timestamp = ? WHERE lobbyid = ? AND visitorid = ?';
     insert(
         $query,
         ['type' => 's', 'value' => time()],
