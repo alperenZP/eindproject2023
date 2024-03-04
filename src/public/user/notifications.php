@@ -19,13 +19,11 @@ $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON
 
 if ($_SESSION["user"]["isTeacher"]){
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
-    INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid) 
-    INNER JOIN books ON (books.id = lobbies.bookid) 
-    WHERE Timestamp > CURRENT_TIMESTAMP AND books.creatorid = '.$_SESSION["user"]["id"].'
-    GROUP BY Lobbyid');
-} else {
-    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) 
-    WHERE Shoutbox.Timestamp > visits.timestamp AND lobbies.senderid = ' . $_SESSION["user"]["id"]);
+    INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
+    INNER JOIN books ON (books.id = lobbies.bookid)
+    INNER JOIN visits ON (lobbies.id = visits.lobbyid AND visits.visitorid = books.creatorid)
+    WHERE visits.timestamp < Shoutbox.Timestamp AND books.creatorid = '.$_SESSION["user"]["id"].'
+    GROUP BY Shoutbox.Lobbyid');
 }
 ?>
 
@@ -52,20 +50,24 @@ if ($_SESSION["user"]["isTeacher"]){
                 <tr>
                     <th>Van</th>
                     <th>Boek</th>
-                    <th>Onderwerp</th>
+                    <th>Vraag</th>
+                    <th>Aantal</th>
                 </tr>
             </thead>
             
             <tbody>
                 <?php
-                ?>
-                <!-- row 1 -->
-                <tr>
-                    <td>Cy Ganderton</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Blue</td>
-                    <td><div class="badge badge-primary">primary</div></td>
-                </tr>
+                    foreach($notifications as $notif){
+                        echo '
+                            <tr>
+                                <td>'.$notif["Name"].'</td>
+                                <td>'.$notif["title"].'</td>
+                                <td>'.$notif["question"].'</td>
+                                <td><div class="badge badge-primary">'.$notif["pings"].'</div></td>
+                            </tr>
+                        ';
+                    }
+                ?>                
             </tbody>
         </table>
     </div>
