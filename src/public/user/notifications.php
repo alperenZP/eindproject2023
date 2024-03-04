@@ -18,8 +18,11 @@ $theme = 'dark';
 $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' ' . $book_query . ' GROUP BY books.id');
 
 if ($_SESSION["user"]["isTeacher"]){
-    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) INNER JOIN books ON (lobbies.bookid = books.id) INNER JOIN book_connections ON (books.id = book_connections.bookid)
-    WHERE Shoutbox.Timestamp > visits.timestamp AND (books.creatorid = ' . $_SESSION["user"]["id"] . ' OR book_connections.userid = ' . $_SESSION["user"]["id"].')');
+    $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
+    INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid) 
+    INNER JOIN books ON (books.id = lobbies.bookid) 
+    WHERE Timestamp > CURRENT_TIMESTAMP AND books.creatorid = '.$_SESSION["user"]["id"].'
+    GROUP BY Lobbyid');
 } else {
     $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) 
     WHERE Shoutbox.Timestamp > visits.timestamp AND lobbies.senderid = ' . $_SESSION["user"]["id"]);
@@ -54,11 +57,14 @@ if ($_SESSION["user"]["isTeacher"]){
             </thead>
             
             <tbody>
+                <?php
+                ?>
                 <!-- row 1 -->
                 <tr>
                     <td>Cy Ganderton</td>
                     <td>Quality Control Specialist</td>
                     <td>Blue</td>
+                    <td><div class="badge badge-primary">primary</div></td>
                 </tr>
             </tbody>
         </table>

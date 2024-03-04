@@ -41,12 +41,32 @@ if ($lobby["senderid"] != $_SESSION['user']['id'] && !$_SESSION["user"]["isTeach
     exit();
 }
 
-$query = 'INSERT INTO visits (visitorid, lobbyid) VALUES (?, ?)';
+$visits = fetch(
+    'SELECT COUNT(*) AS "amount" FROM visits (visitorid, lobbyid) VALUES (?, ?)',
+    ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
+    ['type' => 'i', 'value' => $lobby["id"]],
+);
+
+if ($visits["amount"] > 0){
+    $query = 'UPDATE visits SET timestamp = ? WHERE id = ? AND visitorid';
+    insert(
+        $query,
+        ['type' => 's', 'value' => time()],
+        ['type' => 'i', 'value' => $lobby["id"]],
+        ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
+    );
+} else {
+    $query = 'INSERT INTO visits (visitorid, lobbyid) VALUES (?, ?)';
     insert(
         $query,
         ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
         ['type' => 'i', 'value' => $lobby["id"]],
     );
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
