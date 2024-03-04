@@ -62,7 +62,7 @@ if ($_SESSION["user"]["isTeacher"]){
                             <tr>
                                 <td>'.$notif["Name"].'</td>
                                 <td>'.$notif["title"].'</td>
-                                <td>'.$notif["question"].'</td>
+                                <td><a href="https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code='.$notif["img_code"].'">'.$notif["question"].'</a></td>
                                 <td><div class="badge badge-primary">'.$notif["pings"].'</div></td>
                             </tr>
                         ';
