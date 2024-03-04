@@ -19,7 +19,7 @@ $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN 
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
-$created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' '.$book_query.' GROUP BY books.id');
+$created_books = fetch_as_array('SELECT * FROM books, books.id AS "bookid" INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' '.$book_query.' GROUP BY books.id');
 
 ?>
 
@@ -68,7 +68,7 @@ $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["books.id"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["bookid"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
                             <td>' . $book["description"] . '</td>
                         </tr>        
                     ';
