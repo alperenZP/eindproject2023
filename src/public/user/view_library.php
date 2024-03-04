@@ -19,9 +19,8 @@ $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN 
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
-$created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' '.$book_query.' GROUP BY books.id');
+$created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' '.$book_query.' GROUP BY books.id');
 
-echo var_dump($created_books);
 ?>
 
 <!DOCTYPE html>
