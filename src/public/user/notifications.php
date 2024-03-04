@@ -19,7 +19,8 @@ $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON
 
 
 if ($_SESSION["user"]["isTeacher"]){
-    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) INNER JOIN books ON (lobbies.bookid = books.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' OR book_connections.userid = ' . $_SESSION["user"]["id"]);
+    $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) INNER JOIN books ON (lobbies.bookid = books.id) INNER JOIN book_connections ON (books.id = book_connections.bookid)
+    WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' OR book_connections.userid = ' . $_SESSION["user"]["id"]);
 } else {
     $notifications = fetch('SELECT * FROM Shoutbox INNER JOIN lobbies ON (Shoutbox.Lobbyid = lobbies.id) WHERE lobbies.senderid = ' . $_SESSION["user"]["id"]);
 }
