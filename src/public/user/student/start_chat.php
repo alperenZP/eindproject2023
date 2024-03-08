@@ -59,7 +59,7 @@ if ($book_access["amount"] == 0){
                 <div class="label">
                     <span class="label-text">Upload een afbeelding als bijlage</span>
                 </div>
-                <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs" required/>
+                <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs"/>
             </label>
         </div>
 

@@ -19,44 +19,42 @@ if (isset($_POST['add'])) {
     $bookid = $_POST['bookid'];
     $chapterid = $_POST['chapterid'];
     $question = $_POST['question'];
-    $file = $_FILES['image'];
-
-    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
     $imgCode = uniqid();
-    // Set the desired file name with the WebP extension
-    $imgName = $imgCode . '.webp';
-    $imgTmpName = $file['tmp_name'];
 
-    $targetDir = PUBLIC_R . "/img/";
-    $targetFile = $targetDir . $imgName;
-    move_uploaded_file($imgTmpName, $targetFile);
+    if (isset($_FILES["image"])) {
+        $file = $_FILES['image'];
 
-    // Check if the uploaded file is an image
-    if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-        // Load the image based on the file type
-        switch ($extension) {
-            case 'jpg':
-            case 'jpeg':
-                $image = imagecreatefromjpeg($targetFile);
-                break;
-            case 'png':
-                $image = imagecreatefrompng($targetFile);
-                break;
-            case 'gif':
-                $image = imagecreatefromgif($targetFile);
-                break;
-            default:
-                // Handle unsupported file types if necessary
-                break;
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $imgName = $imgCode . '.webp';
+        $imgTmpName = $file['tmp_name'];
+
+        $targetDir = PUBLIC_R . "/img/";
+        $targetFile = $targetDir . $imgName;
+        move_uploaded_file($imgTmpName, $targetFile);
+
+        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+            switch ($extension) {
+                case 'jpg':
+                case 'jpeg':
+                    $image = imagecreatefromjpeg($targetFile);
+                    break;
+                case 'png':
+                    $image = imagecreatefrompng($targetFile);
+                    break;
+                case 'gif':
+                    $image = imagecreatefromgif($targetFile);
+                    break;
+                default:
+                    break;
+            }
+
+            imagewebp($image, $targetFile, 80);
+
+            imagedestroy($image);
         }
 
-        // Convert the image to WebP and save it
-        imagewebp($image, $targetFile, 80); // 80 is the quality, you can adjust it as needed
 
-        // Free up memory
-        imagedestroy($image);
     }
-
 
     $query = 'INSERT INTO lobbies (bookid, chapterid, senderid, question, img_code) VALUES (?, ?, ?, ?, ?)';
     insert(
