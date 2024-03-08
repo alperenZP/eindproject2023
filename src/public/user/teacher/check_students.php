@@ -46,7 +46,6 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Gebruikers die zijn verbonden met dit boek</h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
         <?php
         echo $book["title"];
@@ -61,7 +60,7 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
     </ul>
 
     <div class="divider"></div> 
-
+    <h2 class="sm:text-center md:text-center text-2xl mb-8"><u>Gebruikers die zijn verbonden met dit boek</u></h2>
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
