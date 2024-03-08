@@ -12,6 +12,22 @@ require_once LIB . '/util/util.php';
 $theme = 'dark';
 
 
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
+    ['type' => 'i', 'value' => $_GET["book"]]
+);
+
+$book_creator = fetch('SELECT *, count(*) AS "amount" FROM books WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' AND books.id = ?', ['type' => 'i', 'value' => $_GET["book"]]);
+
+if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
+
+$book = fetch(
+    'SELECT * FROM books WHERE id = ?',
+    ['type' => 'i', 'value' => $_GET["book"]]
+);
 
 $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND books.creatorid = ?',
     ['type' => 'i', 'value' => $_GET["bookid"]],
@@ -35,6 +51,20 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Gebruikers die zijn verbonden met dit boek</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
+        <?php
+        echo $book["title"];
+        ?>
+    </h1>
+
+    <ul class="menu menu-horizontal bg-base-200 w-400">
+        <div class="divider"></div>
+        <li><a class="active">Boek</a></li>
+        <li><a>Oefeningen</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["book"]?>">Studenten</a></li>
+    </ul>
+
+    <div class="divider"></div> 
 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
