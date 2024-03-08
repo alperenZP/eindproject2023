@@ -74,7 +74,7 @@ $_SESSION["notifs"] = true;
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Profile_photo_placeholder_square.svg" />
           </div>
         </summary>
-        <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
+        <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-base-200 text-black rounded-box w-52">
           '.$teacher_links.'
           <div class="divider px-4 my-2"></div> 
           <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
