@@ -89,7 +89,6 @@ $chapters = fetch_as_array(
                     <th> </th>
                     <th>Hoofdstuk</th>
                     <th>PDF</th>
-                    <th>Vragen</th>
                     <?php
                     if ($_SESSION['user']['isTeacher']) {
                         echo '
@@ -122,7 +121,7 @@ $chapters = fetch_as_array(
                     }
                     if ($_SESSION['user']['isTeacher']) {
                         echo '        
-                            <td><a href="https://www.example.com"><u>Vragen</u></a></td>
+                            <td> </td>
                         ';
                     } else {
                         echo '
