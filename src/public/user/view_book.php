@@ -58,14 +58,14 @@ $chapters = fetch_as_array(
     </h1>
 
     <ul class="menu menu-horizontal bg-base-200 w-200">
-        <div class="divider"></div> 
-        <li><a>Item 1</a></li>
-        <li><a class="active">Item 2</a></li>
-        <li><a>Item 3</a></li>
+        <div class="divider"></div>
+        <li><a class="active">Boek</a></li>
+        <li><a>Oefeningen</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["book"]?>">Studenten</a></li>
     </ul>
 
     <div class="divider"></div> 
-    
+
     <div class="card w-96 bg-primary text-primary-content">
         <div class="card-body">
             <p>
