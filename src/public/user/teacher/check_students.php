@@ -25,9 +25,8 @@ $book = fetch(
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
-$users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND books.creatorid = ?',
+$users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ?',
     ['type' => 'i', 'value' => $_GET["bookid"]],
-    ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
 );
 
 ?>
