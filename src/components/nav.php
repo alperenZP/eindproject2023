@@ -61,7 +61,7 @@ $_SESSION["notifs"] = true;
     if ($_SESSION["user"]["isTeacher"]){
       $teacher_links = '<li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/create_book.php">Creëer nieuw boek</a></li>      
       <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php">Creëer hoofdstukken</a></li>
-      <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_classes.php">Bekijk studenten</a></li>';
+      ';
     } else {
       $teacher_links = "";
     }
