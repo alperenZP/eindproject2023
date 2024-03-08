@@ -55,9 +55,9 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
 
     <ul class="menu menu-horizontal bg-base-200 w-400">
         <div class="divider"></div>
-        <li><a class="active">Boek</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=<?php echo $_GET["book"]?>">Boek</a></li>
         <li><a>Oefeningen</a></li>
-        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["book"]?>">Studenten</a></li>
+        <li><a class="active">Studenten</a></li>
     </ul>
 
     <div class="divider"></div> 
@@ -66,9 +66,9 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
         <table class="table table-zebra">
             <tbody>
                 <tr>
-                    <td>Voornaam</td>
-                    <td>Naam</td>
-                    <td>Gebruikersnaam</td>
+                    <td><b>Voornaam</b></td>
+                    <td><b>Naam</b></td>
+                    <td><b>Gebruikersnaam</b></td>
                 </tr>
                 <!-- row -->
                 <?php
