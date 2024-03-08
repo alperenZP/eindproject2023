@@ -13,13 +13,13 @@ require_once LIB . '/util/util.php';
 $theme = 'dark';
 
 $book_access = fetch(
-    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = '.$_SESSION['user']['id'].' AND bookid = ?',
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
 $book_creator = fetch('SELECT *, count(*) AS "amount" FROM books WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' AND books.id = ?', ['type' => 'i', 'value' => $_GET["book"]]);
 
-if ($book_access["amount"] == 0 && $book_creator["amount"] == 0){
+if ($book_access["amount"] == 0 && $book_creator["amount"] == 0) {
     header('Location: https://bibliotheek.live');
     exit();
 }
@@ -57,16 +57,22 @@ $chapters = fetch_as_array(
         ?>
     </h1>
 
+    <ul class="menu bg-base-200 w-56">
+        <li><a>Item 1</a></li>
+        <li><a class="active">Item 2</a></li>
+        <li><a>Item 3</a></li>
+    </ul>
+
     <div class="card w-96 bg-primary text-primary-content">
         <div class="card-body">
             <p>
                 <?php
-                    echo $book["description"];
+                echo $book["description"];
 
-                    if ($_SESSION['user']['isTeacher']){
-                        echo '<br><br>
-                        <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid='.$_GET["book"].'">Link naar code</a></b>';
-                    }
+                if ($_SESSION['user']['isTeacher']) {
+                    echo '<br><br>
+                        <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/share_invite.php?bookid=' . $_GET["book"] . '">Link naar code</a></b>';
+                }
                 ?>
             </p>
         </div>
@@ -82,12 +88,12 @@ $chapters = fetch_as_array(
                     <th>PDF</th>
                     <th>Vragen</th>
                     <?php
-                        if ($_SESSION['user']['isTeacher']){
-                            echo '
+                    if ($_SESSION['user']['isTeacher']) {
+                        echo '
                                 <th> </th>
                                 <th> </th>
                             ';
-                        }
+                    }
                     ?>
                 </tr>
                 <!-- row -->
@@ -104,27 +110,27 @@ $chapters = fetch_as_array(
 
                     if ($chapter["pdf_code"] != "") {
                         echo '
-                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/'.$chapter["pdf_code"].'.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
+                                <td><a title="PDF" href="https://bibliotheek.live/alperenGit/public/pdf/' . $chapter["pdf_code"] . '.pdf" target=”_blank”><img width="32" alt="PDF icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/PDF_icon.svg/32px-PDF_icon.svg.png"></a></td>
                         ';
                     } else {
                         echo '
                             <td> </td>
                         ';
                     }
-                    if ($_SESSION['user']['isTeacher']){
+                    if ($_SESSION['user']['isTeacher']) {
                         echo '        
                             <td><a href="https://www.example.com"><u>Vragen</u></a></td>
                         ';
                     } else {
                         echo '
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/start_chat.php?chapter='.$chapter["chapterid"].'"><button class="btn btn-warning">Stuur vraag</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/start_chat.php?chapter=' . $chapter["chapterid"] . '"><button class="btn btn-warning">Stuur vraag</button></a></td>
                         ';
                     }
-                    
-                    if ($_SESSION['user']['isTeacher']){
+
+                    if ($_SESSION['user']['isTeacher']) {
                         echo '
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_chapter.php?id='.$chapter["chapterid"].'"><button class="btn btn-warning">✏️</button></a></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/delete_chapter.php?id='.$chapter["chapterid"].'"><button class="btn btn-error">❌</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_chapter.php?id=' . $chapter["chapterid"] . '"><button class="btn btn-warning">✏️</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/delete_chapter.php?id=' . $chapter["chapterid"] . '"><button class="btn btn-error">❌</button></a></td>
                         ';
                     }
                     echo '
