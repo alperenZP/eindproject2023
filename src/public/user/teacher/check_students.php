@@ -14,7 +14,7 @@ $theme = 'dark';
 
 $book_access = fetch(
     'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
-    ['type' => 'i', 'value' => $_GET["book"]]
+    ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
 $book_creator = fetch('SELECT *, count(*) AS "amount" FROM books WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' AND books.id = ?', ['type' => 'i', 'value' => $_GET["book"]]);
@@ -22,7 +22,7 @@ $book_creator = fetch('SELECT *, count(*) AS "amount" FROM books WHERE books.cre
 
 $book = fetch(
     'SELECT * FROM books WHERE id = ?',
-    ['type' => 'i', 'value' => $_GET["book"]]
+    ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
 $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND books.creatorid = ?',
