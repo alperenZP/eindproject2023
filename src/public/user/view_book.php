@@ -57,7 +57,7 @@ $chapters = fetch_as_array(
         ?>
     </h1>
 
-    <ul class="menu menu-horizontal bg-base-200 w-56">
+    <ul class="menu menu-horizontal bg-base-200 w-100">
         <li><a>Item 1</a></li>
         <li><a class="active">Item 2</a></li>
         <li><a>Item 3</a></li>
