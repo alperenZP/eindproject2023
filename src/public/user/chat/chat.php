@@ -87,7 +87,7 @@ if ($visits["amount"] > 0){
             <h2 class="card-title drop-shadow-xl  bg-black-500">Vraag:</h2>
             <p><?php echo $lobby["question"]; ?></p>
         </div>
-        <figure><img width="200px" alt=" " src="https://bibliotheek.live/alperenGit/public/img/<?php echo $lobby["img_code"]?>.webp" alt="Shoes" /></figure>
+        <figure><img width="200px" alt="‎" src="https://bibliotheek.live/alperenGit/public/img/<?php echo $lobby["img_code"]?>.webp" alt="Shoes" /></figure>
     </div>
     <div class="divider divider-secondary">Chat box</div>
     <?php
