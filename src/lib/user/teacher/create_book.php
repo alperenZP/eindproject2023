@@ -32,6 +32,7 @@ if (isset($_POST['create'])) {
     );
 
     $book = fetch('SELECT * FROM books WHERE accessCode = ' . $accessCode);
+    echo 'SELECT * FROM books WHERE accessCode = ' . $accessCode;
 
     $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
             insert(
