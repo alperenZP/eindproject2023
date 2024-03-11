@@ -71,6 +71,7 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
                     <td><b>Voornaam</b></td>
                     <td><b>Naam</b></td>
                     <td><b>Gebruikersnaam</b></td>
+                    <td> </td>
                 </tr>
                 <!-- row -->
                 <?php
@@ -80,6 +81,13 @@ $users = fetch_as_array('SELECT * FROM `users` INNER JOIN book_connections ON (b
                             <td>'.$user["firstname"].'</td>
                             <td>'.$user["lastname"].'</td>
                             <td>'.$user["username"].'</td>
+                    ';
+                    if ($_SESSION["user"]["isTeacher"]){
+                        echo '<td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/delete_chapter.php?id=' . $user["id"] . '"><button class="btn btn-error">❌</button></a></td>';
+                    }
+
+                    echo '
+                        
                         </tr>        
                     ';
                 }

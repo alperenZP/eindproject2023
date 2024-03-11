@@ -132,7 +132,7 @@ $chapters = fetch_as_array(
                     if ($_SESSION['user']['isTeacher']) {
                         echo '
                             <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_chapter.php?id=' . $chapter["chapterid"] . '"><button class="btn btn-warning">✏️</button></a></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/delete_chapter.php?id=' . $chapter["chapterid"] . '"><button class="btn btn-error">❌</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/delete_chapter.php.php?id=' . $chapter["chapterid"] . '"><button class="btn btn-error">❌</button></a></td>
                         ';
                     }
                     echo '
