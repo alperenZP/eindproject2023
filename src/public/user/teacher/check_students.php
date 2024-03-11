@@ -82,6 +82,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid" FRO
                                 <td><s>'.$user["firstname"].'</s></td>
                                 <td><s>'.$user["lastname"].'</s></td>
                                 <td><s>'.$user["username"].'</s></td>
+                                <td>GEBLOKKEERD</td>
                         ';
                     }else { 
                         echo '
