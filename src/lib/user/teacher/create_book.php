@@ -31,15 +31,15 @@ if (isset($_POST['create'])) {
         ['type' => 's', 'value' => '' . $accessCode . ''],
     );
 
-    $book = fetch('SELECT * FROM books WHERE accessCode = ' . $accessCode);
+    //$book = fetch('SELECT * FROM books WHERE accessCode = ' . $accessCode);
     echo 'SELECT * FROM books WHERE accessCode = ' . $accessCode;
 
-    $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
-            insert(
-                $query,
-                ['type' => 'i', 'value' => $book["id"]],
-                ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
-            );
+    //$query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
+    //       insert(
+    //            $query,
+    //            ['type' => 'i', 'value' => $book["id"]],
+    //            ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
+    //        );
 
     exit();
 }
