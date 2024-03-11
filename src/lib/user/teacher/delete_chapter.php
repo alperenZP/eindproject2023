@@ -12,9 +12,7 @@ if (isset($_POST['edit'])) {
     insert(
         $query,
         ['type' => 'i', 'value' => $chapterid],
-    );
-
-    
+    );    
 
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
     exit();
