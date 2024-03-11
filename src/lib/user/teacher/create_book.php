@@ -30,7 +30,16 @@ if (isset($_POST['create'])) {
         ['type' => 's', 'value' => '' . $description . ''],
         ['type' => 's', 'value' => '' . $accessCode . ''],
     );
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php');
+
+    $book = fetch('SELECT * FROM books WHERE accessCode = ' . $accessCode);
+
+    $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
+            insert(
+                $query,
+                ['type' => 'i', 'value' => $book["id"]],
+                ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
+            );
+
     exit();
 }
 
