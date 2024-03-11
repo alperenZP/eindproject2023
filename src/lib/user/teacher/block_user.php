@@ -16,8 +16,6 @@ if (isset($_GET['id'])) {
         ['type' => 'i', 'value' => $_GET['id']],
     );
 
-    
-
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book_connection["bookid"] . '');
     exit();
 }
