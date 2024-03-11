@@ -13,7 +13,7 @@ require_once LIB . '/util/util.php';
 $theme = 'dark';
 
 $book_access = fetch(
-    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND bookid = ?',
     ['type' => 'i', 'value' => $_GET["book"]]
 );
 
