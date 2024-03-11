@@ -76,16 +76,24 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid" FRO
                 <!-- row -->
                 <?php
                 foreach ($users as $user) {
-                    echo '
-                        <tr>
-                            <td>'.$user["firstname"].'</td>
-                            <td>'.$user["lastname"].'</td>
-                            <td>'.$user["username"].'</td>
-                    ';
-                    if ($_SESSION["user"]["isTeacher"]){
-                        echo '<td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-error">🛑</button></a></td>';
-                    }
-
+                    if($user["isBlocked"]){
+                        echo '
+                            <tr>
+                                <td><s>'.$user["firstname"].'</s></td>
+                                <td><s>'.$user["lastname"].'</s></td>
+                                <td><s>'.$user["username"].'</s></td>
+                        ';
+                    }else { 
+                        echo '
+                            <tr>
+                                <td>'.$user["firstname"].'</td>
+                                <td>'.$user["lastname"].'</td>
+                                <td>'.$user["username"].'</td>
+                        ';
+                        if ($_SESSION["user"]["isTeacher"]){
+                            echo '<td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-error">🛑</button></a></td>';
+                        }
+                    }   
                     echo '
                         
                         </tr>        
