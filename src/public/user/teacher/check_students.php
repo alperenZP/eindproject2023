@@ -91,7 +91,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid" FRO
                                 <td>'.$user["lastname"].'</td>
                                 <td>'.$user["username"].'</td>
                         ';
-                        if ($_SESSION["user"]["isTeacher"]){
+                        if ($_SESSION["user"]["isTeacher"] && ($user["id"] != $_SESSION["user"]["id"])){
                             echo '<td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-error">🛑</button></a></td>';
                         }
                     }   
