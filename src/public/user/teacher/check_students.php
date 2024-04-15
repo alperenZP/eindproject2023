@@ -68,6 +68,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
         <table class="table table-zebra">
             <tbody>
                 <tr>
+                    <td><b>Rol</b></td>
                     <td><b>Voornaam</b></td>
                     <td><b>Naam</b></td>
                     <td><b>Gebruikersnaam</b></td>
@@ -87,6 +88,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                     }else { 
                         echo '
                             <tr>
+                                <td>'.$user["isTeacher"]?"Leraar":"Student".'</td>
                                 <td>'.$user["firstname"].'</td>
                                 <td>'.$user["lastname"].'</td>
                                 <td>'.$user["username"].'</td>
