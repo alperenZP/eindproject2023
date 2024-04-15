@@ -15,8 +15,6 @@ $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN 
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
-$created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' ' . $book_query . ' GROUP BY books.id');
-
 $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
