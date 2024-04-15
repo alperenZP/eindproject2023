@@ -68,7 +68,7 @@ $_SESSION["notifs"] = true;
 
     echo isset($_SESSION['user'])
       ? 'Hallo, ' . $_SESSION["user"]["username"] . '! ID: '.$_SESSION["user"]["id"].'
-      <details class="dropdown dropdown-end">
+      <details class="dropdown dropdown-end  bg-green-500">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Profile_photo_placeholder_square.svg" />
