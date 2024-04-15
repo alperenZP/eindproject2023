@@ -63,7 +63,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid" FRO
     </ul>
 
     <div class="divider"></div> 
-    <h2 class="sm:text-center md:text-center text-2xl mb-8"><i>Gebrukers die zijn verbonden met dit boek</i></h2>
+    <h2 class="sm:text-center md:text-center text-2xl mb-8"><i>Gebruikers die zijn verbonden met dit boek</i></h2>
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
@@ -91,7 +91,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid" FRO
                                 <td>'.$user["lastname"].'</td>
                                 <td>'.$user["username"].'</td>
                         ';
-                        if ($_SESSION["user"]["isTeacher"] && ($user["id"] != $_SESSION["user"]["id"])){
+                        if ($_SESSION["user"]["isTeacher"] && ($user["users.id"] != $_SESSION["user"]["id"])){
                             echo '<td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-error">🛑</button></a></td>';
                         }
                     }   
