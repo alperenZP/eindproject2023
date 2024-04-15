@@ -56,11 +56,7 @@ $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox`
             <tbody>
                 <?php
                     foreach($notifications as $notif){
-                        if ($_SESSION["user"]["isTeacher"]){
-                            $pings = $notif["pings"];
-                        } else {
-                            $pings = $notif["pings"];
-                        }
+                        $pings = $notif["pings"];
 
                         echo '
                             <tr>
