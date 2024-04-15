@@ -77,7 +77,13 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                 <!-- row -->
                 <?php
                 foreach ($users as $user) {
-                    $rol = $user["isTeacher"]?"Leraar":"Student";
+                    $rol = $user["isTeacher"]?
+                        '<div class="tooltip" data-tip="Leraar">
+                        <button class="btn">👨‍🏫</button>
+                        </div>':
+                        '<div class="tooltip" data-tip="Student">
+                        <button class="btn">👨‍🎓</button>
+                        </div>';
                     if($user["isBlocked"]){
                         echo '
                             <tr>
