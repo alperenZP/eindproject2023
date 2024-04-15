@@ -77,18 +77,20 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                 <!-- row -->
                 <?php
                 foreach ($users as $user) {
+                    $rol = $user["isTeacher"]?"Leraar":"Student";
                     if($user["isBlocked"]){
                         echo '
                             <tr>
+                                <td>'.$rol.'</td>
                                 <td><s>'.$user["firstname"].'</s></td>
                                 <td><s>'.$user["lastname"].'</s></td>
                                 <td><s>'.$user["username"].'</s></td>
                                 <td>GEBLOKKEERD</td>
                         ';
-                    }else { 
+                    }else {
                         echo '
                             <tr>
-                                <td>'.$user["isTeacher"]?"Leraar":"Student".'</td>
+                                <td>'.$rol.'</td>
                                 <td>'.$user["firstname"].'</td>
                                 <td>'.$user["lastname"].'</td>
                                 <td>'.$user["username"].'</td>
