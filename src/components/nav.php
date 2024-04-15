@@ -68,13 +68,13 @@ $_SESSION["notifs"] = true;
 
     echo isset($_SESSION['user'])
       ? 'Hallo, ' . $_SESSION["user"]["username"] . '! ID: '.$_SESSION["user"]["id"].'
-      <details class="dropdown dropdown-end  bg-green-500">
+      <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Profile_photo_placeholder_square.svg" />
           </div>
         </summary>
-        <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-base-200 text-black rounded-box w-52">
+        <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-green-500 text-black rounded-box w-52">
           '.$teacher_links.'
           <div class="divider px-4 my-2"></div> 
           <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
