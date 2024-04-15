@@ -17,19 +17,12 @@ $theme = 'dark';
 
 $created_books = fetch_as_array('SELECT * FROM books INNER JOIN book_subjects ON (books.subjectid = book_subjects.id) INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE books.creatorid = ' . $_SESSION["user"]["id"] . ' ' . $book_query . ' GROUP BY books.id');
 
-if ($_SESSION["user"]["isTeacher"]){
-    $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
-    INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
-    INNER JOIN books ON (books.id = lobbies.bookid)
-    WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND books.creatorid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
-	GROUP BY Shoutbox.Lobbyid');
-} else {
-    $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
+$notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
     INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
     INNER JOIN books ON (books.id = lobbies.bookid)
     WHERE (Shoutbox.Timestamp >= CURRENT_TIMESTAMP - INTERVAL 1 DAY) AND (Shoutbox.Senderid != '.$_SESSION["user"]["id"].' AND lobbies.senderid = '.$_SESSION["user"]["id"].')
-    GROUP BY Shoutbox.Lobbyid');
-}
+    GROUP BY Shoutbox.Lobbyid'
+);
 ?>
 
 <!DOCTYPE html>
