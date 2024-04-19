@@ -30,7 +30,7 @@ if (isset($_GET['question']) && isset($_GET['img_code'])) {
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
         $query,
-        ['type' => 's', 'value' => time()], // Assuming 'Timestamp' column is of string type
+        ['type' => 's', 'value' => ''.time().''], // Assuming 'Timestamp' column is of string type
         ['type' => 's', 'value' => $_SESSION['user']['username']],
         ['type' => 's', 'value' => $question],
         ['type' => 'i', 'value' => $lobbyTemp["id"]], // Assuming 'Lobbyid' column is of string type
@@ -38,11 +38,11 @@ if (isset($_GET['question']) && isset($_GET['img_code'])) {
     );
     
     // Redirect after successful insertion
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
-    exit();
+    //header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
+    //exit();
 } else {
     // Redirect if required values are not provided
-    header('Location: https://bibliotheek.live');
-    exit();
+    //header('Location: https://bibliotheek.live');
+    //exit();
 }
 ?>
