@@ -78,10 +78,10 @@ if (isset($_POST['add'])) {
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
         $query,
-        ['type' => 'i', 'value' => time()],
-        ['type' => 'i', 'value' => $_SESSION['user']['username']],
+        ['type' => 's', 'value' => time()],
+        ['type' => 's', 'value' => $_SESSION['user']['username']],
         ['type' => 's', 'value' => $question],
-        ['type' => 's', 'value' => $lobbyTemp["id"]],
-        ['type' => 's', 'value' => $_SESSION['user']['id']],
+        ['type' => 'i', 'value' => $lobbyTemp["id"]],
+        ['type' => 'i', 'value' => $_SESSION['user']['id']],
     );
 }
