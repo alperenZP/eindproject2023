@@ -40,11 +40,11 @@ if (isset($_GET['question']) && isset($_GET['img_code'])) {
     );
     
     // Redirect after successful insertion
-    //header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
-    //exit();
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
+    exit();
 } else {
     // Redirect if required values are not provided
-    //header('Location: https://bibliotheek.live');
-    //exit();
+    header('Location: https://bibliotheek.live');
+    exit();
 }
 ?>
