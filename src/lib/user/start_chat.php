@@ -78,7 +78,7 @@ if (isset($_POST['add'])) {
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
 $result = insert(
     $query,
-    ['type' => 's', 'value' => time()],
+    ['type' => 's', 'value' => ''.time().''],
     ['type' => 's', 'value' => $_SESSION['user']['username']],
     ['type' => 's', 'value' => $question],
     ['type' => 'i', 'value' => $lobbyTemp["id"]],
