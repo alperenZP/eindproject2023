@@ -32,7 +32,6 @@ if (isset($_GET['question']) && isset($_GET['img_code'])) {
         $query,
         ['type' => 's', 'value' => ''.time().''], // Assuming 'Timestamp' column is of string type
         ['type' => 's', 'value' => $_SESSION['user']['username']],
-        ['type' => 's', 'value' => ''],
         ['type' => 's', 'value' => $question],
         ['type' => 'i', 'value' => $lobbyTemp["id"]], // Assuming 'Lobbyid' column is of string type
         ['type' => 'i', 'value' => $_SESSION['user']['id']], // Assuming 'Senderid' column is of integer type
