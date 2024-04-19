@@ -65,6 +65,23 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $question],
         ['type' => 's', 'value' => $imgCode],
     );
+
+
+    $lobbyTemp = fetchSingle(
+        'SELECT * FROM lobbies WHERE img_code = ? LIMIT 1',
+        ["type" => "s", "value" => $imgCode]
+    );
+
+    $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
+    insert(
+        $query,
+        ['type' => 'i', 'value' => time()],
+        ['type' => 'i', 'value' => $_SESSION['user']['username']],
+        ['type' => 's', 'value' => $question],
+        ['type' => 's', 'value' => $lobbyTemp["id"]],
+        ['type' => 's', 'value' => $_SESSION['user']['id']],
+    );
+
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
     exit();
 }
