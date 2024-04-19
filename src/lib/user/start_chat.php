@@ -72,6 +72,8 @@ if (isset($_POST['add'])) {
         ["type" => "s", "value" => $imgCode]
     );
 
+    echo (var_dump($lobbyTemp));
+
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
         $query,
@@ -81,9 +83,6 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $lobbyTemp["id"]],
         ['type' => 's', 'value' => $_SESSION['user']['id']],
     );
-
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
-    exit();
 }
 
 header('Location: https://bibliotheek.live');
