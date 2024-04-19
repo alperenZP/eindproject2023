@@ -84,6 +84,3 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $_SESSION['user']['id']],
     );
 }
-
-header('Location: https://bibliotheek.live');
-exit();
