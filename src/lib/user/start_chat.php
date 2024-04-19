@@ -73,7 +73,7 @@ if (isset($_POST['add'])) {
     );
 
     echo (var_dump($lobbyTemp));
-    echo '<br><br>' . $lobbyTemp["id"];
+    echo '<br><br>' . $lobbyTemp[0]["id"];
 
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
