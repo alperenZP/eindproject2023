@@ -52,8 +52,6 @@ if (isset($_POST['add'])) {
 
             imagedestroy($image);
         }
-
-
     }
 
     $query = 'INSERT INTO lobbies (bookid, chapterid, senderid, question, img_code) VALUES (?, ?, ?, ?, ?)';
@@ -66,29 +64,11 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $imgCode],
     );
 
-
-    $lobbyTemp = fetch(
-        'SELECT * FROM lobbies WHERE img_code = ? LIMIT 1',
-        ["type" => "s", "value" => $imgCode]
-    );
-
-    echo (var_dump($lobbyTemp));
-    echo '<br><br>' . $lobbyTemp["id"];
-
-    $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
-$result = insert(
-    $query,
-    ['type' => 's', 'value' => ''.time().''],
-    ['type' => 's', 'value' => $_SESSION['user']['username']],
-    ['type' => 's', 'value' => $question],
-    ['type' => 'i', 'value' => $lobbyTemp["id"]],
-    ['type' => 'i', 'value' => $_SESSION['user']['id']],
-);
-
-if ($result === false) {
-    // Display SQL error
-    echo "<br>Error: " . mysqli_error($connection); // Assuming $connection is your database connection
+    // Redirect to initiate_chat.php with parameters
+    header('Location: https://bibliotheek.live/alperenGit/src/lib/user/initiate_chat.php?question=' . urlencode($question) . '&img_code=' . urlencode($imgCode));
+    exit();
 }
 
-
-}
+header('Location: https://bibliotheek.live');
+exit();
+?>
