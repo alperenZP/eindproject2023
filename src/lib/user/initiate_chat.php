@@ -26,6 +26,8 @@ if (isset($_GET['question']) && isset($_GET['img_code'])) {
         ["type" => "s", "value" => $imgCode]
     );
 
+    echo (var_dump($lobbyTemp));
+
     // Insert into the Shoutbox table
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
