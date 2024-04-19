@@ -67,13 +67,13 @@ if (isset($_POST['add'])) {
     );
 
 
-    $lobbyTemp = fetchSingle(
+    $lobbyTemp = fetch(
         'SELECT * FROM lobbies WHERE img_code = ? LIMIT 1',
         ["type" => "s", "value" => $imgCode]
     );
 
     echo (var_dump($lobbyTemp));
-    echo '<br><br>' . $lobbyTemp[0]["id"];
+    echo '<br><br>' . $lobbyTemp["id"];
 
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
