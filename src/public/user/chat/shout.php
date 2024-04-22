@@ -176,6 +176,7 @@
 			$email = (!empty($data[$i][3]) && strstr($data[$i][3], '@')) ? $data[$i][3] : '';
 			$text = format($data[$i][4], $wordLength, $boxWidth - 22, false);
 			$bgcolor = (empty($bgcolor) || $bgcolor != $messageBGColors[0]) ? $messageBGColors[0] : $messageBGColors[1];
+			$senderid = $data[$i][6];
 
 			if($dateFormat != 'Y-m-d' || (int) $timeOffset != 0) {
 				$a = explode(' ', $tstamp);
@@ -221,7 +222,7 @@
 			</b>
 			<?php if($email) echo '</a>'; ?> 
 			<?php echo '
-					<div class="chat-bubble">'.$text.'</div>			
+					<div class="chat-bubble">'.$text.' and my user id is '.$senderid.'</div>			
 					</div>
 				'; 
 			?>
