@@ -205,7 +205,6 @@
 			<?php echo $tstamp; ?>
 			</div>
 			<div class="<?php echo $class; ?>" style="background-color:<?php echo $bgcolor; ?>">
-			<?php if($email) echo '<a href="mailto:' . $email . '">'; ?>
 
 			<b><?php echo '
 				<head>
