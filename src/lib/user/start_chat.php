@@ -69,10 +69,12 @@ if (isset($_POST['add'])) {
         ["type" => "s", "value" => $imgCode]
     );
 
+    $current_timestamp = date('YmdHis');
+
     $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
         $query,
-        ['type' => 's', 'value' => ''.time().''],
+        ['type' => 's', 'value' => $current_timestamp],
         ['type' => 's', 'value' => $_SESSION['user']['username']],
         ['type' => 's', 'value' => $question],
         ['type' => 'i', 'value' => $lobbyTemp["id"]], 
