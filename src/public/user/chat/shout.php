@@ -220,9 +220,9 @@
   				</div>';
 				?>
 			</b>
-			<?php if($email) echo '</a>'; ?> 
-			<?php echo '
-					<div class="chat-bubble">'.$text.' and my user id is '.$senderid.'</div>			
+			<?php
+			echo '
+					<div class="chat-bubble">'.$text.'</div>			
 					</div>
 				'; 
 			?>
