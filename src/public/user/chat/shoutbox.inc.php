@@ -170,7 +170,7 @@ function checkKeyCode(e) {
 ?>
 		<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr>
 		<td><input type="button" name="Refresh" value="<?php echo $msg['refresh']; ?>" class="cssShoutButton" onClick="this.disabled=true; refreshBox()"></td>
-		<td align="center"><input type="button" name="Admin" value="<?php echo $msg['admin']; ?>" class="cssShoutButton" onClick="this.disabled=true; login()"></td>
+		<!-- <td align="center"><input type="button" name="Admin" value="?php echo $msg['admin']; ?" class="cssShoutButton" onClick="this.disabled=true; login()"></td> -->
 		<td align="right"><input type="button" name="Shout" value="<?php echo $msg['shout']; ?>" class="cssShoutButton" onClick="this.disabled=true; shoutIt()"></td>
 		</tr></table>
 	</td>
