@@ -221,9 +221,9 @@
 						<div class="chat chat-end">
 
 						<div class="chat-header">
-						'.$name.'
+						<b>'.$name.'</b>
 						</div>
-						<div class="chat-bubble chat-bubble-secondary">'.$text.' and thats me</div>			
+						<div class="chat-bubble chat-bubble-secondary">'.$text.'</div>			
 						</div>
 					';
 				} else {
@@ -231,7 +231,7 @@
 						<div class="chat chat-start">
 
 						<div class="chat-header">
-						'.$name.'
+						<b>'.$name.'</b>
 						</div>
 						<div class="chat-bubble">'.$text.'</div>			
 						</div>
