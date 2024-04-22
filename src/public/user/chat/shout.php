@@ -222,11 +222,21 @@
 			<?php
 				if ($senderid == $_SESSION["user"]["id"]){
 					echo '
+						<div class="chat chat-end">
+
+						<div class="chat-header">
+						'.$name.'
+						</div>
 						<div class="chat-bubble chat-bubble-secondary">'.$text.' and thats me</div>			
 						</div>
 					';
 				} else {
 					echo '
+						<div class="chat chat-start">
+
+						<div class="chat-header">
+						'.$name.'
+						</div>
 						<div class="chat-bubble">'.$text.'</div>			
 						</div>
 					'; 
