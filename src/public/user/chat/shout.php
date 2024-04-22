@@ -221,10 +221,18 @@
 				?>
 			</b>
 			<?php
-				echo '
-					<div class="chat-bubble">'.$text.'</div>			
-					</div>
-				'; 
+				if ($senderid == $_SESSION["user"]["id"]){
+					echo '
+						<div class="chat-bubble chat-bubble-pink-500">'.$text.'</div>			
+						</div>
+					';
+				} else {
+					echo '
+						<div class="chat-bubble">'.$text.'</div>			
+						</div>
+					'; 
+				}
+				
 			?>
 
 			</div>
