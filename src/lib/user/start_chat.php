@@ -69,7 +69,7 @@ if (isset($_POST['add'])) {
         ["type" => "s", "value" => $imgCode]
     );
 
-    $query = 'INSERT INTO Shoutbox (Timestamp, Name, EMail, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
+    $query = 'INSERT INTO Shoutbox (Timestamp, Name, Text, Lobbyid, Senderid) VALUES (?, ?, ?, ?, ?)';
     insert(
         $query,
         ['type' => 's', 'value' => ''.time().''],
