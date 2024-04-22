@@ -212,11 +212,7 @@
 			
 				<link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
 				</head>
-				<div class="chat chat-start">
-
-  				<div class="chat-header">
-    				'.$name.'
-  				</div>';
+				';
 				?>
 			</b>
 			<?php
