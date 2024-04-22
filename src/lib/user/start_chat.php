@@ -64,7 +64,7 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $imgCode],
     );
 
-    $lobbyTemp = fetch(
+    /*$lobbyTemp = fetch(
         'SELECT * FROM lobbies WHERE img_code = ? LIMIT 1',
         ["type" => "s", "value" => $imgCode]
     );
@@ -77,7 +77,7 @@ if (isset($_POST['add'])) {
         ['type' => 's', 'value' => $question],
         ['type' => 'i', 'value' => $lobbyTemp["id"]], 
         ['type' => 'i', 'value' => $_SESSION['user']['id']], 
-    );
+    );*/
     
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code=' . $imgCode);
     exit();
