@@ -223,7 +223,7 @@
 			<?php
 				if ($senderid == $_SESSION["user"]["id"]){
 					echo '
-						<div class="chat-bubble chat-bubble-pink-500">'.$text.'</div>			
+						<div class="chat-bubble chat-bubble-pink-500">'.$text.' and thats me</div>			
 						</div>
 					';
 				} else {
