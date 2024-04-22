@@ -221,7 +221,7 @@
 				?>
 			</b>
 			<?php
-			echo '
+				echo '
 					<div class="chat-bubble">'.$text.'</div>			
 					</div>
 				'; 
