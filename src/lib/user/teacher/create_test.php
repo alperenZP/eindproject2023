@@ -17,27 +17,16 @@ if (!$_SESSION["user"]["isTeacher"]) {
 if (isset($_POST['create'])) {
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
-    
-    $query = 'INSERT INTO books (creatorid, title, subjectid, description, accessCode) VALUES (?, ?, ?, ?, ?)';
+
+    $query = 'INSERT INTO tests (title, bookid) VALUES (?, ?)';
     insert(
         $query,
-        ['type' => 'i', 'value' => $creatorid],
+        ['type' => 'i', 'value' => $bookid],
         ['type' => 's', 'value' => '' . $title . ''],
-        ['type' => 'i', 'value' => $subjectid],
-        ['type' => 's', 'value' => '' . $description . ''],
-        ['type' => 's', 'value' => '' . $accessCode . ''],
     );
 
-    $book = fetch('SELECT * FROM books WHERE accessCode = "' . $accessCode.'"');
 
-    $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
-           insert(
-                $query,
-                ['type' => 'i', 'value' => $book["id"]],
-                ['type' => 'i', 'value' => $_SESSION["user"]["id"]],
-            );
-    
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/enter_code.php');
     exit();
 }
 
