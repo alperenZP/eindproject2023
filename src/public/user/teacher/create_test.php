@@ -33,11 +33,11 @@ $book = fetch(
     <script src="https://kit.fontawesome.com/58a210823e.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
-    <title>Creëer nieuw boek</title>
+    <title>Creëer nieuw toets</title>
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw boek</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw toets</h1>
     <ul class="steps">
         <li class="step step-primary">Creëer</li>
         <li class="step">Schrijf</li>
