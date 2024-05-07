@@ -68,6 +68,13 @@ $tests = fetch_as_array(
         <div class="card-body">
             <p>
                 Klik op een van de volgende tests om te beginnen
+
+                <?php
+                    if ($_SESSION['user']['isTeacher']) {
+                        echo '<br><br>
+                            <b><a href="https://example.com">Creër nieuw oefening</a></b>';
+                    }
+                ?>
             </p>
         </div>
     </div>
