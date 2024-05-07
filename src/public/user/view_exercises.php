@@ -59,7 +59,7 @@ $tests = fetch_as_array(
         <div class="divider"></div>
         <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=<?php echo $book["id"]?>">Boek</a></li>
         <li><a class="active">Oefeningen</a></li>
-        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["book"]?>">Studenten</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["bookid"]?>">Studenten</a></li>
     </ul>
 
     <div class="divider"></div> 
