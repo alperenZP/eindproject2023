@@ -67,7 +67,7 @@ $tests = fetch_as_array(
     <div class="card w-96 bg-primary text-primary-content">
         <div class="card-body">
             <p>
-                Klik op een van de volgende tests om te beginnen
+                Klik op een van de volgende oefeningen om te beginnen
 
                 <?php
                     if ($_SESSION['user']['isTeacher']) {
