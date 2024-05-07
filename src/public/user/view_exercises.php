@@ -108,6 +108,7 @@ $tests = fetch_as_array(
                         ';
                     } else {
                         echo '
+                            <td><a href="https://www.example.com"><button class="btn btn-success">Bekijk punten</button></a></td>
                             <td><a href="https://www.example.com"><button class="btn btn-warning">✏️</button></a></td>
                             <td><a href="https://www.example.com"><button class="btn btn-error">❌</button></a></td>
                         ';
