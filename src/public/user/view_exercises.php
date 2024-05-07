@@ -24,11 +24,11 @@ if ($book_access["amount"] == 0) {
 
 $book = fetch(
     'SELECT * FROM books WHERE id = ?',
-    ['type' => 'i', 'value' => $_GET["book"]]
+    ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 $tests = fetch_as_array(
     'SELECT *, tests.title AS "testTitle", books.id AS "bookid" FROM `tests` INNER JOIN books ON (books.id = tests.bookid) WHERE bookid = ? ORDER BY tests.id ASC',
-    ['type' => 'i', 'value' => $_GET["book"]]
+    ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
 ?>

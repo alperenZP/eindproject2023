@@ -58,7 +58,7 @@ $chapters = fetch_as_array(
     <ul class="menu menu-horizontal bg-base-200 w-400">
         <div class="divider"></div>
         <li><a class="active">Boek</a></li>
-        <li><a>Oefeningen</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid=<?php echo $_GET["book"]?>">Oefeningen</a></li>
         <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["book"]?>">Studenten</a></li>
     </ul>
 
