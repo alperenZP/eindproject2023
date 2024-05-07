@@ -72,7 +72,7 @@ $tests = fetch_as_array(
                 <?php
                     if ($_SESSION['user']['isTeacher']) {
                         echo '<br><br>
-                            <b><a href="https://example.com">Creër nieuw oefening</a></b>';
+                            <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/create_test.php">Creër nieuw oefening</a></b>';
                     }
                 ?>
             </p>
