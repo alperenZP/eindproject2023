@@ -43,13 +43,25 @@ if (isset($_POST["addquestions"])){
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw toets</h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form method="post">
+    <form method="post" class="flex flex-col gap-8 w-full sm:w-80">
                 <div class="label">
                     <span class="label-text">Hoeveel vragen?</span>
                 </div>
                     <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
                     <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
                 </div>
+    </form>
+
+    <form method="post" class="flex flex-col gap-8 w-full sm:w-80">
+        <div class="flex flex-col gap-4">
+            <div class="label">
+                        <span class="label-text">Hoeveel vragen?</span>
+            </div>
+                        <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
+                        <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
+        </div>
+
+        <button name="create" class="btn btn-primary">Creëer</button>
     </form>
 
     <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post"
