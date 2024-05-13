@@ -53,13 +53,13 @@ $book = fetch(
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
                             <h2 class="card-title">Vraag '.$xnum.'</h2>
-                            <h2 class="card-title"><input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            <h2 class="card-title"><input type="text" placeholder="Vraag '.$xnum.' titel" class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
-                                <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>A</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>B</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>C</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>D</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
                             </ol>
 
                         </div>
