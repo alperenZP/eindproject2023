@@ -76,10 +76,10 @@ if (isset($_POST["addquestions"])){
                             <h2 class="card-title"><input type="text" placeholder="Vraag '.$xnum.' titel" class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
-                                <b>A</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <b>B</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <b>C</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
-                                <b>D</b> <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input type="text" placeholder="Juist antwoord" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input type="text" placeholder="Fout antwoord" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input type="text" placeholder="Fout antwoord" class="input input-bordered input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input type="text" placeholder="Fout antwoord" class="input input-bordered input-sm w-full max-w-xs" /></li>
                             </ol>
 
                         </div>
