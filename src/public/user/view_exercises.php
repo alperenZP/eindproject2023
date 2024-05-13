@@ -44,7 +44,7 @@ $tests = fetch_as_array(
 
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
     <title>
-        <?php echo $book["title"] ?> oefeningen
+        <?php echo $book["title"] ?> toetsen
     </title>
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
@@ -52,7 +52,7 @@ $tests = fetch_as_array(
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
         <?php
         echo $book["title"];
-        ?> oefeningen
+        ?> toetsen
     </h1>
 
     <ul class="menu menu-horizontal bg-base-200 w-400">
@@ -72,7 +72,7 @@ $tests = fetch_as_array(
                 <?php
                     if ($_SESSION['user']['isTeacher']) {
                         echo '<br><br>
-                            <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/create_test.php?bookid='.$book["id"].'">Creër nieuw oefening</a></b>';
+                            <b><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/create_test.php?bookid='.$book["id"].'">Creëer nieuw toets</a></b>';
                     }
                 ?>
             </p>
@@ -134,7 +134,7 @@ $tests = fetch_as_array(
         echo '
                 <div role="alert" class="alert alert-info">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>Er staan geen oefeningen hier.</span>
+                    <span>Er staan geen toetsen hier.</span>
                 </div>
             ';
     }
