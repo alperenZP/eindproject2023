@@ -48,9 +48,11 @@ $book = fetch(
 
             <?php 
                 for ($x = 0; $x <= 10; $x++) {
+                    $xnum = $x+1;
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
+                            <h2 class="card-title">Vraag '.$xnum.'</h2>
                             <h2 class="card-title"><input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
