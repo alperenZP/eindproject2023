@@ -60,7 +60,7 @@ $_SESSION["questions_amount"] = 1;
     <ul class="menu menu-horizontal bg-base-200 w-400">
         <div class="divider"></div>
         <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=<?php echo $book["id"]?>">Boek</a></li>
-        <li><a class="active">Oefeningen</a></li>
+        <li><a class="active">Toetsen</a></li>
         <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_students.php?bookid=<?php echo $_GET["bookid"]?>">Studenten</a></li>
     </ul>
 
