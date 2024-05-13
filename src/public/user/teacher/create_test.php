@@ -47,6 +47,9 @@ if (isset($_POST["addquestions"])){
         class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
+                <div class="label">
+                    <span class="label-text">Naam van toets?</span>
+                </div>
                 <input type="text" name="title" placeholder="Titel van toets" class="input input-bordered" required />
             </div>
             <form method="post">
