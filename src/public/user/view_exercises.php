@@ -31,6 +31,8 @@ $tests = fetch_as_array(
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
+$_SESSION["questions_amount"] = 1;
+
 ?>
 
 <!DOCTYPE html>

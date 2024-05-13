@@ -20,6 +20,10 @@ $book = fetch(
     'SELECT * FROM books WHERE id = ?',
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
+
+if (isset($_POST["addquestions"])){
+    $_SESSION["questions_amount"] = $_POST["aantal_vragen"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +49,15 @@ $book = fetch(
             <div class="form-control">
                 <input type="text" name="title" placeholder="Titel van toets" class="input input-bordered" required />
             </div>
+            <form method="post">
+                <div class="form-control">
+                    <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
+                </div>
+                <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
+            </form>
 
             <?php 
-                for ($x = 0; $x <= 10; $x++) {
+                for ($x = 0; $x < $_SESSION["questions_amount"]; $x++) {
                     $xnum = $x+1;
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
