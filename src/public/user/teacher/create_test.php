@@ -56,7 +56,7 @@ if (isset($_POST["addquestions"])){
         <button name="create" class="btn btn-primary">Creëer</button>
     </form>
 
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post"
+    <form id="form" action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post"
         class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
@@ -92,12 +92,12 @@ if (isset($_POST["addquestions"])){
 
         </div>
 
-        <button name="create" class="btn btn-primary">Creëer</button>
+        <button onclick="addQuestionsToArrayAndSubmit()" class="btn btn-primary">Creëer</button>
     </form>
 </div>
 
 <script>
-  function executeAndSubmit() {
+  function addQuestionsToArrayAndSubmit() {
     // Execute your JavaScript logic here
     alert("Executing JavaScript...");
 
