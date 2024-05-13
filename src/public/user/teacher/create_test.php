@@ -50,7 +50,9 @@ if (isset($_POST["addquestions"])){
                 <input type="text" name="title" placeholder="Titel van toets" class="input input-bordered" required />
             </div>
             <form method="post">
-                <div class="form-control">
+                <div class="label">
+                    <span class="label-text">Hoeveel vragen?</span>
+                </div>
                     <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
                     <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
                 </div>
