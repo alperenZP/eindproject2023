@@ -52,8 +52,8 @@ if (isset($_POST["addquestions"])){
             <form method="post">
                 <div class="form-control">
                     <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
+                    <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
                 </div>
-                <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
             </form>
 
             <?php 
