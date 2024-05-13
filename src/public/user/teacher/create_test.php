@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
     header('Location: https://bibliotheek.live');
     exit();
-} 
+}
 if (!$_SESSION["user"]["isTeacher"]) {
     header('Location: https://bibliotheek.live');
     exit();
@@ -39,14 +39,31 @@ $book = fetch(
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw toets</h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+    <form action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post"
+        class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="form-control">
                 <input type="text" name="title" placeholder="Titel" class="input input-bordered" required />
             </div>
 
-            <?php echo '<input type="hidden" name="bookid" value="'.$book["id"].'" required />';?>
-            
+            <?php 
+                for ($x = 0; $x <= 10; $x++) {
+                    echo '
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Card title!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    ';
+                }
+                  
+            ?>
+            <?php echo '<input type="hidden" name="bookid" value="' . $book["id"] . '" required />'; ?>
+
         </div>
 
         <button name="create" class="btn btn-primary">Creëer</button>
