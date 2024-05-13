@@ -55,7 +55,7 @@ if (isset($_POST["addquestions"])){
     <form method="post" class="flex flex-col gap-8 w-full sm:w-80">
         <div class="flex flex-col gap-4">
             <div class="label">
-                        <span class="label-text">Hoeveel vragen?</span>
+                        <span class="label-text">Hoveel vragen?</span>
             </div>
                         <input type="number" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
                         <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
