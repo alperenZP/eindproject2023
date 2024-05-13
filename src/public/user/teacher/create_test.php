@@ -51,7 +51,7 @@ $book = fetch(
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <h2 class="card-title">Card title!</h2>
+                            <h2 class="card-title"><input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
                                 <li><input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" /></li>
