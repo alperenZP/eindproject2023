@@ -26,7 +26,7 @@ if (isset($_POST['create'])) {
     );
 
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/enter_code.php');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid=' . $bookid);
     exit();
 }
 
