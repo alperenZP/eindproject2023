@@ -18,7 +18,7 @@ if (isset($_POST['create'])) {
     $bookid = $_POST['bookid'];
     $title = $_POST['title'];
 
-    $query = 'INSERT INTO tests (title, bookid) VALUES (?, ?)';
+    $query = 'INSERT INTO tests (bookid, title) VALUES (?, ?)';
     insert(
         $query,
         ['type' => 'i', 'value' => $bookid],
