@@ -52,8 +52,6 @@ if (isset($_POST["addquestions"])){
                         <input type="number" min="1" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
                         <button name="addquestions" class="btn btn-sm">Wijzig aantal vragen</button>
         </div>
-
-        <button name="create" class="btn btn-primary">Creëer</button>
     </form>
 
     <form id="form" action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post"
