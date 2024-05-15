@@ -29,7 +29,7 @@ if (isset($_POST['create']) && isset($_SESSION["questions_amount"])) {
 
     for ($x = 0; $x < $_SESSION["questions_amount"]; $x++) {
 
-        $questiontitle = $x . 'question_title';
+        $questiontext = $x . 'questiontext';
         $correct = $x . 'correct';
         $wrong1 = $x . 'wrong1';
         $wrong2 = $x . 'wrong2';
@@ -39,7 +39,7 @@ if (isset($_POST['create']) && isset($_SESSION["questions_amount"])) {
         insert(
             $query,
             ['type' => 'i', 'value' => $thatTest["id"]],
-            ['type' => 's', 'value' => '' . $_POST[$questiontitle] . ''],
+            ['type' => 's', 'value' => '' . $_POST[$questiontext] . ''],
             ['type' => 's', 'value' => '' . $_POST[$correct] . ''],
             ['type' => 's', 'value' => '' . $_POST[$wrong1] . ''],
             ['type' => 's', 'value' => '' . $_POST[$wrong2] . ''],
