@@ -50,7 +50,7 @@ if (isset($_POST["addquestions"])){
                         <span class="label-text">Hoeveel vragen?</span>
             </div>
                         <input type="number" min="1" name="aantal_vragen" placeholder="Hoeveel vragen?" class="input input-bordered" value="<?php echo $_SESSION["questions_amount"]?>" required />
-                        <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
+                        <button name="addquestions" class="btn btn-sm">Wijzig aantal vragen</button>
         </div>
 
         <button name="create" class="btn btn-primary">Creëer</button>
@@ -76,10 +76,10 @@ if (isset($_POST["addquestions"])){
                             <h2 class="card-title"><input type="text" placeholder="Vraag '.$xnum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
-                                <b>Juist antwoord</b> <li><input id="'.$x.'correct" type="text" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 1</b> <li><input id="'.$x.'wrong1" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 2</b> <li><input id="'.$x.'wrong2" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 3</b> <li><input id="'.$x.'wrong3" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input name="'.$x.'correct" type="text" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input name="'.$x.'wrong1" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input name="'.$x.'wrong2" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input name="'.$x.'wrong3" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
                             </ol>
 
                         </div>
