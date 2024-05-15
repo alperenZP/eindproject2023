@@ -7,13 +7,15 @@ require_once LIB . '/util/util.php';
 echo var_dump($_POST);
 
 for ($x = 0; $x < $_SESSION["questions_amount"]; $x++){
+
     $correct = $x . 'correct';
     $wrong1 = $x . 'wrong1';
     $wrong2 = $x . 'wrong2';
     $wrong3 = $x . 'wrong3';
+    $questiontitle = $x . 'question_title';
 
     echo '
-        <h1>Question '.$x.'</h1><br>
+        <h1>Question '.$x.': '.$_POST[$questiontitle].'</h1><br>
         Correct: '.$_POST[$correct].'<br>
         Wrong 1: '.$_POST[$wrong1].'<br>
         Wrong 2: '.$_POST[$wrong2].'<br>
