@@ -4,6 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
+echo var_dump($_POST);
+/*
+
 if (!isset($_SESSION['user'])) {
     header('Location: /');
     exit();
@@ -32,3 +35,4 @@ if (isset($_POST['create'])) {
 
 header('Location: https://bibliotheek.live');
 exit();
+*/

@@ -92,6 +92,6 @@ if (isset($_POST["addquestions"])){
 
         </div>
 
-        <button onclick="addQuestionsToArrayAndSubmit()" class="btn btn-primary">Creëer</button>
+        <button name="create" class="btn btn-primary">Creëer</button>
     </form>
 </div>
