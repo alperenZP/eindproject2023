@@ -73,13 +73,13 @@ if (isset($_POST["addquestions"])){
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
                             <h2 class="card-title">Vraag '.$xnum.'</h2>
-                            <h2 class="card-title"><input type="text" placeholder="Vraag '.$xnum.' titel" class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            <h2 class="card-title"><input type="text" placeholder="Vraag '.$xnum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
-                                <b>Juist antwoord</b> <li><input id="'.$x.'correct" type="text" placeholder="Juist antwoord" class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 1</b> <li><input id="'.$x.'wrong1" type="text" placeholder="Fout antwoord" class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 2</b> <li><input id="'.$x.'wrong2" type="text" placeholder="Fout antwoord" class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 3</b> <li><input id="'.$x.'wrong3" type="text" placeholder="Fout antwoord" class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input id="'.$x.'correct" type="text" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input id="'.$x.'wrong1" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input id="'.$x.'wrong2" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input id="'.$x.'wrong3" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
                             </ol>
 
                         </div>
@@ -95,13 +95,3 @@ if (isset($_POST["addquestions"])){
         <button onclick="addQuestionsToArrayAndSubmit()" class="btn btn-primary">Creëer</button>
     </form>
 </div>
-
-<script>
-  function addQuestionsToArrayAndSubmit() {
-    // Execute your JavaScript logic here
-    alert("Executing JavaScript...");
-
-    // Submit the form
-    document.getElementById("myForm").submit();
-  }
-</script>
