@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $_SESSION["access_book_test"] = false;
 ?>
 <div class="hero min-h-screen" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f0/Library_Books_Bookshelves_%28Unsplash%29.jpg);">
   <div class="hero-overlay bg-opacity-60"></div>
