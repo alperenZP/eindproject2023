@@ -38,7 +38,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
         if (isset($_POST["submit"])){
-            while ($_SESSION["position_in_test"] <= count($questions)){
+            if ($_SESSION["position_in_test"] <= count($questions)){
                 echo '
                     <form action="" method="post"
                         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
@@ -51,6 +51,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                         <button name="submit" class="btn btn-primary">Geef antwoord in</button>
                     </form>
                 ';
+                $_SESSION["position_in_test"]++;
             }
 
             
