@@ -39,12 +39,13 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
     <?php
         if (isset($_POST["submit"])){
             if ($_SESSION["position_in_test"] <= count($questions)){
+                $x = $_SESSION["position_in_test"]+1;
                 echo '
                     <form action="" method="post"
                         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                         <div class="flex flex-col gap-4">
                             <div class="mockup-window border bg-base-300">
-                                <div class="flex justify-center px-4 py-16 bg-base-200"><b>Vraag '.$questions[$_SESSION["position_in_test"]][""].'</b></div>
+                                <div class="flex justify-center px-4 py-16 bg-base-200"><b>Vraag '.$x.':</b> '.$questions[$_SESSION["position_in_test"]][""].'</div>
                             </div>
                         </div>
                 
