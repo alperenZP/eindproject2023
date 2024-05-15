@@ -114,7 +114,7 @@ $_SESSION["position_in_test"] = 0;
 
                     if (!$_SESSION['user']['isTeacher']) {
                         echo '
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?'.$test["id"].'"><button class="btn btn-info">Start</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?testid='.$test["id"].'"><button class="btn btn-info">Start</button></a></td>
                             <td><b>0/10</b></td>
                         ';
                     } else {
