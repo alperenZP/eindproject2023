@@ -18,7 +18,18 @@ if (!isset($_GET["bookid"])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
-$book = fetch('SELECT * FROM books WHERE id = ? AND creatorid = ?', ["type" => "i", "value" => $_GET["bookid"]], ["type" => "i", "value" => $_SESSION["user"]["id"]]);
+
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND bookid = ?',
+    ['type' => 'i', 'value' => $_GET["bookid"]]
+);
+
+if ($book_access["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
+
+$book = fetch('SELECT * FROM books WHERE id = ?', ["type" => "i", "value" => $_GET["bookid"]]);
 $theme = 'dark';
 ?>
 
