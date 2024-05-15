@@ -27,7 +27,7 @@ $book = fetch(
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 $tests = fetch_as_array(
-    'SELECT *, tests.title AS "testTitle", books.id AS "bookid" FROM `tests` INNER JOIN books ON (books.id = tests.bookid) WHERE bookid = ? ORDER BY tests.id ASC',
+    'SELECT *, tests.title AS "testTitle", books.id AS "bookid", tests.id AS "testid" FROM `tests` INNER JOIN books ON (books.id = tests.bookid) WHERE bookid = ? ORDER BY tests.id ASC',
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
@@ -114,7 +114,7 @@ $_SESSION["position_in_test"] = 0;
 
                     if (!$_SESSION['user']['isTeacher']) {
                         echo '
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?testid='.$test["id"].'"><button class="btn btn-info">Start</button></a></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?testid='.$test["testid"].'"><button class="btn btn-info">Start</button></a></td>
                             <td><b>0/10</b></td>
                         ';
                     } else {
