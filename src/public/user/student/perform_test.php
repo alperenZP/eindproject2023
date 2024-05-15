@@ -16,7 +16,7 @@ require_once LIB . '/util/util.php';
 $theme = 'dark';
 
 $test = fetch('SELECT * FROM tests WHERE id = ?', ['type' => 'i', 'value' => $_GET["testid"]]);
-$questions = fetch_as_array('SELECT * FROM questions WHERE testid = ?', ['type' => 'i', 'value' => $_GET["testid"]]);
+$questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY id ASC', ['type' => 'i', 'value' => $_GET["testid"]]);
 ?>
 
 <!DOCTYPE html>
@@ -38,14 +38,29 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ?', ['type' 
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
         if (isset($_POST["submit"])){
+            while ($_SESSION["position_in_test"] <= count($questions)){
+                echo '
+                    <form action="" method="post"
+                        enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                        <div class="flex flex-col gap-4">
+                            <div class="mockup-window border bg-base-300">
+                                <div class="flex justify-center px-4 py-16 bg-base-200"><b>Vraag '.$questions[$_SESSION["position_in_test"]][""].'</b></div>
+                            </div>
+                        </div>
+                
+                        <button name="submit" class="btn btn-primary">Geef antwoord in</button>
+                    </form>
+                ';
+            }
 
+            
         } else {
             echo '
                 <form action="" method="post"
                     enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
-                            <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+                            <div class="flex justify-center px-4 py-16 bg-base-200">Info etc. about test</div>
                         </div>
                     </div>
             
