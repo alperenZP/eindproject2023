@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
     header('Location: https://bibliotheek.live');
     exit();
 }
-if ($_SESSION["user"]["isTeacher"]) {
+if ($_SESSION["user"]["isTeacher"] || !$_SESSION["access_book_test"]) {
     header('Location: https://bibliotheek.live');
     exit();
 }
