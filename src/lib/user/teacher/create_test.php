@@ -25,7 +25,7 @@ if (isset($_POST['create']) && isset($_SESSION["questions_amount"])) {
         ['type' => 's', 'value' => '' . $title . ''],
     );
 
-    $thatTest = fetch('SELECT * FROM tests LIMIT 1 ORDER BY id ASC');
+    $thatTest = fetch('SELECT * FROM tests ORDER BY id ASC LIMIT 1');
 
     for ($x = 0; $x < $_SESSION["questions_amount"]; $x++) {
 
