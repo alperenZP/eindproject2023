@@ -35,25 +35,25 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ?', ['type' 
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Toets <?php echo $chapter["title"];?></h1>
-    <h1 class="sm:text-center md:text-center text-2xl font-bold mb-2">Boek: <i><?php echo $book["title"]?></i></h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Toets: <?php echo $test["title"];?></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
-    <form action="https://bibliotheek.live/alperenGit/src/lib/user/start_chat.php" method="post"
-        enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
-        <div class="flex flex-col gap-4">
-            <div class="form-control">
-                <input type="text" name="question" placeholder="Wat is jouw vraag?" class="input input-bordered" required />
-                <input type="hidden" name="chapterid" value="<?php echo $chapter["id"]?>" required />
-                <input type="hidden" name="bookid" value="<?php echo $book["id"]?>" required />
-            </div>
-            <label class="form-control w-full max-w-xs">
-                <div class="label">
-                    <span class="label-text">Upload een afbeelding als bijlage</span>
-                </div>
-                <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="file-input file-input-bordered w-full max-w-xs"/>
-            </label>
-        </div>
+    <?php
+        if (isset($_POST["submit"])){
 
-        <button name="add" class="btn btn-primary">Stuur vraag</button>
-    </form>
+        } else {
+            echo '
+                <form action="" method="post"
+                    enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                    <div class="flex flex-col gap-4">
+                        <div class="mockup-window border bg-base-300">
+                            <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+                        </div>
+                    </div>
+            
+                    <button name="submit" class="btn btn-primary">Begin toets</button>
+                </form>
+            ';
+        }
+    ?>
+    
 </div>
