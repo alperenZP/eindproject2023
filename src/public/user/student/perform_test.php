@@ -17,8 +17,6 @@ $theme = 'dark';
 
 $test = fetch('SELECT * FROM tests WHERE id = ?', ['type' => 'i', 'value' => $_GET["testid"]]);
 $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ?', ['type' => 'i', 'value' => $_GET["testid"]]);
-
-echo var_dump($test);
 ?>
 
 <!DOCTYPE html>
