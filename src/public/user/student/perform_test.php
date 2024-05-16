@@ -48,6 +48,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 $questions[$_SESSION["position_in_test"]]["incorrect3"],
             );
             shuffle($array_choices);
+
             echo '
             <form action="https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                 <div class="flex flex-col gap-4">
@@ -57,6 +58,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                             <span class="font-bold mt-2 mb-6">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
                             <input type="hidden" name="question_id" value="'.$questions[$_SESSION["position_in_test"]]["id"].'"/>
                             <input type="hidden" name="test_id" value="'.$_GET["testid"].'"/>
+                            <input type="hidden" name="amount_of_questions" value="'.count($questions).'"/>
                             <div class="form-control border border-purple-500 rounded-md p-2">
                                 <label class="label cursor-pointer">
                                     <span class="label-text">'.$array_choices[0].'</span> 
@@ -118,6 +120,21 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 });
             </script>
             
+            ';
+        } else {
+            $_SESSION["position_in_test"] = 0;
+
+            echo '
+                <form action="" method="post"
+                    enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                    <div class="flex flex-col gap-4">
+                        <div class="mockup-window border bg-base-300">
+                            <div class="flex justify-center px-4 py-16 bg-base-200">Van de '.count($questions).' vragen heb je er 4 goed beantwoord.</div>
+                        </div>
+                    </div>
+            
+                    <button name="submit" class="btn btn-primary">Begin toets</button>
+                </form>
             ';
         }
     } else {
