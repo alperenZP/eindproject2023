@@ -44,7 +44,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
-                            <div class="flex flex-col items-center px-4 py-8 bg-base-200">
+                            <div class="flex flex-col px-4 py-8 bg-base-200"> <!-- Removed items-center -->
                                 <span class="font-bold">Vraag '.$x.':</span>
                                 <span class="mt-2">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
                                 <button class="btn btn-info mt-4">Info</button>
@@ -54,11 +54,11 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                             </div>
                         </div>
                     </div>
-                
+
                     <button name="submit" class="btn btn-primary">Geef antwoord in</button>
                 </form>
-        
-                ';
+            '; 
+
             $_SESSION["position_in_test"]++;
         }
     } else {
