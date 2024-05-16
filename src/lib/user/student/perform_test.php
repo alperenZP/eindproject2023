@@ -10,6 +10,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 if (isset($_POST['submit'])) {
+    $_SESSION["has_refreshed"] = 0;
     $_SESSION["position_in_test"]++;
     $isAnswerCorrect = $_POST["result_question"];
     $question_id = $_POST["question_id"];
