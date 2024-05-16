@@ -27,6 +27,9 @@ if (isset($_POST['submit'])) {
     } else {
         $isAnswerCorrect = 0;
     }
+
+    echo $question["correct_option"] .' is equal to '. $guess  .': '. $isAnswerCorrect;
+    /*
     $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
     insert(
             $query,
@@ -38,6 +41,7 @@ if (isset($_POST['submit'])) {
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
 
     exit();
+    */
 } 
 
 
