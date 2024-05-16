@@ -69,9 +69,9 @@ $questions_amount = $test_questions["questions_amount"];
                     <td><b>KETSEL</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
-                <tr id="refreshable-content"> 
+                <div id="refreshable-content"> 
                     <!-- rows from scores_list will be inserted here -->
-                </tr>
+                </div>
             </tbody>
         </table>
     </div>
