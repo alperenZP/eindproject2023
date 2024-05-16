@@ -73,7 +73,7 @@ $questions_amount = $test_questions["questions_amount"];
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
-                    <td><b>PercenrOOdsfOO</b></td>
+                    <td><b>PROZTN</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <!-- row -->
@@ -99,7 +99,7 @@ $questions_amount = $test_questions["questions_amount"];
     <script>
         function refreshContent() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "check_scores.php", true);
+            xhr.open("GET", "https://bibliotheek.live/alperenGit/src/public/user/teacher/scores_list.php", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     // Update the content with the response
