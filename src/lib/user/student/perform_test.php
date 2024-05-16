@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
             ['type' => 'i', 'value' => $isAnswerCorrect],
     );
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid=2');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid.'');
 
     exit();
 } 
