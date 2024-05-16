@@ -46,6 +46,18 @@ if (isset($_POST['submit'])) {
         );
     }
 
+    if ($amount_questions <= $_SESSION["position_in_test"]){
+        $total_amount_correct_query = fetch(
+            'SELECT *,count(*) AS "amount" FROM scores WHERE questionid = ? AND userid = ? AND isCorrect = 1',
+            ["type" => "i", "value" => $question_id],
+            ["type" => "i", "value" => $userid]
+        );
+
+        $total = $total_amount_correct_query["amount"];
+
+        header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?y='.$total.'&testid='.$testid);
+    }
+
 
     
 

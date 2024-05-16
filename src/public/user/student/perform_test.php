@@ -129,7 +129,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
-                            <div class="flex justify-center px-4 py-16 bg-base-200">Van de '.count($questions).' vragen heb je er 4 goed beantwoord.</div>
+                            <div class="flex justify-center px-4 py-16 bg-base-200">Van de '.count($questions).' vragen heb je er '.$_GET["y"].' goed beantwoord.</div>
                         </div>
                     </div>
             
