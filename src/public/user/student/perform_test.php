@@ -136,7 +136,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     </div>
             
                     <button name="submit" class="btn btn-primary">Probeer de test opnieuw</button>
-                    <a href="https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid='.$test["bookid"].'"><button class="btn btn-info">Terug </button></a>
+                    <a href="https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid='.$test["bookid"].'"><button class="btn btn-info">Terug</button></a>
                 </form>
             ';
         }
@@ -153,6 +153,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     </div>
             
                     <button name="submit" class="btn btn-primary">Begin toets</button>
+                    <a href="https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid='.$test["bookid"].'"><button class="btn btn-info">Terug</button></a>
                 </form>
             ';
     }
