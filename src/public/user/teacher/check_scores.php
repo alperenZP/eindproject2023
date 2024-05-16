@@ -129,7 +129,7 @@ $questions_amount = $test_questions["questions_amount"];
     <script>
         function refreshContent() {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "refresh_content.php", true);
+            xhr.open("GET", "check_scores.php", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     // Update the content with the response
