@@ -83,6 +83,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                             </div>
                             <button id="checkBtn" class="btn btn-secondary mt-4">Check</button>
                             <div id="result" class="font-bold mt-2 mb-2"></div>
+                            <input type="hidden" id="result_question" name="result_question" value=""> <!-- Hidden input to store result -->
                             <button id="submitBtn" name="submit" class="btn btn-primary" style="display: none;">Volgende</button>
                         </div>
                     </div>
@@ -116,7 +117,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     checkBtn.style.display = \'none\';
                 });
             </script>
-            <input type="hidden" id="result_question" name="result_question" value=""> <!-- Hidden input to store result -->
+            
             ';
         }
     } else {
