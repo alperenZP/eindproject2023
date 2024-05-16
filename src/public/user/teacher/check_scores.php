@@ -16,6 +16,8 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
+$_SESSION["testid"] = $_GET["testid"];
+
 $test = fetch(
     'SELECT * FROM tests WHERE id = ?',
     ['type' => 'i', 'value' => $_GET["testid"]]
@@ -65,50 +67,18 @@ $questions_amount = $test_questions["questions_amount"];
     </h1>
 
     <!-- Code below this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
-    <div id="refreshable-content">
     <div class="divider"></div> 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
-                    <td><b>PercenrOOOO</b></td>
+                    <td><b>PercenrOOdsfOO</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <!-- row -->
-                <?php
-                foreach ($users as $user) {
-                    $test_scores = fetch(
-                        'SELECT * FROM scores WHERE testid = ? AND userid = ?',
-                        ['type' => 'i', 'value' => $test["id"]],
-                        ['type' => 'i', 'value' => $user["userid"]]
-                    );
+                <div id="refreshable-content"> </div>
 
-                    $score_array = [];
-
-                    for ($i=0; $i < $questions_amount; $i++) {
-                        if (isset($test_scores[$i]["id"])){
-                            if ($test_scores[$i]["isCorrect"] == 1){
-                                array_push($score_array, "✔️");
-                            } else {
-                                array_push($score_array, "❌");
-                            }
-                        } else {
-                            array_push($score_array, "❓");
-                        }
-                    }
-
-                    $string = implode(" ", $score_array);
-
-                    echo '
-                        <tr>
-                            <td>'.$user["username"].'</td>
-                            <td>'.getStatus($score_array).'</td>
-                            <td>'.$string.'</td>
-                        </tr> 
-                    ';
-                }
-                ?>
             </tbody>
         </table>
     </div>
