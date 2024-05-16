@@ -31,7 +31,7 @@ if ($book_access["amount"] == 0) {
     exit();
 }
 
-$users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ?',
+$users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND isBlocked = 0',
     ['type' => 'i', 'value' => $test["bookid"]],
 );
 
@@ -58,50 +58,24 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
     </h1>
 
     <div class="divider"></div> 
-    <h2 class="sm:text-center md:text-center text-2xl mb-8"><i></i></h2>
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
                 <tr>
-                    <td><b>Rol</b></td>
-                    <td><b>Voornaam</b></td>
-                    <td><b>Naam</b></td>
                     <td><b>Gebruikersnaam</b></td>
-                    <td> </td>
+                    <td><b>Percentage</b></td>
+                    <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <!-- row -->
                 <?php
                 foreach ($users as $user) {
-                    $rol = $user["isTeacher"]?
-                        '<div class="tooltip" data-tip="Leraar">
-                        <button class="btn">👨‍🏫</button>
-                        </div>':
-                        '<div class="tooltip" data-tip="Student">
-                        <button class="btn">👨‍🎓</button>
-                        </div>';
-                    if($user["isBlocked"]){
+                    
                         echo '
                             <tr>
-                                <td>'.$rol.'</td>
-                                <td><s>'.$user["firstname"].'</s></td>
-                                <td><s>'.$user["lastname"].'</s></td>
-                                <td><s>'.$user["username"].'</s></td>
-                                <td>GEBLOKKEERD</td>
-                        ';
-                    }else {
-                        echo '
-                            <tr>
-                                <td>'.$rol.'</td>
-                                <td>'.$user["firstname"].'</td>
-                                <td>'.$user["lastname"].'</td>
                                 <td>'.$user["username"].'</td>
+                                <td> </td>
+                                <td> </td>
                         ';
-                        if ($_SESSION["user"]["isTeacher"] && ($user["userid"] != $_SESSION["user"]["id"])){
-                            echo '<td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-error">🛑</button></a></td>';
-                        } else {
-                            echo '<td> </td>';
-                        }
-                    }   
                     echo '
                         
                         </tr>        
