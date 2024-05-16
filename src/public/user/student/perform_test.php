@@ -41,22 +41,23 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
         if ($_SESSION["position_in_test"] <= count($questions)) {
             $x = $_SESSION["position_in_test"] + 1;
             echo '
-                    <form action="" method="post"
-                        enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
-                        <div class="flex flex-col gap-4">
-                            <div class="mockup-window border bg-base-300">
-                                <div class="flex justify-center px-4 py-16 bg-base-200">
-                                    Vraag ' . $x . ':<br><br>  <b>' . $questions[$_SESSION["position_in_test"]]["text"] . '</b>
-                                    <button class="btn btn-info">Info</button><br>
-                                    <button class="btn btn-success">Success</button><br>
-                                    <button class="btn btn-warning">Warning</button><br>
-                                    <button class="btn btn-error">Error</button><br>
-                                </div>
+                <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                    <div class="flex flex-col gap-4">
+                        <div class="mockup-window border bg-base-300">
+                            <div class="flex flex-col items-center px-4 py-8 bg-base-200">
+                                <span class="font-bold">Vraag <?php echo $x; ?>:</span>
+                                <span class="mt-2"><?php echo $questions[$_SESSION["position_in_test"]]["text"]; ?></span>
+                                <button class="btn btn-info mt-4">Info</button>
+                                <button class="btn btn-success mt-2">Success</button>
+                                <button class="btn btn-warning mt-2">Warning</button>
+                                <button class="btn btn-error mt-2">Error</button>
                             </div>
                         </div>
+                    </div>
                 
-                        <button name="submit" class="btn btn-primary">Geef antwoord in</button>
-                    </form>
+                    <button name="submit" class="btn btn-primary">Geef antwoord in</button>
+                </form>
+        
                 ';
             $_SESSION["position_in_test"]++;
         }
