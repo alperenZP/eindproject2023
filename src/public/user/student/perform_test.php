@@ -128,12 +128,13 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 <form action="" method="post"
                     enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
-                        <div class="mockup-window border bg-base-300 w-2/3">
+                        <div class="mockup-window border bg-base-300" style="width: 200%;">
                             <div class="flex px-4 py-16 bg-base-200">
                                 Van de '.count($questions).' vragen heb je er '.$_GET["y"].' goed beantwoord.
                             </div>
                         </div>
                     </div>
+
 
             
                     <button name="submit" class="btn btn-primary">Begin toets</button>
