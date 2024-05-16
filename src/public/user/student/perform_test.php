@@ -55,25 +55,25 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                             <div class="flex flex-col px-4 py-8 bg-base-200"> <!-- Removed items-center -->
                                 <span class="font-bold">Vraag '.$x.':</span>
                                 <span class="mt-2">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
-                                <div class="form-control">
+                                <div class="form-control border border-purple-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[0].'</span> 
                                         <input type="radio" name="radio-10" value="'.$array_choices[0].'" class="radio checked:bg-purple-500" checked />
                                     </label>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control border border-pink-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[1].'</span> 
                                         <input type="radio" name="radio-10" value="'.$array_choices[1].'" class="radio checked:bg-pink-500" checked />
                                     </label>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control border border-orange-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[2].'</span> 
                                         <input type="radio" name="radio-10" value="'.$array_choices[2].'" class="radio checked:bg-orange-500" checked />
                                     </label>
                                 </div>
-                                <div class="form-control">
+                                <div class="form-control border border-yellow-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[3].'</span> 
                                         <input type="radio" name="radio-10" value="'.$array_choices[3].'" class="radio checked:bg-yellow-500" checked />
@@ -86,6 +86,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     <button name="submit" class="btn btn-primary">Geef antwoord in</button>
                 </form>
             '; 
+ 
  
 
             $_SESSION["position_in_test"]++;
