@@ -82,7 +82,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                                     </label>
                                 </div>
                                 <button id="checkBtn" class="btn btn-secondary mt-4">Check</button>
-                                <div id="result" class="mt-2"></div>
+                                <div id="result" class="font-bold mt-2 mb-2"></div>
                                 <button id="submitBtn" name="submit" class="btn btn-primary" style="display: none;">Volgende</button>
                             </div>
                         </div>
