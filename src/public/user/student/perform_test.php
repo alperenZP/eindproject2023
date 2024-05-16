@@ -135,7 +135,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                         </div>
                     </div>
             
-                    <button name="submit" class="btn btn-primary">Begin toets</button>
+                    <button name="submit" class="btn btn-primary">Probeer de test opnieuw</button>
                 </form>
             ';
         }
