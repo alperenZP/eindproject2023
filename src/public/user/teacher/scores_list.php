@@ -26,7 +26,10 @@ $users = fetch_as_array(
 
 foreach ($users as $user) {
     $status = $user["isCorrect"] ? "✔️" : "❌";
-    echo "<tr><td>{$user['username']}</td><td>{$status}</td></tr>";
+    echo '<tr>
+        <td>'.$user['username'].'</td>
+        <td>'.$status.'</td>
+    </tr>';
 }
 
 
