@@ -66,7 +66,6 @@ $questions_amount = $test_questions["questions_amount"];
         ?>
     </h1>
 
-    <!-- Code below this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
     <div class="divider"></div> 
         <div class="overflow-x-auto">
             <table class="table table-zebra">
@@ -76,14 +75,13 @@ $questions_amount = $test_questions["questions_amount"];
                         <td><b>YUTI</b></td>
                         <td><b>Resultaten op test per vraag</b></td>
                     </tr>
-                    <!-- row -->
+                    <!-- rows from scores_list below here -->
                     <div id="refreshable-content"> </div>
-
+                    <!-- rows from scores_list above here -->
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- Code above this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
 
     <script>
         function refreshContent() {
