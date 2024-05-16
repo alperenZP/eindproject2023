@@ -47,10 +47,18 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                             <div class="flex flex-col px-4 py-8 bg-base-200"> <!-- Removed items-center -->
                                 <span class="font-bold">Vraag '.$x.':</span>
                                 <span class="mt-2">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
-                                <button class="btn btn-info mt-4 text-left">Info</button>
-                                <button class="btn btn-success mt-2 text-left">Success</button>
-                                <button class="btn btn-warning mt-2 text-left">Warning</button>
-                                <button class="btn btn-error mt-2 text-left">Error</button>
+                                <div class="form-control">
+                                    <label class="label cursor-pointer">
+                                        <span class="label-text">Red pill</span> 
+                                        <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked />
+                                    </label>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label cursor-pointer">
+                                        <span class="label-text">Blue pill</span> 
+                                        <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
