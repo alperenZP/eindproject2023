@@ -77,7 +77,7 @@ $questions_amount = $test_questions["questions_amount"];
                 foreach ($users as $user) {
                     $test_scores = fetch(
                         'SELECT * FROM scores WHERE testid = ? AND userid = ?',
-                        ['type' => 'i', 'value' => $test["testid"]],
+                        ['type' => 'i', 'value' => $test["id"]],
                         ['type' => 'i', 'value' => $user["userid"]]
                     );
 
@@ -101,7 +101,7 @@ $questions_amount = $test_questions["questions_amount"];
                     echo '
                         <tr>
                             <td>'.$user["username"].'</td>
-                            <td>'.$test["testid"].'</td>
+                            <td>'.$string.'</td>
                         </tr> 
                     ';
                 }
