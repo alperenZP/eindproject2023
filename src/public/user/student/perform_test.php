@@ -57,26 +57,26 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                                 <span class="mt-2">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
-                                        <span class="label-text">Red pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-purple-500" checked />
+                                        <span class="label-text">'.$array_choices[0].'</span> 
+                                        <input type="radio" name="radio-10" value="'.$array_choices[0].'" class="radio checked:bg-purple-500" checked />
                                     </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
-                                        <span class="label-text">Blue pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-pink-500" checked />
+                                        <span class="label-text">'.$array_choices[1].'</span> 
+                                        <input type="radio" name="radio-10" value="'.$array_choices[1].'" class="radio checked:bg-pink-500" checked />
                                     </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
-                                        <span class="label-text">Blue pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-orange-500" checked />
+                                        <span class="label-text">'.$array_choices[2].'</span> 
+                                        <input type="radio" name="radio-10" value="'.$array_choices[2].'" class="radio checked:bg-orange-500" checked />
                                     </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
-                                        <span class="label-text">Blue pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-yellow-500" checked />
+                                        <span class="label-text">'.$array_choices[3].'</span> 
+                                        <input type="radio" name="radio-10" value="'.$array_choices[3].'" class="radio checked:bg-yellow-500" checked />
                                     </label>
                                 </div>
                             </div>
