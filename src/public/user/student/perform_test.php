@@ -38,7 +38,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
     if (isset($_POST["submit"]) || isset($_POST["check"])) {
-        if ($_SESSION["position_in_test"] <= count($questions)) {
+        if ($_SESSION["position_in_test"] < count($questions)) {
             $x = $_SESSION["position_in_test"] + 1;
             $correct_option = $questions[$_SESSION["position_in_test"]]["correct_option"];
             $array_choices = array(
