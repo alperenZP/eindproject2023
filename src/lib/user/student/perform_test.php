@@ -37,9 +37,10 @@ if (isset($_POST['submit'])) {
             ['type' => 'i', 'value' => $userid],
         );
     } else {
-        $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
+        $query = 'INSERT INTO scores (testid, questionid, userid, isCorrect) VALUES (?, ?, ?, ?)';
         insert(
                 $query,
+                ['type' => 'i', 'value' => $testid],
                 ['type' => 'i', 'value' => $question_id],
                 ['type' => 'i', 'value' => $userid],
                 ['type' => 'i', 'value' => $isAnswerCorrect],
@@ -48,21 +49,21 @@ if (isset($_POST['submit'])) {
 
     if ($amount_questions <= $_SESSION["position_in_test"]){
         $total_amount_correct_query = fetch(
-            'SELECT *,count(*) AS "amount" FROM scores WHERE questionid = ? AND userid = ? AND isCorrect = 1',
-            ["type" => "i", "value" => $question_id],
+            'SELECT *,count(*) AS "amount" FROM scores WHERE testid = ? AND userid = ? AND isCorrect = 1',
+            ["type" => "i", "value" => $testid],
             ["type" => "i", "value" => $userid]
         );
 
         $total = $total_amount_correct_query["amount"];
 
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?y='.$total.'&testid='.$testid);
+        //header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?y='.$total.'&testid='.$testid);
     } else {
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
+        //header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
     }
-    exit();
+    //exit();
 } 
 
 
 
-header('Location: https://bibliotheek.live');
-exit();
+//header('Location: https://bibliotheek.live');
+//exit();
