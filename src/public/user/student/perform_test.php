@@ -125,6 +125,8 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
             $_SESSION["position_in_test"]++;
         }
     } else {
+        $_SESSION["position_in_test"] = 0;
+
         echo '
                 <form action="" method="post"
                     enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
