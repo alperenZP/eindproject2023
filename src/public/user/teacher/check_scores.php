@@ -84,8 +84,8 @@ $questions_amount = $test_questions["questions_amount"];
                     $score_array = [];
 
                     for ($i=0; $i < $questions_amount; $i++) {
-                        if (isset($score_array[$i]["id"])){
-                            if ($score_array[$i]["isCorrect"] == 1){
+                        if (isset($test_scores[$i]["id"])){
+                            if ($test_scores[$i]["isCorrect"] == 1){
                                 array_push($score_array, "✔️");
                             } else {
                                 array_push($score_array, "❌");
