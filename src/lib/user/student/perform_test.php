@@ -46,6 +46,7 @@ if (isset($_POST['submit'])) {
 
 
 
-
+/*
 header('Location: https://bibliotheek.live');
 exit();
+*/
