@@ -95,20 +95,13 @@ $questions_amount = $test_questions["questions_amount"];
                         }
                     }
 
-                    $html = '<table style="border-collapse: collapse; border: 1px solid white;">';
+                    $string = implode(", ", $score_array);
 
-                    $html .= '<tr>';
-                    foreach ($score_array as $element) {
-                        $html .= '<td style="border: 1px solid white; padding: 5px;">' . $element . '</td>';
-                    }
-                    $html .= '</tr>';
-
-                    $html .= '</table>';
 
                     echo '
                         <tr>
                             <td>'.$user["username"].'</td>
-                            <td>'.$html.'</td>
+                            <td>'.$string.'</td>
                         </tr> 
                     ';
                 }
