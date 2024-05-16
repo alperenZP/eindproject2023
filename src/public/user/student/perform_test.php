@@ -34,30 +34,34 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Toets: <?php echo $test["title"];?></h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Toets: <?php echo $test["title"]; ?></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
-        if (isset($_POST["submit"])){
-            if ($_SESSION["position_in_test"] <= count($questions)){
-                $x = $_SESSION["position_in_test"]+1;
-                echo '
+    if (isset($_POST["submit"])) {
+        if ($_SESSION["position_in_test"] <= count($questions)) {
+            $x = $_SESSION["position_in_test"] + 1;
+            echo '
                     <form action="" method="post"
                         enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                         <div class="flex flex-col gap-4">
                             <div class="mockup-window border bg-base-300">
-                                <div class="flex justify-center px-4 py-16 bg-base-200">Vraag '.$x.'<br><br>  <b>'.$questions[$_SESSION["position_in_test"]]["text"].'</b></div>
+                                <div class="flex justify-center px-4 py-16 bg-base-200">
+                                    Vraag ' . $x . ':<br><br>  <b>' . $questions[$_SESSION["position_in_test"]]["text"] . '</b>
+                                    <button class="btn btn-info">Info</button><br>
+                                    <button class="btn btn-success">Success</button><br>
+                                    <button class="btn btn-warning">Warning</button><br>
+                                    <button class="btn btn-error">Error</button><br>
+                                </div>
                             </div>
                         </div>
                 
                         <button name="submit" class="btn btn-primary">Geef antwoord in</button>
                     </form>
                 ';
-                $_SESSION["position_in_test"]++;
-            }
-
-            
-        } else {
-            echo '
+            $_SESSION["position_in_test"]++;
+        }
+    } else {
+        echo '
                 <form action="" method="post"
                     enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
@@ -69,7 +73,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     <button name="submit" class="btn btn-primary">Begin toets</button>
                 </form>
             ';
-        }
+    }
     ?>
-    
+
 </div>
