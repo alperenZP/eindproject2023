@@ -56,14 +56,9 @@ if (isset($_POST['submit'])) {
         $total = $total_amount_correct_query["amount"];
 
         header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?y='.$total.'&testid='.$testid);
+    } else {
+        header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
     }
-
-
-    
-
-    
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
-
     exit();
 } 
 
