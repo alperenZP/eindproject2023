@@ -104,7 +104,7 @@ $questions_amount = $test_questions["questions_amount"];
                     echo '
                         <tr>
                             <td>'.$user["username"].'</td>
-                            <td>'.$string.'</td>
+                            <td>'.$test["testid"].'</td>
                         </tr> 
                     ';
                 }
