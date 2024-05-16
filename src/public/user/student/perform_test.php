@@ -103,10 +103,10 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                         });
 
                         if (selectedOption == correctOption) {
-                            resultDiv.textContent = \'True\';
+                            resultDiv.textContent = \'Juist\';
                             resultDiv.style.color = \'green\';
                         } else {
-                            resultDiv.textContent = \'False\';
+                            resultDiv.textContent = \'Fout\';
                             resultDiv.style.color = \'red\';
                         }
 
