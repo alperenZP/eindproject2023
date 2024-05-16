@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         ["type" => "i", "value" => $userid]
     );
 
-    if ($check_if_question_already_answered["count"] > 0){
+    if ($check_if_question_already_answered["amount"] > 0){
         $query = 'UPDATE scores SET isCorrect = ? WHERE questionid = ? AND userid = ?';
         insert(
             $query,
