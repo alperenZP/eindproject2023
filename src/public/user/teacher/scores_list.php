@@ -27,11 +27,24 @@ $users = fetch_as_array(
     ['type' => 'i', 'value' => $testid]
 );
 
+// Check if users are fetched
+if (!$users) {
+    echo "No users found!";
+    exit;
+}
+
 // Fetch total number of questions
 $test_questions = fetch(
     'SELECT COUNT(*) AS questions_amount FROM questions WHERE testid = ?',
     ['type' => 'i', 'value' => $test["id"]]
 );
+
+// Check if test questions are fetched
+if (!$test_questions) {
+    echo "No questions found for the test!";
+    exit;
+}
+
 $questions_amount = $test_questions["questions_amount"];
 
 // Output table rows
@@ -41,6 +54,12 @@ foreach ($users as $user) {
         WHERE testid = ? AND userid = ?',
         ['type' => 'ii', 'value' => $testid, 'value2' => $user["userid"]]
     );
+
+    // Check if test scores are fetched
+    if (!$test_scores) {
+        echo "No scores found for user: ".$user["username"];
+        continue; // Move to the next user
+    }
 
     $correct_answers = 0;
     foreach ($test_scores as $score) {
