@@ -53,8 +53,8 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
                             <div class="flex flex-col px-4 py-8 bg-base-200"> <!-- Removed items-center -->
-                                <span class="font-bold">Vraag '.$x.':</span>
-                                <span class="mt-2">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
+                                <span class="mt-2">Vraag '.$x.':</span>
+                                <span class="font-bold">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
                                 <div class="form-control border border-purple-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[0].'</span> 
