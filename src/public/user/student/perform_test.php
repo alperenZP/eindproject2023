@@ -46,6 +46,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 $questions[$_SESSION["position_in_test"]]["incorrect2"],
                 $questions[$_SESSION["position_in_test"]]["incorrect3"],
             );
+            shuffle($array_choices);
 
             echo '
                 <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
