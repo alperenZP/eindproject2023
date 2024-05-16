@@ -37,7 +37,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Toets: <?php echo $test["title"]; ?></h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
     <?php
-    if (isset($_POST["submit"])) {
+    if (isset($_POST["submit"]) || isset($_POST["check"])) {
         if ($_SESSION["position_in_test"] <= count($questions)) {
             $x = $_SESSION["position_in_test"] + 1;
             $correct_option = $questions[$_SESSION["position_in_test"]]["correct_option"];
@@ -81,7 +81,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                                         <input type="radio" name="radio_guess" value="' . $array_choices[3] . '" class="radio checked:bg-yellow-500" />
                                     </label>
                                 </div>
-                                <button id="checkBtn" class="btn btn-secondary mt-4">Check</button>
+                                <button id="checkBtn" name="check" class="btn btn-secondary mt-4">Controleer</button>
                                 <div id="result" class="mt-2"></div>
                             </div>
                         </div>
