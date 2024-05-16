@@ -103,5 +103,13 @@ function getStatus($array) {
             $checkMarkCount++;
         }
     }
+
+    if ($questionMarkFound) {
+        return "Onafgewerkt";
+    } else {
+        $percentage = ($checkMarkCount / $totalCount) * 100;
+        return number_format($percentage, 2) . "%";
+    }
 }
+
 ?>
