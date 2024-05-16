@@ -68,32 +68,21 @@ $questions_amount = $test_questions["questions_amount"];
 
     <!-- Code below this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
     <div class="divider"></div> 
-    <div class="overflow-x-auto">
-        <table class="table table-zebra">
-            <tbody>
-                <tr>
-                    <td><b>Gebruikersnaam</b></td>
-                    <td><b>PROghjklZTN</b></td>
-                    <td><b>Resultaten op test per vraag</b></td>
-                </tr>
-                <!-- row -->
-                <div id="refreshable-content"> </div>
+        <div class="overflow-x-auto">
+            <table class="table table-zebra">
+                <tbody>
+                    <tr>
+                        <td><b>Gebruikersnaam</b></td>
+                        <td><b>PROghjklZTN</b></td>
+                        <td><b>Resultaten op test per vraag</b></td>
+                    </tr>
+                    <!-- row -->
+                    <div id="refreshable-content"> </div>
 
-            </tbody>
-        </table>
-    </div>
-    
-    <?php
-        if (count($users) == 0){
-            echo '
-                <div role="alert" class="alert alert-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>Er staan geen gebruikers in deze lijst.</span>
-                </div>
-            ';
-        }
-    ?>
-    </div>
+                </tbody>
+            </table>
+        </div>
+</div>
     <!-- Code above this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
 
     <script>
