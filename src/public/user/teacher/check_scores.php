@@ -64,6 +64,8 @@ $questions_amount = $test_questions["questions_amount"];
         ?>
     </h1>
 
+    <!-- Code below this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
+    <div id="refreshable-content">
     <div class="divider"></div> 
     <div class="overflow-x-auto">
         <table class="table table-zebra">
@@ -121,6 +123,24 @@ $questions_amount = $test_questions["questions_amount"];
             ';
         }
     ?>
+    </div>
+    <!-- Code above this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
+
+    <script>
+        function refreshContent() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "refresh_content.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the content with the response
+                    document.getElementById("refreshable-content").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        setInterval(refreshContent, 4000);
+    </script>
 </div>
 
 <?php
