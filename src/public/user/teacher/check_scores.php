@@ -53,19 +53,12 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
         <?php
-        echo $book["title"];
+        echo 'Scoren van studenten op '.$test["title"].'';
         ?>
     </h1>
 
-    <ul class="menu menu-horizontal bg-base-200 w-400">
-        <div class="divider"></div>
-        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=<?php echo $book["id"]?>">Boek</a></li>
-        <li><a>Oefeningen</a></li>
-        <li><a class="active">Studenten</a></li>
-    </ul>
-
     <div class="divider"></div> 
-    <h2 class="sm:text-center md:text-center text-2xl mb-8"><i>Gebruikers die zijn verbonden met dit boek</i></h2>
+    <h2 class="sm:text-center md:text-center text-2xl mb-8"><i></i></h2>
     <div class="overflow-x-auto">
         <table class="table table-zebra">
             <tbody>
