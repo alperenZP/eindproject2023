@@ -12,6 +12,8 @@ $test = fetch(
     ['type' => 'i', 'value' => $testid]
 );
 
+/*
+
 if (!$test) {
     echo "Test not found!";
     exit;
@@ -31,6 +33,50 @@ foreach ($users as $user) {
         <td>'.$status.'</td>
     </tr>';
 }
+*/
+
+$users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND isTeacher = 0 AND isBlocked = 0',
+    ['type' => 'i', 'value' => $test["bookid"]],
+);
+
+$test_questions = fetch(
+    'SELECT *, count(*) AS "questions_amount" FROM questions WHERE testid = ?',
+    ['type' => 'i', 'value' => $test["id"]],
+);
+
+$questions_amount = $test_questions["questions_amount"];
+
+foreach ($users as $user) {
+    $test_scores = fetch(
+        'SELECT * FROM scores WHERE testid = ? AND userid = ?',
+        ['type' => 'i', 'value' => $test["id"]],
+        ['type' => 'i', 'value' => $user["userid"]]
+    );
+
+    $score_array = [];
+
+    for ($i=0; $i < $questions_amount; $i++) {
+        if (isset($test_scores[$i]["id"])){
+            if ($test_scores[$i]["isCorrect"] == 1){
+                array_push($score_array, "✔️");
+            } else {
+                array_push($score_array, "❌");
+            }
+        } else {
+            array_push($score_array, "❓");
+        }
+    }
+
+    $string = implode(" ", $score_array);
+
+    echo '
+        <tr>
+            <td>'.$user["username"].'</td>
+            <td>'.getStatus($score_array).'</td>
+            <td>'.$string.'</td>
+        </tr> 
+    ';
+}
 
 
 
@@ -42,5 +88,20 @@ if (empty($users)) {
             <span>Er staan geen gebruikers in deze lijst.</span>
         </div>
     ';
+}
+
+function getStatus($array) {
+    $questionMarkFound = false;
+    $checkMarkCount = 0;
+    $totalCount = count($array);
+
+    foreach ($array as $element) {
+        if ($element === "❓") {
+            $questionMarkFound = true;
+            break;
+        } elseif ($element === "✔️") {
+            $checkMarkCount++;
+        }
+    }
 }
 ?>
