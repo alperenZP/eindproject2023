@@ -49,71 +49,74 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
             );
             shuffle($array_choices);
             echo '
-                <form action="https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
-                    <div class="flex flex-col gap-4">
-                        <div class="mockup-window border bg-base-300">
-                            <div class="flex flex-col px-4 py-8 bg-base-200">
-                                <span class="mb-2">Vraag '.$x.':</span>
-                                <span class="font-bold mt-2 mb-6">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
-                                <input type="hidden" name="question_id" value="'.$questions[$_SESSION["position_in_test"]]["id"].'"/>
-                                <input type="hidden" name="test_id" value="'.$_GET["testid"].'"/>
-                                <div class="form-control border border-purple-500 rounded-md p-2">
-                                    <label class="label cursor-pointer">
-                                        <span class="label-text">'.$array_choices[0].'</span> 
-                                        <input type="radio" name="radio_guess" value="'.$array_choices[0].'" class="radio checked:bg-purple-500" checked />
-                                    </label>
-                                </div>
-                                <div class="form-control border border-pink-500 rounded-md p-2">
-                                    <label class="label cursor-pointer">
-                                        <span class="label-text">'.$array_choices[1].'</span> 
-                                        <input type="radio" name="radio_guess" value="'.$array_choices[1].'" class="radio checked:bg-pink-500" />
-                                    </label>
-                                </div>
-                                <div class="form-control border border-orange-500 rounded-md p-2">
-                                    <label class="label cursor-pointer">
-                                        <span class="label-text">'.$array_choices[2].'</span> 
-                                        <input type="radio" name="radio_guess" value="'.$array_choices[2].'" class="radio checked:bg-orange-500" />
-                                    </label>
-                                </div>
-                                <div class="form-control border border-yellow-500 rounded-md p-2">
-                                    <label class="label cursor-pointer">
-                                        <span class="label-text">'.$array_choices[3].'</span> 
-                                        <input type="radio" name="radio_guess" value="'.$array_choices[3].'" class="radio checked:bg-yellow-500" />
-                                    </label>
-                                </div>
-                                <button id="checkBtn" class="btn btn-secondary mt-4">Check</button>
-                                <div id="result" class="font-bold mt-2 mb-2"></div>
-                                <button id="submitBtn" name="submit" class="btn btn-primary" style="display: none;">Volgende</button>
+            <form action="https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                <div class="flex flex-col gap-4">
+                    <div class="mockup-window border bg-base-300">
+                        <div class="flex flex-col px-4 py-8 bg-base-200">
+                            <span class="mb-2">Vraag '.$x.':</span>
+                            <span class="font-bold mt-2 mb-6">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
+                            <input type="hidden" name="question_id" value="'.$questions[$_SESSION["position_in_test"]]["id"].'"/>
+                            <input type="hidden" name="test_id" value="'.$_GET["testid"].'"/>
+                            <div class="form-control border border-purple-500 rounded-md p-2">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">'.$array_choices[0].'</span> 
+                                    <input type="radio" name="radio_guess" value="'.$array_choices[0].'" class="radio checked:bg-purple-500" checked />
+                                </label>
                             </div>
+                            <div class="form-control border border-pink-500 rounded-md p-2">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">'.$array_choices[1].'</span> 
+                                    <input type="radio" name="radio_guess" value="'.$array_choices[1].'" class="radio checked:bg-pink-500" />
+                                </label>
+                            </div>
+                            <div class="form-control border border-orange-500 rounded-md p-2">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">'.$array_choices[2].'</span> 
+                                    <input type="radio" name="radio_guess" value="'.$array_choices[2].'" class="radio checked:bg-orange-500" />
+                                </label>
+                            </div>
+                            <div class="form-control border border-yellow-500 rounded-md p-2">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">'.$array_choices[3].'</span> 
+                                    <input type="radio" name="radio_guess" value="'.$array_choices[3].'" class="radio checked:bg-yellow-500" />
+                                </label>
+                            </div>
+                            <button id="checkBtn" class="btn btn-secondary mt-4">Check</button>
+                            <div id="result" class="font-bold mt-2 mb-2"></div>
+                            <button id="submitBtn" name="submit" class="btn btn-primary" style="display: none;">Volgende</button>
                         </div>
                     </div>
-                </form>
-                <script>
-                    document.getElementById(\'checkBtn\').addEventListener(\'click\', function(event) {
-                        event.preventDefault(); // Prevents the default form submission behavior
-                        var selectedOption = document.querySelector(\'input[name="radio_guess"]:checked\').value;
-                        var correctOption = "'.$correct_option.'";
-                        var resultDiv = document.getElementById(\'result\');
-                        var submitBtn = document.getElementById(\'submitBtn\');
-                        var checkBtn = document.getElementById(\'checkBtn\');
-                        var radioButtons = document.getElementsByName(\'radio_guess\');
-
-                        radioButtons.forEach(function(radioButton) {
-                            radioButton.disabled = true; // Disable radio buttons
-                        });
-
-                        if (selectedOption == correctOption) {
-                            resultDiv.textContent = \'Juist\';
-                            resultDiv.style.color = \'green\';
-                        } else {
-                            resultDiv.textContent = \'Fout\';
-                            resultDiv.style.color = \'red\';
-                        }
-
-                        submitBtn.style.display = \'block\';
-                        checkBtn.style.display = \'none\';
+                </div>
+            </form>
+            <script>
+                document.getElementById(\'checkBtn\').addEventListener(\'click\', function(event) {
+                    event.preventDefault(); // Prevents the default form submission behavior
+                    var selectedOption = document.querySelector(\'input[name="radio_guess"]:checked\').value;
+                    var correctOption = "'.$correct_option.'";
+                    var resultDiv = document.getElementById(\'result\');
+                    var submitBtn = document.getElementById(\'submitBtn\');
+                    var checkBtn = document.getElementById(\'checkBtn\');
+                    var radioButtons = document.getElementsByName(\'radio_guess\');
+    
+                    radioButtons.forEach(function(radioButton) {
+                        radioButton.disabled = true; // Disable radio buttons
                     });
-                </script>
+    
+                    if (selectedOption == correctOption) {
+                        resultDiv.textContent = \'Juist\';
+                        resultDiv.style.color = \'green\';
+                        document.getElementById(\'result_question\').value = 1; // Set result_question value to 1
+                    } else {
+                        resultDiv.textContent = \'Fout\';
+                        resultDiv.style.color = \'red\';
+                        document.getElementById(\'result_question\').value = 0; // Set result_question value to 0
+                    }
+    
+                    submitBtn.style.display = \'block\';
+                    checkBtn.style.display = \'none\';
+                });
+            </script>
+            <input type="hidden" id="result_question" name="result_question" value=""> <!-- Hidden input to store result -->
             ';
         }
     } else {
