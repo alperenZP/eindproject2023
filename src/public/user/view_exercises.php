@@ -112,9 +112,20 @@ $_SESSION["access_book_test"] = true;
                     ';
 
                     if (!$_SESSION['user']['isTeacher']) {
+                        $testscores = fetch(
+                            'SELECT *, count(*) AS "correct_amount" FROM scores WHERE testid = ? AND userid = ? AND isCorrect = 1',
+                            ['type' => 'i', 'value' => $test["testid"]],
+                            ['type' => 'i', 'value' => $_SESSION["user"]["id"]]
+                        );
+
+                        $test_questions = fetch(
+                            'SELECT *, count(*) AS "questions_amount" FROM questions WHERE testid = ?',
+                            ['type' => 'i', 'value' => $test["testid"]],
+                        );
+
                         echo '
                             <td><a href="https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?testid='.$test["testid"].'"><button class="btn btn-info">Start</button></a></td>
-                            <td><b>0/10</b></td>
+                            <td><b>'.$testscores["correct_amount"].'/'.$test_questions["questions_amount"].'</b></td>
                         ';
                     } else {
                         echo '
