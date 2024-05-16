@@ -40,6 +40,13 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
     if (isset($_POST["submit"])) {
         if ($_SESSION["position_in_test"] <= count($questions)) {
             $x = $_SESSION["position_in_test"] + 1;
+            $array_choices = array(
+                $questions[$_SESSION["position_in_test"]]["correct_option"],
+                $questions[$_SESSION["position_in_test"]]["incorrect1"],
+                $questions[$_SESSION["position_in_test"]]["incorrect2"],
+                $questions[$_SESSION["position_in_test"]]["incorrect3"],
+            );
+
             echo '
                 <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
@@ -50,13 +57,25 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">Red pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked />
+                                        <input type="radio" name="radio-10" class="radio checked:bg-purple-500" checked />
                                     </label>
                                 </div>
                                 <div class="form-control">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">Blue pill</span> 
-                                        <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+                                        <input type="radio" name="radio-10" class="radio checked:bg-pink-500" checked />
+                                    </label>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label cursor-pointer">
+                                        <span class="label-text">Blue pill</span> 
+                                        <input type="radio" name="radio-10" class="radio checked:bg-orange-500" checked />
+                                    </label>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label cursor-pointer">
+                                        <span class="label-text">Blue pill</span> 
+                                        <input type="radio" name="radio-10" class="radio checked:bg-yellow-500" checked />
                                     </label>
                                 </div>
                             </div>
