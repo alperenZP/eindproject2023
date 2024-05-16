@@ -37,7 +37,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
 
 $test_questions = fetch(
     'SELECT *, count(*) AS "questions_amount" FROM questions WHERE testid = ?',
-    ['type' => 'i', 'value' => $test["testid"]],
+    ['type' => 'i', 'value' => $test["id"]],
 );
 
 $questions_amount = $test_questions["questions_amount"];
