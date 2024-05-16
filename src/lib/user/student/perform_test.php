@@ -22,7 +22,11 @@ if (isset($_POST['submit'])) {
     $userid = $_SESSION["user"]["id"];
 
        
-    $isAnswerCorrect = ($question["correct_option"] == $guess);
+    if ($question["correct_option"] == $guess){
+        $isAnswerCorrect = 1;
+    } else {
+        $isAnswerCorrect = 0;
+    }
     $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
     insert(
             $query,
@@ -31,7 +35,7 @@ if (isset($_POST['submit'])) {
             ['type' => 'i', 'value' => $isAnswerCorrect],
     );
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid.'');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid='.$testid);
 
     exit();
 } 
