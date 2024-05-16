@@ -33,7 +33,6 @@ $tests = fetch_as_array(
 
 $_SESSION["questions_amount"] = 1;
 $_SESSION["access_book_test"] = true;
-$_SESSION["position_in_test"] = 0;
 
 ?>
 
