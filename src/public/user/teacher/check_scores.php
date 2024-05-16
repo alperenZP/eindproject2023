@@ -97,6 +97,12 @@ $questions_amount = $test_questions["questions_amount"];
 
                     $string = implode(", ", $score_array);
 
+                    if (empty($score_array)){
+                        echo var_dump($score_array) . '<br>';
+                        echo $test["id"] . '<br>';
+                        echo $user["userid"] . '<br>';
+                    }
+
 
                     echo '
                         <tr>
