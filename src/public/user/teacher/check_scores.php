@@ -70,6 +70,7 @@ $questions_amount = $test_questions["questions_amount"];
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
+                    <td><b>Percentage</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <!-- row -->
@@ -100,6 +101,7 @@ $questions_amount = $test_questions["questions_amount"];
                     echo '
                         <tr>
                             <td>'.$user["username"].'</td>
+                            <td>'.getStatus($score_array).'</td>
                             <td>'.$string.'</td>
                         </tr> 
                     ';
@@ -120,3 +122,28 @@ $questions_amount = $test_questions["questions_amount"];
         }
     ?>
 </div>
+
+<?php
+
+function getStatus($array) {
+    $questionMarkFound = false;
+    $checkMarkCount = 0;
+    $totalCount = count($array);
+
+    foreach ($array as $element) {
+        if ($element === "❓") {
+            $questionMarkFound = true;
+            break;
+        } elseif ($element === "✔️") {
+            $checkMarkCount++;
+        }
+    }
+
+    if ($questionMarkFound) {
+        return "Onafgewerkt";
+    } else {
+        $percentage = ($checkMarkCount / $totalCount) * 100;
+        return number_format($percentage, 2) . "%";
+    }
+}
+?>
