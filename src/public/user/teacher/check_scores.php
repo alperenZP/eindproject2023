@@ -35,6 +35,13 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
     ['type' => 'i', 'value' => $test["bookid"]],
 );
 
+$test_questions = fetch(
+    'SELECT *, count(*) AS "questions_amount" FROM questions WHERE testid = ?',
+    ['type' => 'i', 'value' => $test["testid"]],
+);
+
+$questions_amount = $test_questions["questions_amount"];
+
 ?>
 
 <!DOCTYPE html>
@@ -63,22 +70,46 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
-                    <td><b>Percentage</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <!-- row -->
                 <?php
                 foreach ($users as $user) {
-                    
-                        echo '
-                            <tr>
-                                <td>'.$user["username"].'</td>
-                                <td> </td>
-                                <td> </td>
-                        ';
+                    $test_scores = fetch(
+                        'SELECT * FROM scores WHERE testid = ? AND userid = ?',
+                        ['type' => 'i', 'value' => $test["testid"]],
+                        ['type' => 'i', 'value' => $user["userid"]]
+                    );
+
+                    $score_array = [];
+
+                    for ($i=0; $i < $questions_amount; $i++) {
+                        if (isset($score_array[$i]["id"])){
+                            if ($score_array[$i]["isCorrect"] == 1){
+                                array_push($score_array, "✔️");
+                            } else {
+                                array_push($score_array, "❌");
+                            }
+                        } else {
+                            array_push($score_array, "❓");
+                        }
+                    }
+
+                    $html = '<table style="border-collapse: collapse; border: 1px solid white;">';
+
+                    $html .= '<tr>';
+                    foreach ($score_array as $element) {
+                        $html .= '<td style="border: 1px solid white; padding: 5px;">' . $element . '</td>';
+                    }
+                    $html .= '</tr>';
+
+                    $html .= '</table>';
+
                     echo '
-                        
-                        </tr>        
+                        <tr>
+                            <td>'.$user["username"].'</td>
+                            <td>'.$html.'</td>
+                        </tr> 
                     ';
                 }
                 ?>
