@@ -10,6 +10,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 if (isset($_POST['submit'])) {
+    $_SESSION["position_in_test"]++;
     $guess = $_POST['radio_guess'];
     $question_id = $_POST["question_id"];
 
@@ -19,26 +20,22 @@ if (isset($_POST['submit'])) {
     );
     $userid = $_SESSION["user"]["id"];
 
-    if (isset($question["id"])) {
-        
-        $isAnswerCorrect = ($question["correct_option"] == $guess);
-        $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
-            insert(
-                $query,
-                ['type' => 'i', 'value' => $question_id],
-                ['type' => 'i', 'value' => $userid],
-                ['type' => 'i', 'value' => $isAnswerCorrect],
-        );
+       
+    $isAnswerCorrect = ($question["correct_option"] == $guess);
+    $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
+    insert(
+            $query,
+            ['type' => 'i', 'value' => $question_id],
+            ['type' => 'i', 'value' => $userid],
+            ['type' => 'i', 'value' => $isAnswerCorrect],
+    );
 
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid=' . $book["id"] . '');
-    } else {
-        header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure=2');
-    }
-
-
-
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1');
     exit();
-}
+} 
+
+
+
 
 header('Location: https://bibliotheek.live');
 exit();
