@@ -97,9 +97,6 @@ $questions_amount = $test_questions["questions_amount"];
 
                     $string = implode(", ", $score_array);
 
-                    if (empty($score_array)){
-                        $string = var_dump($test_scores);
-                    }
 
                     echo '
                         <tr>
