@@ -50,7 +50,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
             shuffle($array_choices);
             //https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php
             echo '
-                <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                <form action="https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
                             <div class="flex flex-col px-4 py-8 bg-base-200">
@@ -95,17 +95,27 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                         var correctOption = "'.$correct_option.'";
                         var resultDiv = document.getElementById(\'result\');
                         var submitBtn = document.getElementById(\'submitBtn\');
+                        var checkBtn = document.getElementById(\'checkBtn\');
+                        var radioButtons = document.getElementsByName(\'radio_guess\');
+
+                        radioButtons.forEach(function(radioButton) {
+                            radioButton.disabled = true; // Disable radio buttons
+                        });
 
                         if (selectedOption == correctOption) {
                             resultDiv.textContent = \'True\';
+                            resultDiv.style.color = \'green\';
                         } else {
                             resultDiv.textContent = \'False\';
+                            resultDiv.style.color = \'red\';
                         }
 
                         submitBtn.style.display = \'block\';
+                        checkBtn.style.display = \'none\';
                     });
                 </script>
-                ';
+            ';
+
 
 
 
