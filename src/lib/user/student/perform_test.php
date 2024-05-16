@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $_SESSION["position_in_test"]++;
     $guess = $_POST['radio_guess'];
     $question_id = $_POST["question_id"];
+    $testid = $_POST["test_id"];
 
     $question = fetch(
         'SELECT * FROM questions WHERE id = ?',
@@ -30,7 +31,8 @@ if (isset($_POST['submit'])) {
             ['type' => 'i', 'value' => $isAnswerCorrect],
     );
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/student/perform_test.php?x=1&testid=2');
+
     exit();
 } 
 

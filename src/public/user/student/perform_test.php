@@ -56,6 +56,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                                 <span class="mb-2">Vraag '.$x.':</span>
                                 <span class="font-bold mt-2 mb-6">'.$questions[$_SESSION["position_in_test"]]["text"].'</span>
                                 <input type="hidden" name="question_id" value="'.$questions[$_SESSION["position_in_test"]]["id"].'"/>
+                                <input type="hidden" name="test_id" value="'.$_GET["testid"].'"/>
                                 <div class="form-control border border-purple-500 rounded-md p-2">
                                     <label class="label cursor-pointer">
                                         <span class="label-text">'.$array_choices[0].'</span> 
