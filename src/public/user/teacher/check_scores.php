@@ -73,7 +73,7 @@ $questions_amount = $test_questions["questions_amount"];
                 <tbody>
                     <tr>
                         <td><b>Gebruikersnaam</b></td>
-                        <td><b>GROGNAK</b></td>
+                        <td><b>ROGNON</b></td>
                         <td><b>Resultaten op test per vraag</b></td>
                     </tr>
                     <!-- row -->

@@ -36,14 +36,19 @@ $questions_amount = $test_questions["questions_amount"];
 
 // Output table rows
 foreach ($users as $user) {
-    $test_scores = fetch(
-        'SELECT COUNT(*) AS correct_answers 
-        FROM scores 
-        WHERE testid = ? AND userid = ? AND isCorrect = 1',
+    $test_scores = fetch_as_array(
+        'SELECT isCorrect FROM scores 
+        WHERE testid = ? AND userid = ?',
         ['type' => 'ii', 'value' => $testid, 'value2' => $user["userid"]]
     );
 
-    $correct_answers = $test_scores["correct_answers"] ?? 0;
+    $correct_answers = 0;
+    foreach ($test_scores as $score) {
+        if ($score["isCorrect"] == 1) {
+            $correct_answers++;
+        }
+    }
+
     $percentage = ($correct_answers / $questions_amount) * 100;
     $status = ($percentage == 100) ? "100%" : number_format($percentage, 2) . "%";
 
