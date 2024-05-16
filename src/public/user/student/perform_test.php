@@ -48,9 +48,9 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                 $questions[$_SESSION["position_in_test"]]["incorrect3"],
             );
             shuffle($array_choices);
-
+            //https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php
             echo '
-                <form action="https://bibliotheek.live/alperenGit/src/lib/user/student/perform_test.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
+                <form action="" method="post" enctype="multipart/form-data" class="flex flex-col gap-8 w-full sm:w-80">
                     <div class="flex flex-col gap-4">
                         <div class="mockup-window border bg-base-300">
                             <div class="flex flex-col px-4 py-8 bg-base-200"> <!-- Removed items-center -->
