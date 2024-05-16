@@ -66,7 +66,7 @@ $questions_amount = $test_questions["questions_amount"];
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
-                    <td><b>KETSEL</b></td>
+                    <td><b>KETS2EL</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <tr id="refreshable-content"> 
@@ -92,3 +92,5 @@ $questions_amount = $test_questions["questions_amount"];
 
     setInterval(refreshContent, 4000);
 </script>
+
+
