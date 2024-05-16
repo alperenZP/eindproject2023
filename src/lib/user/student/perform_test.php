@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     );
     $userid = $_SESSION["user"]["id"];
 
-    echo $question["correct_option"] .' is equal to '. $guess  .': '. $isAnswerCorrect;
+    echo $question["correct_option"] .' is correct? The truth is '. $isAnswerCorrect;
     /*
     $query = 'INSERT INTO scores (questionid, userid, isCorrect) VALUES (?, ?, ?)';
     insert(
