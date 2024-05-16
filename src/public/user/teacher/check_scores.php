@@ -43,10 +43,10 @@ $test_questions = fetch(
 );
 
 $questions_amount = $test_questions["questions_amount"];
-
 ?>
 
 <!DOCTYPE html>
+<html lang="nl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
@@ -55,42 +55,43 @@ $questions_amount = $test_questions["questions_amount"];
     <link rel="stylesheet" href="/alperenGit/public/css/theme.css">
     <title>Bekijk studenten</title>
 </head>
-<?php include COMPONENTS . '/nav.php' ?>
-<div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
-        <?php echo 'Scoren van studenten op '.$test["title"].''; ?>
-    </h1>
-    <div class="divider"></div> 
-    <div class="overflow-x-auto">
-        <table class="table table-zebra">
-            <tbody>
-                <tr>
-                    <td><b>Gebruikersnaam</b></td>
-                    <td><b>KETS2EL</b></td>
-                    <td><b>Resultaten op test per vraag</b></td>
-                </tr>
-                <tr id="refreshable-content"> 
+<body>
+    <?php include COMPONENTS . '/nav.php' ?>
+    <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
+        <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">
+            <?php echo 'Scoren van studenten op '.$test["title"].''; ?>
+        </h1>
+        <div class="divider"></div> 
+        <div class="overflow-x-auto">
+            <table class="table table-zebra">
+                <thead>
+                    <tr>
+                        <th>Gebruikersnaam</th>
+                        <th>KARLT</th>
+                        <th>Resultaten op test per vraag</th>
+                    </tr>
+                </thead>
+                <tbody id="refreshable-content">
                     <!-- rows from scores_list will be inserted here -->
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<script>
-    function refreshContent() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://bibliotheek.live/alperenGit/src/public/user/teacher/scores_list.php", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Update the content with the response
-                document.getElementById("refreshable-content").innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
-    }
+    <script>
+        function refreshContent() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://bibliotheek.live/alperenGit/src/public/user/teacher/scores_list.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the content with the response
+                    document.getElementById("refreshable-content").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
 
-    setInterval(refreshContent, 4000);
-</script>
-
-
+        setInterval(refreshContent, 4000);
+    </script>
+</body>
+</html>
