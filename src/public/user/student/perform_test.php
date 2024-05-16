@@ -130,7 +130,7 @@ $questions = fetch_as_array('SELECT * FROM questions WHERE testid = ? ORDER BY i
                     <div class="flex justify-center">
                         <div class="mockup-window border bg-base-300" style="width: 200%;">
                             <div class="flex px-4 py-16 bg-base-200">
-                                Van de '.count($questions).' vragen heb je er '.$_GET["y"].' goed beantwoord.
+                                Van de <b>'.count($questions).'</b> vragen heb je er <b>'.$_GET["y"].'</b> goed beantwoord.
                             </div>
                         </div>
                     </div>
