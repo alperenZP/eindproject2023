@@ -66,7 +66,7 @@ $questions_amount = $test_questions["questions_amount"];
             <tbody>
                 <tr>
                     <td><b>Gebruikersnaam</b></td>
-                    <td><b>KETSEL</b></td>
+                    <td><b>Percentage</b></td>
                     <td><b>Resultaten op test per vraag</b></td>
                 </tr>
                 <div id="refreshable-content"> 
