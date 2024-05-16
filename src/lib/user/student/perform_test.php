@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
 
 if (isset($_POST['submit'])) {
     $_SESSION["position_in_test"]++;
-    $guess = $_POST['radio_guess'];
+    $isAnswerCorrect = $_POST["result_question"];
     $question_id = $_POST["question_id"];
     $testid = $_POST["test_id"];
 
@@ -20,13 +20,6 @@ if (isset($_POST['submit'])) {
         ["type" => "i", "value" => $question_id]
     );
     $userid = $_SESSION["user"]["id"];
-
-       
-    if ($question["correct_option"] == $guess){
-        $isAnswerCorrect = 1;
-    } else {
-        $isAnswerCorrect = 0;
-    }
 
     echo $question["correct_option"] .' is equal to '. $guess  .': '. $isAnswerCorrect;
     /*
