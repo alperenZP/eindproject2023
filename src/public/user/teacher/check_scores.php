@@ -73,7 +73,7 @@ $questions_amount = $test_questions["questions_amount"];
                 <tbody>
                     <tr>
                         <td><b>Gebruikersnaam</b></td>
-                        <td><b>DROGN</b></td>
+                        <td><b>PROghjklZTN</b></td>
                         <td><b>Resultaten op test per vraag</b></td>
                     </tr>
                     <!-- row -->
@@ -82,7 +82,7 @@ $questions_amount = $test_questions["questions_amount"];
                 </tbody>
             </table>
         </div>
-</div>
+    </div>
     <!-- Code above this line should be refreshed every 4 seconds without the rest of the page also refreshing. -->
 
     <script>
