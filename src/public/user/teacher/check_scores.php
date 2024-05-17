@@ -67,7 +67,7 @@ $questions_amount = $test_questions["questions_amount"];
                 <thead>
                     <tr>
                         <th>Gebruikersnaam</th>
-                        <th>KARLT</th>
+                        <th>Percentage</th>
                         <th>Resultaten op test per vraag</th>
                     </tr>
                 </thead>

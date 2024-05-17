@@ -56,7 +56,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
     <ul class="menu menu-horizontal bg-base-200 w-400">
         <div class="divider"></div>
         <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=<?php echo $book["id"]?>">Boek</a></li>
-        <li><a>Oefeningen</a></li>
+        <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_exercises.php?bookid=<?php echo $book["id"]?>">Toetsen</a></li>
         <li><a class="active">Studenten</a></li>
     </ul>
 

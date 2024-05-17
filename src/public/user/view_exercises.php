@@ -70,7 +70,7 @@ $_SESSION["access_book_test"] = true;
     <div class="card w-96 bg-primary text-primary-content">
         <div class="card-body">
             <p>
-                Klik op een van de volgende oefeningen om te beginnen
+                Klik op een van de volgende toetsen om te beginnen
 
                 <?php
                     if ($_SESSION['user']['isTeacher']) {
