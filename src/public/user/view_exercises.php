@@ -90,9 +90,8 @@ $_SESSION["access_book_test"] = true;
                     <th> </th>
                     <th>Titel</th>
                     <th> </th>
-                    <th> </th>
                     <?php
-                    if ($_SESSION['user']['isTeacher']) {
+                    if (!$_SESSION['user']['isTeacher']) {
                         echo '
                                 <th> </th>
                             ';
@@ -130,8 +129,6 @@ $_SESSION["access_book_test"] = true;
                     } else {
                         echo '
                             <td><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/check_scores.php?testid='.$test["testid"].'"><button class="btn btn-success">Bekijk punten</button></a></td>
-                            <td><a href="https://www.example.com"><button class="btn btn-warning">✏️</button></a></td>
-                            <td><a href="https://www.example.com"><button class="btn btn-error">❌</button></a></td>
                         ';
                     }
                     echo '
