@@ -15,13 +15,35 @@ $books = fetch_as_array('SELECT *, books.id AS "bookid" FROM `books` INNER JOIN 
 $subjects = fetch('SELECT * FROM book_subjects');
 $theme = 'dark';
 
-$notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
-    INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
-    INNER JOIN books ON (books.id = lobbies.bookid)
-    INNER JOIN book_connections ON (book_connections.bookid = books.id)
-    WHERE book_connections.userid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
-    GROUP BY Shoutbox.Lobbyid'
-);
+if (!$_SESSION["user"]["isTeacher"]){
+    $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
+        INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
+        INNER JOIN books ON (books.id = lobbies.bookid)
+        INNER JOIN book_connections ON (book_connections.bookid = books.id)
+        WHERE book_connections.userid = '.$_SESSION["user"]["id"].' 
+        AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
+        AND lobbies.senderid = '.$_SESSION["user"]["id"].'
+        GROUP BY Shoutbox.Lobbyid'
+    );
+    $unanswered_msgs = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
+        INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
+        INNER JOIN books ON (books.id = lobbies.bookid)
+        INNER JOIN book_connections ON (book_connections.bookid = books.id)
+        WHERE book_connections.userid = '.$_SESSION["user"]["id"].' 
+        AND lobbies.senderid = '.$_SESSION["user"]["id"].'
+        GROUP BY Shoutbox.Lobbyid'
+    );
+} else {
+    $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
+        INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
+        INNER JOIN books ON (books.id = lobbies.bookid)
+        INNER JOIN book_connections ON (book_connections.bookid = books.id)
+        WHERE book_connections.userid = '.$_SESSION["user"]["id"].' AND Shoutbox.Senderid != '.$_SESSION["user"]["id"].'
+        GROUP BY Shoutbox.Lobbyid'
+    );
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +88,21 @@ $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox`
                             </tr>
                         ';
                     }
-                ?>                
+
+                    if (!$_SESSION["user"]["isTeacher"]){
+                        foreach($unanswered_msgs as $msg){
+                            echo '
+                                <tr>
+                                    <td>'.$msg["Name"].'</td>
+                                    <td>'.$msg["title"].'</td>
+                                    <td><u><a href="https://bibliotheek.live/alperenGit/src/public/user/chat/chat.php?code='.$msg["img_code"].'">'.$msg["question"].'</a></u></td>
+                                    <td><div class="badge badge-primary">Geen antwoord</div></td>
+                                </tr>
+                            ';
+                        }
+                    }
+
+                ?>
             </tbody>
         </table>
     </div>
