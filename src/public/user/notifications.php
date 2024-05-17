@@ -33,6 +33,17 @@ if (!$_SESSION["user"]["isTeacher"]){
         AND lobbies.senderid = '.$_SESSION["user"]["id"].'
         GROUP BY Shoutbox.Lobbyid'
     );
+
+    foreach ($notifications as $notification) {
+        foreach ($unanswered_msgs as $key => $msg) {
+            if ($notification['question'] == $msg['question']) {
+                unset($unanswered_msgs[$key]);
+            }
+        }
+    }
+    // Reindex the array to prevent gaps in the keys
+    $unanswered_msgs = array_values($unanswered_msgs);
+    
 } else {
     $notifications = fetch_as_array('SELECT *, COUNT(*) AS "pings" FROM `Shoutbox` 
         INNER JOIN lobbies ON (lobbies.id = Shoutbox.Lobbyid)
