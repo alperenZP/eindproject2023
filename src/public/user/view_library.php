@@ -72,20 +72,36 @@ $theme = 'dark';
                     echo '
                         <tr>
                             <td><img src="' . $book["image_link"] . '" height="50px" width="50px"></td>
-                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["bookid"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
-                            <td>' . $book["description"] . '</td><td>
+                            
                                 
                     ';
                     $access_query = fetch('SELECT * FROM book_connections WHERE bookid = ' . $book["bookid"] . ' AND userid = ' . $_SESSION["user"]["id"]);
                     if ($access_query["isBlocked"]){
-                        echo '❌';
+                        echo '
+                            <td><s>'. $book["books.id"] . $book["title"] . '</s></a></td>
+                            <td>' . $book["description"] . '</td>
+                            <td>❌</td>
+                        ';
                     } elseif ($access_query["hasBeenReviewed"] == 0){
-                        echo 'In afwachting';
+                        echo '
+                            <td><i>'. $book["books.id"] . $book["title"] . '</i></td>
+                            <td>' . $book["description"] . '</td>
+                            <td>
+                                <div class="badge badge-info gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    In afwachting
+                                </div>
+                            </td>
+                        ';
                     } else {
-                        echo '✔️';
+                        echo '
+                            <td><i>'. $book["books.id"] . $book["title"] . '</i></td>
+                            <td>' . $book["description"] . '</td>
+                            <td>✔️</td>
+                        ';
                     }
 
-                    echo '</td></tr>';
+                    echo '</tr>';
                 }
                 ?>
             </tbody>
