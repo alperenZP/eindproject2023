@@ -109,8 +109,8 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                             echo '
                                 <td>
                                     Toegang:
-                                    <button class="btn btn-outline btn-success">Geven</button>
-                                    <td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-outline btn-error">Weigeren</button></a>
+                                    <a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/accept_teacher.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-outline btn-success">Geven</button></a>
+                                    <a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-outline btn-error">Weigeren</button></a>
                                 </td>
                             ';
                         } else {
