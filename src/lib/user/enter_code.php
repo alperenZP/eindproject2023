@@ -32,7 +32,7 @@ if (isset($_POST['add'])) {
         if ($book_connection["aantal"] > 0) {
             header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure=1');
         } else {
-            $query = 'INSERT INTO book_connections (bookid, userid, hasAccess) VALUES (?, ?, ?)';
+            $query = 'INSERT INTO book_connections (bookid, userid, hasBeenReviewed) VALUES (?, ?, ?)';
             insert(
                 $query,
                 ['type' => 'i', 'value' => $book["id"]],
