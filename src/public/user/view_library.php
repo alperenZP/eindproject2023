@@ -92,7 +92,7 @@ $theme = 'dark';
                         ';
                     } else {
                         echo '
-                            <td><i>'. $book["books.id"] . $book["title"] . '</i></td>
+                            <td><a href="https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $book["bookid"] . '"><u>'. $book["books.id"] . $book["title"] . '</u></a></td>
                             <td>' . $book["description"] . '</td>
                             <td>✔️</td>
                         ';
