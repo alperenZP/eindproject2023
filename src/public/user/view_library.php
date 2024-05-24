@@ -86,7 +86,7 @@ $theme = 'dark';
                         echo '
                             <td><i>'. $book["books.id"] . $book["title"] . '</i></td>
                             <td>' . $book["description"] . '</td>
-                            <td style="color: blue;">
+                            <td style="color: #87fff6;">
                                 In afwachting
                             </td>
                         ';
