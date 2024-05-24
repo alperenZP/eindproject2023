@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
         ['type' => 'i', 'value' => $_GET['id']]
     );
 
-    $query = 'UPDATE book_connections SET isBlocked = 0 WHERE id = ?';
+    $query = 'UPDATE book_connections SET isBlocked = 0, hasBeenReviewed = 1 WHERE id = ?';
     insert(
         $query,
         ['type' => 'i', 'value' => $_GET['id']],
