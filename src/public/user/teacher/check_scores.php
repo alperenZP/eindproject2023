@@ -24,8 +24,10 @@ $test = fetch(
 );
 
 $book_access = fetch(
-    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND bookid = ?',
-    ['type' => 'i', 'value' => $test["bookid"]]
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+    ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
 if ($book_access["amount"] == 0) {

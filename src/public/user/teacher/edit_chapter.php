@@ -10,11 +10,28 @@ if (!$_SESSION["user"]["isTeacher"]) {
     exit();
 }
 
+
+
+
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/alperenGit/config.php';
 require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 $chapter = fetch('SELECT * FROM book_chapters WHERE id = ?', ['type' => 'i', 'value' => $_GET["id"]]);
+
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+    ['type' => 'i', 'value' => $chapter["bookid"]]
+);
+
+if ($book_access["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
+
 $chapters = fetch_as_array(
     'SELECT * FROM `book_chapters` WHERE bookid = ? AND id != ?',
     ['type' => 'i', 'value' => $chapter["bookid"]],
