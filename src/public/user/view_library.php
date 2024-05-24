@@ -76,7 +76,7 @@ $theme = 'dark';
                             <td>' . $book["description"] . '</td>
                                 
                     ';
-                    $access_query = fetch('SELECT * FROM book_connections WHERE bookid = ' . $book["id"] . ' AND userid = ' . $_SESSION["user"]["id"]);
+                    $access_query = fetch('SELECT * FROM book_connections WHERE bookid = ' . $book["bookid"] . ' AND userid = ' . $_SESSION["user"]["id"]);
                     if ($access_query["isBlocked"]){
                         echo '❌';
                     } elseif ($access_query["hasBeenReviewed"] == 0){
