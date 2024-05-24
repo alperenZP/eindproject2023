@@ -86,10 +86,8 @@ $theme = 'dark';
                         echo '
                             <td><i>'. $book["books.id"] . $book["title"] . '</i></td>
                             <td>' . $book["description"] . '</td>
-                            <td>
-                                <div class="badge badge-info gap-2">
-                                    In afwachting
-                                </div>
+                            <td style="color: blue;">
+                                In afwachting
                             </td>
                         ';
                     } else {
