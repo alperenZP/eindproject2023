@@ -27,7 +27,12 @@ $book = fetch(
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
-$users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ?',
+$users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" 
+    FROM `users` 
+    INNER JOIN book_connections ON (book_connections.userid = users.id) 
+    INNER JOIN books ON (books.id = book_connections.bookid) 
+    WHERE bookid = ?
+    ',
     ['type' => 'i', 'value' => $_GET["bookid"]],
 );
 
@@ -89,9 +94,34 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                                 <td><s>'.$user["firstname"].'</s></td>
                                 <td><s>'.$user["lastname"].'</s></td>
                                 <td><s>'.$user["username"].'</s></td>
-                                <td>GEBLOKKEERD</td>
+                                <td><button class="btn btn-outline btn-secondary">DEBLOKKEREN</button></td>
                         ';
-                    }else {
+                    } elseif (!$user["hasBeenReviewed"]){
+                        echo '
+                            <tr>
+                                <td>'.$rol.'</td>
+                                <td>'.$user["firstname"].'</td>
+                                <td>'.$user["lastname"].'</td>
+                                <td>'.$user["username"].'</td>
+                        ';
+
+                        if ($_SESSION["user"]["isTeacher"]){
+                            echo '
+                                <td>
+                                    Toegang:
+                                    <button class="btn btn-outline btn-success">Geven</button>
+                                    <button class="btn btn-outline btn-error">Weigeren</button>
+                                </td>
+                            ';
+                        } else {
+                            echo '
+                                <td>
+                                    Aanvrager
+                                </td>
+                            ';
+                        }
+                    
+                    } else {
                         echo '
                             <tr>
                                 <td>'.$rol.'</td>

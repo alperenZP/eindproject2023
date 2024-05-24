@@ -16,6 +16,11 @@ if (isset($_POST['add'])) {
         ["type" => "s", "value" => $code]
     );
     $userid = $_SESSION["user"]["id"];
+    if ($_SESSION["user"]["isTeacher"]){
+        $hasAccess = 0;
+    } else {
+        $hasAccess = 1;
+    }
 
     if (isset($book["id"])) {
         $book_connection = fetch(
@@ -27,11 +32,12 @@ if (isset($_POST['add'])) {
         if ($book_connection["aantal"] > 0) {
             header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?failure=1');
         } else {
-            $query = 'INSERT INTO book_connections (bookid, userid) VALUES (?, ?)';
+            $query = 'INSERT INTO book_connections (bookid, userid, hasAccess) VALUES (?, ?, ?)';
             insert(
                 $query,
                 ['type' => 'i', 'value' => $book["id"]],
                 ['type' => 'i', 'value' => $userid],
+                ['type' => 'i', 'value' => $hasAccess],
             );
             header('Location: https://bibliotheek.live/alperenGit/src/public/user/enter_code.php?bookid=' . $book["id"] . '');
         }
