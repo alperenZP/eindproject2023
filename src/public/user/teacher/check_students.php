@@ -43,6 +43,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
     INNER JOIN book_connections ON (book_connections.userid = users.id) 
     INNER JOIN books ON (books.id = book_connections.bookid) 
     WHERE bookid = ?
+    ORDER BY hasBeenReviewed ASC
     ',
     ['type' => 'i', 'value' => $_GET["bookid"]],
 );
