@@ -12,10 +12,21 @@ require_once LIB . '/util/util.php';
 
 $theme = 'dark';
 
-$book_access = fetch(
-    'SELECT *,count(*) AS "amount" FROM book_connections WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND bookid = ?',
-    ['type' => 'i', 'value' => $_GET["book"]]
-);
+if ($_SESSION["user"]["isTeacher"]){
+    $book_access = fetch(
+        'SELECT *,count(*) AS "amount" 
+        FROM book_connections 
+        WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+        ['type' => 'i', 'value' => $_GET["book"]]
+    );
+} else {
+    $book_access = fetch(
+        'SELECT *,count(*) AS "amount" 
+        FROM book_connections 
+        WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND bookid = ?',
+        ['type' => 'i', 'value' => $_GET["book"]]
+    );
+}
 
 if ($book_access["amount"] == 0) {
     header('Location: https://bibliotheek.live');
