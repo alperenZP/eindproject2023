@@ -105,7 +105,7 @@ $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", us
                                 <td><s>'.$user["firstname"].'</s></td>
                                 <td><s>'.$user["lastname"].'</s></td>
                                 <td><s>'.$user["username"].'</s></td>
-                                <td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/block_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-outline btn-secondary">DEBLOKKEREN</button></a></td>
+                                <td><a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/unblock_user.php?id=' . $user["bookconnectionid"] . '"><button class="btn btn-outline btn-secondary">DEBLOKKEREN</button></a></td>
                         ';
                     } elseif (!$user["hasBeenReviewed"]){
                         echo '
