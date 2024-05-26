@@ -57,6 +57,17 @@
 		return (!empty($_SESSION['sb_admin']) && $_SESSION['sb_admin'] == $adminPass);
 	}
 
+	function extractImageUrl($text) {
+		// Define a regular expression pattern to match URLs ending with common image extensions
+		$pattern = '/https?:\/\/\S+\.(?:jpg|jpeg|png|gif|bmp)/i';
+		
+		// Perform the regular expression match
+		preg_match($pattern, $text, $matches);
+		
+		// Check if a match was found and return it, otherwise return null
+		return isset($matches[0]) ? $matches[0] : ' ';
+	}
+
 	function read_data() {
 		$data = array();
 		clearstatcache();
@@ -217,13 +228,19 @@
 			</b>
 			<?php
 				if ($senderid == $_SESSION["user"]["id"]){
+					if (extractImageUrl($text) == ' '){
+						$image_stuff = '';
+					} else {
+						$image_stuff = '<br><br><img src="'.extractImageUrl($text).'" style="height: 100px; width: auto;" alt=" Image"> ';
+					}
+					
 					echo '
 						<div class="chat chat-end">
 
 						<div class="chat-header">
 						<b>'.$name.'</b>
 						</div>
-						<div class="chat-bubble chat-bubble-secondary">'.$text.'</div>			
+							<div class="chat-bubble chat-bubble-secondary">'.$text. $image_stuff.'</div>			
 						</div>
 					';
 				} else {
