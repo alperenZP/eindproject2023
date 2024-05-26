@@ -57,15 +57,15 @@
 		return (!empty($_SESSION['sb_admin']) && $_SESSION['sb_admin'] == $adminPass);
 	}
 
-	function extractImageUrl($text) {
+	function extractImageUrls($text) {
 		// Define a regular expression pattern to match URLs ending with common image extensions
 		$pattern = '/https?:\/\/\S+\.(?:jpg|jpeg|png|gif|bmp)/i';
 		
-		// Perform the regular expression match
-		preg_match($pattern, $text, $matches);
+		// Perform the regular expression match for all occurrences
+		preg_match_all($pattern, $text, $matches);
 		
-		// Check if a match was found and return it, otherwise return null
-		return isset($matches[0]) ? $matches[0] : ' ';
+		// Return the array of matched URLs, or an empty array if no matches found
+		return !empty($matches[0]) ? $matches[0] : [' '];
 	}
 
 	function read_data() {
@@ -228,10 +228,15 @@
 			</b>
 			<?php
 				if ($senderid == $_SESSION["user"]["id"]){
-					if (extractImageUrl($text) == ' '){
-						$image_stuff = '';
-					} else {
-						$image_stuff = '<br><br><img src="'.extractImageUrl($text).'" style="height: 100px; width: auto;" alt=" Image"> ';
+					$image_stuff_array_string = ' ';
+
+				
+
+					foreach (extractImageUrls($text) as $pos_img_stuff) {
+						if ($pos_img_stuff != ' '){
+							$image_stuff = '<br><br><img src="'.$pos_img_stuff.'" style="height: 100px; width: auto;" alt=" Image"> ';
+							$image_stuff_array_string = $image_stuff_array_string . ' ' . $image_stuff;
+						}
 					}
 					
 					echo '
@@ -240,7 +245,7 @@
 						<div class="chat-header">
 						<b>'.$name.'</b>
 						</div>
-							<div class="chat-bubble chat-bubble-secondary">'.$text. $image_stuff.'</div>			
+							<div class="chat-bubble chat-bubble-secondary">'.$text. $image_stuff_array_string.'</div>			
 						</div>
 					';
 				} else {
