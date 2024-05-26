@@ -68,6 +68,17 @@
 		return !empty($matches[0]) ? $matches[0] : [' '];
 	}
 
+	function removeImageUrls($text) {
+		// Define a regular expression pattern to match URLs ending with common image extensions
+		$pattern = '/https?:\/\/\S+\.(?:jpg|jpeg|png|gif|bmp)/i';
+		
+		// Replace all occurrences of the pattern with an empty string
+		$cleanedText = preg_replace($pattern, '', $text);
+		
+		// Return the cleaned text
+		return $cleanedText;
+	}
+
 	function read_data() {
 		$data = array();
 		clearstatcache();
@@ -245,7 +256,7 @@
 						<div class="chat-header">
 						<b>'.$name.'</b>
 						</div>
-							<div class="chat-bubble chat-bubble-secondary">'.$text. $image_stuff_array_string.'</div>			
+							<div class="chat-bubble chat-bubble-secondary">'.removeImageUrls($text). $image_stuff_array_string.'</div>			
 						</div>
 					';
 				} else {
