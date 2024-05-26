@@ -159,7 +159,7 @@ function checkKeyCode(e) {
 <?php
 	if($sendWithEnterKey) {
 ?>
-		<input name="sbText" style="width:<?php echo $boxWidth; ?>px; height:100px" class="cssShoutForm" onKeyUp="checkKeyCode(event)" />
+		<input name="sbText" style="width:<?php echo $boxWidth; ?>px; height:50px" class="cssShoutForm" onKeyUp="checkKeyCode(event)" />
 <?php
 	}
 	else {
