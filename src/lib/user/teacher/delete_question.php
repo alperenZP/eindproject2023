@@ -26,11 +26,13 @@ if (isset($_GET['questionid'])) {
     insert(
         $query,
         ['type' => 'i', 'value' => $_GET['questionid']],
-    );    
+    );
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=20');
-    exit();
+    echo $testid;
+
+    //header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=20');
+    //exit();
 }
 
-header('Location: https://bibliotheek.live');
-exit();
+//header('Location: https://bibliotheek.live');
+//exit();
