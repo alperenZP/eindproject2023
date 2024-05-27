@@ -71,7 +71,7 @@ if (isset($_GET["delq"])){
             <div class="flex flex-col gap-4">
                 <div class="form-control">
                     <div class="label">
-                        <span class="label-text">Naam vOn toets?</span>
+                        <span class="label-text">Naam van toets?</span>
                     </div>
                     <input type="text" name="test_title" placeholder="Titel van toets" value="<?php echo $test["title"]?>" class="input input-bordered" required />
                 </div>
@@ -104,7 +104,6 @@ if (isset($_GET["delq"])){
                     </div>
                     ';
                 }
-/*
                 for ($x = 0; $x < $_SESSION["questions_add_amount"]; $x++) {
                     $xnum = $x + count($questions) + 1;
                     echo '
@@ -122,7 +121,7 @@ if (isset($_GET["delq"])){
                         </div>
                     </div>
                     ';
-                }*/
+                }
                 ?>
                 <input type="hidden" name="testid" value="<?php echo $test["id"]; ?>" required />
             </div>
