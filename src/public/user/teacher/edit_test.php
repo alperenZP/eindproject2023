@@ -30,12 +30,12 @@ $questions = fetch_as_array(
 );
 
 if (isset($_POST["addquestions"])){
-    $_SESSION["questions_add_amount"] = $_SESSION["questions_add_amount"] + $_POST["aantal_vragen"];
+    $_SESSION["questions_add_amount"] = $_POST["aantal_vragen"];
 }
 
 
 
-if (isset($_GET["delq"])){
+if (isset($_GET["delq"]) && $_SESSION["questions_add_amount"] > 0){
     $_SESSION["questions_add_amount"]--;
 }
 ?>
@@ -63,7 +63,7 @@ if (isset($_GET["delq"])){
                     <span class="label-text">Hoeveel meer vragen?</span>
                 </div>
                 <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" value="0" class="input input-bordered" />
-                <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
+                <button name="addquestions" class="btn btn-sm">Zet aantal meerdere vragen</button>
             </div>
         </form>
 
