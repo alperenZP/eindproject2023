@@ -69,7 +69,7 @@ if (isset($_POST["addquestions"])){
                 <div class="label">
                     <span class="label-text">Naam van toets?</span>
                 </div>
-                <input type="text" name="title" placeholder="Titel van toets" class="input input-bordered" required />
+                <input type="text" name="title" placeholder="Titel van toets" value="<?php echo $test["title"]?>" class="input input-bordered" required />
             </div>
 
             <?php
