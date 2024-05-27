@@ -65,7 +65,7 @@ if (isset($_GET["delq"])){
             </div>
         </form>
 
-        <form id="form" action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/create_test.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
+        <form id="form" action="https://bibliotheek.live/alperenGit/src/lib/user/teacher/edit_test.php" method="post" class="flex flex-col gap-8 w-full sm:w-80">
             <div class="flex flex-col gap-4">
                 <div class="form-control">
                     <div class="label">
@@ -76,7 +76,7 @@ if (isset($_GET["delq"])){
 
                 <?php
                 for ($y = 0; $y < count($questions); $y++) {
-                    $oy = 'orig' + $y;
+                    $oy = 'orig' . $y;
                     $ynum =  $y + 1;
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
