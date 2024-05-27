@@ -47,7 +47,7 @@ if (isset($_POST['edit'])) {
         );
     }
 
-    for ($x = 0; $x < $_SESSION["questions_amount"]; $x++) {
+    for ($x = 0; $x < $_SESSION["questions_add_amount"]; $x++) {
 
         $questiontext = $x . 'questiontext';
         $correct = $x . 'correct';
