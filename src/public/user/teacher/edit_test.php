@@ -49,7 +49,7 @@ if (isset($_POST["addquestions"])){
 </head>
 <?php include COMPONENTS . '/nav.php' ?>
 <div class="min-h-[100svh] w-full flex flex-col justify-center items-center p-8">
-    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Creëer nieuw toets</h1>
+    <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8">Wijzig toets</h1>
     <h1 class="sm:text-center md:text-center text-4xl font-bold mb-8"> </h1>
 
     <form method="post" class="flex flex-col gap-8 w-full sm:w-80">
@@ -72,20 +72,41 @@ if (isset($_POST["addquestions"])){
                 <input type="text" name="title" placeholder="Titel van toets" class="input input-bordered" required />
             </div>
 
-            <?php 
-                for ($x = 0; $x < $_SESSION["questions_amount"]; $x++) {
-                    $xnum = $x+1;
+            <?php
+                for ($y = 0; $y < count($questions); $y++) {
+                    $ynum = $y+1;
+                    echo '
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Vraag '.$ynum.'</h2>
+                            <h2 class="card-title"><input name="'.$y.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            
+                            <ol type="A">
+                                <b>Juist antwoord</b> <li><input name="'.$y.'correct" type="text" value="'.$questions[$y]["correct_option"].'" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input name="'.$y.'wrong1" type="text" value="'.$questions[$y]["incorrect1"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input name="'.$y.'wrong2" type="text" value="'.$questions[$y]["incorrect2"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input name="'.$y.'wrong3" type="text" value="'.$questions[$y]["incorrect3"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                            </ol>
+
+                        </div>
+                    </div>
+                    ';
+                }
+
+                for ($x = 0; $x < $_SESSION["questions_add_amount"]; $x++) {
+                    $xnum = $x+count($questions)+1;
+                    $xid = $x+count($questions);
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
                             <h2 class="card-title">Vraag '.$xnum.'</h2>
-                            <h2 class="card-title"><input name="'.$x.'questiontext" type="text" placeholder="Vraag '.$xnum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            <h2 class="card-title"><input name="'.$xid.'questiontext" type="text" placeholder="Vraag '.$xnum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
                             <ol type="A">
-                                <b>Juist antwoord</b> <li><input name="'.$x.'correct" type="text" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 1</b> <li><input name="'.$x.'wrong1" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 2</b> <li><input name="'.$x.'wrong2" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 3</b> <li><input name="'.$x.'wrong3" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input name="'.$xid.'correct" type="text" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input name="'.$xid.'wrong1" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input name="'.$xid.'wrong2" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input name="'.$xid.'wrong3" type="text" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
                             </ol>
 
                         </div>
