@@ -17,7 +17,7 @@ if (!$_SESSION["user"]["isTeacher"]) {
 if (isset($_GET['questionid'])) {
     $question = fetch(
         'SELECT * FROM `questions` WHERE id = ?',
-        ['type' => 'i', 'value' => $_GET['id']]
+        ['type' => 'i', 'value' => $_GET['questionid']]
     );
 
     $testid = $question["testid"];
@@ -30,9 +30,9 @@ if (isset($_GET['questionid'])) {
 
     echo $testid;
 
-    //header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=20');
-    //exit();
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=20');
+    exit();
 }
 
-//header('Location: https://bibliotheek.live');
-//exit();
+header('Location: https://bibliotheek.live');
+exit();
