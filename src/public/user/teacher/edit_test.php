@@ -73,13 +73,15 @@ if (isset($_GET["delq"])){
                     <div class="label">
                         <span class="label-text">Naam van toets?</span>
                     </div>
-                    <input type="text" name="title" placeholder="Titel van toets" value="<?php echo $test["title"]?>" class="input input-bordered" required />
+                    <input type="text" name="test_title" placeholder="Titel van toets" value="<?php echo $test["title"]?>" class="input input-bordered" required />
                 </div>
 
                 <?php
                 for ($y = 0; $y < count($questions); $y++) {
                     $oy = 'orig' . $y;
                     $ynum =  $y + 1;
+
+                    $qid = $questions[$y]["id"] . '_';
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
@@ -89,19 +91,20 @@ if (isset($_GET["delq"])){
                         echo '<a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/delete_question.php?questionid='.$questions[$y]["id"].'" class="exempt-link"><button type="button" class="btn btn-error">❌</button></a><br><br>';
                     }
                     echo '
+                            <input type="hidden" name="'.$questions[$y]["id"].'_id" value="'.$questions[$y]["id"].'"/>
                             <h2 class="card-title">Vraag '.$ynum.'</h2>
-                            <h2 class="card-title"><input name="'.$oy.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            <h2 class="card-title"><input name="'.$qid.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             <ol type="A">
-                                <b>Juist antwoord</b> <li><input name="'.$oy.'correct" type="text" value="'.$questions[$y]["correct_option"].'" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 1</b> <li><input name="'.$oy.'wrong1" type="text" value="'.$questions[$y]["incorrect1"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 2</b> <li><input name="'.$oy.'wrong2" type="text" value="'.$questions[$y]["incorrect2"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 3</b> <li><input name="'.$oy.'wrong3" type="text" value="'.$questions[$y]["incorrect3"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input name="'.$qid.'correct" type="text" value="'.$questions[$y]["correct_option"].'" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input name="'.$qid.'wrong1" type="text" value="'.$questions[$y]["incorrect1"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input name="'.$qid.'wrong2" type="text" value="'.$questions[$y]["incorrect2"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input name="'.$qid.'wrong3" type="text" value="'.$questions[$y]["incorrect3"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
                             </ol>
                         </div>
                     </div>
                     ';
                 }
-
+/*
                 for ($x = 0; $x < $_SESSION["questions_add_amount"]; $x++) {
                     $xnum = $x + count($questions) + 1;
                     echo '
@@ -119,9 +122,9 @@ if (isset($_GET["delq"])){
                         </div>
                     </div>
                     ';
-                }
+                }*/
                 ?>
-                <input type="hidden" name="bookid" value="<?php echo $book["id"]; ?>" required />
+                <input type="hidden" name="testid" value="<?php echo $test["id"]; ?>" required />
             </div>
             <button name="edit" class="btn btn-primary">Wijzig</button>
         </form>
