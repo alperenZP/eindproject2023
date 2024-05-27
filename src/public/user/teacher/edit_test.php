@@ -71,7 +71,7 @@ if (isset($_GET["delq"])){
             <div class="flex flex-col gap-4">
                 <div class="form-control">
                     <div class="label">
-                        <span class="label-text">Naam van toets?</span>
+                        <span class="label-text">Naam vOn toets?</span>
                     </div>
                     <input type="text" name="test_title" placeholder="Titel van toets" value="<?php echo $test["title"]?>" class="input input-bordered" required />
                 </div>
