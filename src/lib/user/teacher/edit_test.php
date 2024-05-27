@@ -48,31 +48,12 @@ if (isset($_POST['edit'])) {
             ['type' => 'i', 'value' => $qid],
         );
     }
-    for ($y = 0; $y < $_SESSION["questions_amount"]; $x++) {
-
-        $questiontext = $x . 'questiontext';
-        $correct = $x . 'correct';
-        $wrong1 = $x . 'wrong1';
-        $wrong2 = $x . 'wrong2';
-        $wrong3 = $x . 'wrong3';
-
-        $query = 'INSERT INTO questions (testid, text, correct_option, incorrect1, incorrect2, incorrect3) VALUES (?, ?, ?, ?, ?, ?)';
-        insert(
-            $query,
-            ['type' => 'i', 'value' => $thatTest["id"]],
-            ['type' => 's', 'value' => '' . $_POST[$questiontext] . ''],
-            ['type' => 's', 'value' => '' . $_POST[$correct] . ''],
-            ['type' => 's', 'value' => '' . $_POST[$wrong1] . ''],
-            ['type' => 's', 'value' => '' . $_POST[$wrong2] . ''],
-            ['type' => 's', 'value' => '' . $_POST[$wrong3] . ''],
-        );
-    }
 
     
 
     
 
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/view_book.php?book=' . $bookid . '');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/edit_test.php?testid=' . $testid . '');
     exit();
 }
 
