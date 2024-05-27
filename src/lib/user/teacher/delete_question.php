@@ -28,9 +28,7 @@ if (isset($_GET['questionid'])) {
         ['type' => 'i', 'value' => $_GET['questionid']],
     );
 
-    echo $testid;
-
-    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=20');
+    header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=' . $testid);
     exit();
 }
 
