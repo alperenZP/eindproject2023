@@ -81,7 +81,7 @@ if (isset($_GET["delq"])){
                     $oy = 'orig' . $y;
                     $ynum =  $y + 1;
 
-                    $qid = $questions[$y]["id"] . '_';
+                    $qid = $questions[$y]["id"];
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
