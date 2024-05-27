@@ -25,7 +25,7 @@ $test = fetch(
 );
 
 $questions = fetch_as_array(
-    'SELECT * FROM questions WHERE testid = ?',
+    'SELECT * FROM questions WHERE testid = ? ORDER BY id ASC',
     ['type' => 'i', 'value' => $_GET["testid"]]
 );
 
