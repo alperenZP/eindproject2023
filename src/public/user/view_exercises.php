@@ -32,6 +32,7 @@ $tests = fetch_as_array(
 );
 
 $_SESSION["questions_amount"] = 1;
+$_SESSION["questions_add_amount"] = 0;
 $_SESSION["access_book_test"] = true;
 
 ?>
