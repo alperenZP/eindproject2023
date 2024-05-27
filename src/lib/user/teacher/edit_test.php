@@ -35,11 +35,9 @@ if (isset($_POST['edit'])) {
         $wrong2 = $qid . 'wrong2';
         $wrong3 = $qid . 'wrong3';
 
-        $query = 'UPDATE questions SET text = ?, correct_option = ?, incorrect1 = ?, incorrect2 = ?, incorrect3, = ? WHERE id = ?';
+        $query = 'UPDATE questions SET text = ?, correct_option = ?, incorrect1 = ?, incorrect2 = ?, incorrect3 = ? WHERE id = ?';
         insert(
             $query,
-            ['type' => 's', 'value' => '' . $_[$questiontext] . ''],
-            
             ['type' => 's', 'value' => '' . $_POST[$questiontext] . ''],
             ['type' => 's', 'value' => '' . $_POST[$correct] . ''],
             ['type' => 's', 'value' => '' . $_POST[$wrong1] . ''],
