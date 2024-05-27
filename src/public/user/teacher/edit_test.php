@@ -78,6 +78,12 @@ if (isset($_POST["addquestions"])){
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
+                            <div class="form-control">
+                                <label class="cursor-pointer label">
+                                    <span class="label-text">Verwijder deze vraag?</span>
+                                    <input type="checkbox" checked="checked" class="checkbox checkbox-error" />
+                                </label>
+                            </div>
                             <h2 class="card-title">Vraag '.$ynum.'</h2>
                             <h2 class="card-title"><input name="'.$y.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             
