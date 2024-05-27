@@ -69,7 +69,7 @@ if (isset($_POST['edit'])) {
 
     
 
-    
+    $_SESSION["questions_add_amount"] = 0;
 
     header('Location: https://bibliotheek.live/alperenGit/src/public/user/teacher/edit_test.php?testid=' . $testid . '');
     exit();
