@@ -80,8 +80,12 @@ if (isset($_GET["delq"])){
                     echo '
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/delete_question.php?questionid='.$questions[$y]["id"].'" class="exempt-link"><button type="button" class="btn btn-error">❌</button></a>
-                            <br><br>
+                            ';
+
+                    if (count($questions) > 1){
+                        echo '<a href="https://bibliotheek.live/alperenGit/src/lib/user/teacher/delete_question.php?questionid='.$questions[$y]["id"].'" class="exempt-link"><button type="button" class="btn btn-error">❌</button></a><br><br>';
+                    }
+                    echo '
                             <h2 class="card-title">Vraag '.$ynum.'</h2>
                             <h2 class="card-title"><input name="'.$y.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             <ol type="A">
