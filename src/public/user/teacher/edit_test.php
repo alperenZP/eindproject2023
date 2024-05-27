@@ -81,7 +81,7 @@ if (isset($_POST["addquestions"])){
                             <div class="form-control">
                                 <label class="cursor-pointer label">
                                     <span class="label-text">Verwijder deze vraag?</span>
-                                    <input type="checkbox" checked="unchecked" class="checkbox checkbox-error" />
+                                    <input type="checkbox" checked="" class="checkbox checkbox-error" />
                                 </label>
                             </div>
                             <h2 class="card-title">Vraag '.$ynum.'</h2>
