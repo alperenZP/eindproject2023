@@ -62,7 +62,7 @@ if (isset($_GET["delq"]) && $_SESSION["questions_add_amount"] > 0){
                 <div class="label">
                     <span class="label-text">Hoeveel meer vragen?</span>
                 </div>
-                <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" value="0" class="input input-bordered" />
+                <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" value="<?php echo $_SESSION["questions_add_amount"]?>" class="input input-bordered" />
                 <button name="addquestions" class="btn btn-sm">Zet aantal meerdere vragen</button>
             </div>
         </form>
