@@ -57,7 +57,7 @@ if (isset($_POST["addquestions"])){
             <div class="label">
                         <span class="label-text">Hoeveel meer vragen?</span>
             </div>
-                        <input type="number" min="1" name="aantal_vragen" placeholder="Hoeveel meer vragen?" class="input input-bordered" />
+                        <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" class="input input-bordered" />
                         <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
         </div>
     </form>
@@ -119,6 +119,6 @@ if (isset($_POST["addquestions"])){
 
         </div>
 
-        <button name="create" class="btn btn-primary">Creëer</button>
+        <button name="edit" class="btn btn-primary">Wijzig</button>
     </form>
 </div>
