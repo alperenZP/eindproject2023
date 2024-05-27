@@ -33,6 +33,8 @@ if (isset($_POST["addquestions"])){
     $_SESSION["questions_add_amount"] = $_SESSION["questions_add_amount"] + $_POST["aantal_vragen"];
 }
 
+
+
 if (isset($_GET["delq"])){
     $_SESSION["questions_add_amount"]--;
 }
@@ -60,7 +62,7 @@ if (isset($_GET["delq"])){
                 <div class="label">
                     <span class="label-text">Hoeveel meer vragen?</span>
                 </div>
-                <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" class="input input-bordered" />
+                <input type="number" min="0" name="aantal_vragen" placeholder="Hoeveel meer vragen?" value="0" class="input input-bordered" />
                 <button name="addquestions" class="btn btn-sm">Voeg vragen toe</button>
             </div>
         </form>
