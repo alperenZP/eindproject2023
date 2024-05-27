@@ -88,12 +88,12 @@ if (isset($_GET["delq"])){
                     }
                     echo '
                             <h2 class="card-title">Vraag '.$ynum.'</h2>
-                            <h2 class="card-title"><input name="'.$oy.'questiontext" type="text" value="'.$questions[$oy]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
+                            <h2 class="card-title"><input name="'.$oy.'questiontext" type="text" value="'.$questions[$y]["text"].'" placeholder="Vraag '.$ynum.' titel" required class="input input-bordered input-md w-full max-w-xs" /></h2>
                             <ol type="A">
-                                <b>Juist antwoord</b> <li><input name="'.$oy.'correct" type="text" value="'.$questions[$oy]["correct_option"].'" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 1</b> <li><input name="'.$oy.'wrong1" type="text" value="'.$questions[$oy]["incorrect1"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 2</b> <li><input name="'.$oy.'wrong2" type="text" value="'.$questions[$oy]["incorrect2"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
-                                <b>Fout antwoord 3</b> <li><input name="'.$oy.'wrong3" type="text" value="'.$questions[$oy]["incorrect3"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Juist antwoord</b> <li><input name="'.$oy.'correct" type="text" value="'.$questions[$y]["correct_option"].'" placeholder="Juist antwoord" required class="input input-bordered input-success input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 1</b> <li><input name="'.$oy.'wrong1" type="text" value="'.$questions[$y]["incorrect1"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 2</b> <li><input name="'.$oy.'wrong2" type="text" value="'.$questions[$y]["incorrect2"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
+                                <b>Fout antwoord 3</b> <li><input name="'.$oy.'wrong3" type="text" value="'.$questions[$y]["incorrect3"].'" placeholder="Fout antwoord" required class="input input-bordered input-error input-sm w-full max-w-xs" /></li>
                             </ol>
                         </div>
                     </div>
