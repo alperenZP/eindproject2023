@@ -5,7 +5,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 
 if (isset($_SESSION['user'])) {
-  header('Location: /');
+  header('Location: https://bibliotheek.live/');
   exit();
 }
 
