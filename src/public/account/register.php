@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['user'])) {
   header('Location: https://bibliotheek.live/');
   exit();
-} ?>
+} 
 ?>
 
 <!DOCTYPE html>
