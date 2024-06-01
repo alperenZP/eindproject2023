@@ -67,7 +67,7 @@ $_SESSION["notifs"] = true;
     }
 
     echo isset($_SESSION['user'])
-      ? 'Hallo, ' . $_SESSION["user"]["username"] . ' !
+      ? 'Hallo, <b>' . $_SESSION["user"]["username"] . '</b> !
       <details class="dropdown dropdown-end">
         <summary class="m-1 btn btn-secondary btn-circle avatar">
           <div class="w-10 rounded-full">
