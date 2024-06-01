@@ -60,7 +60,7 @@ $_SESSION["notifs"] = true;
     <?php
     if ($_SESSION["user"]["isTeacher"]){
       $teacher_links = '<li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/create_book.php">Creëer nieuw boek</a></li>      
-      <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php">Creëer hoofdstukken</a></li>
+      <li><a href="https://bibliotheek.live/alperenGit/src/public/user/teacher/add_chapter.php">Creëer hoofdstukken</a></li><div class="divider px-4 my-2"></div> 
       ';
     } else {
       $teacher_links = "";
@@ -76,11 +76,10 @@ $_SESSION["notifs"] = true;
         </summary>
         <ul class="mt-2 p-2 shadow menu dropdown-content z-[1] bg-pink-500 text-black rounded-box w-52">
           '.$teacher_links.'
-          <div class="divider px-4 my-2"></div> 
-          <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
-          <div class="divider px-4 mb-2"> </div>
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/view_library.php">Bekijk boeken</a></li>
           <li><a href="https://bibliotheek.live/alperenGit/src/public/user/enter_code.php">Geef code in</a></li>
+          <div class="divider px-4 mb-2"> </div>
+          <li><a href="https://bibliotheek.live/alperenGit/src/public/account/logout.php">Log uit</a></li>
         </ul>
       </details>
       <a href="https://bibliotheek.live/alperenGit/src/public/user/notifications.php"><button class="btn btn-outline btn-secondary">📮</button></a>
