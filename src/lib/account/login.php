@@ -7,6 +7,8 @@ require_once LIB . '/util/util.php';
 if (isset($_SESSION['user'])) {
   header('Location: https://bibliotheek.live/');
   exit();
+} else {
+  echo 'EHZJKJKEFDLKJDFSL';
 }
 
 if (isset($_POST['login'])) {
