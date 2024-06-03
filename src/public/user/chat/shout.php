@@ -238,17 +238,19 @@
 				?>
 			</b>
 			<?php
-				if ($senderid == $_SESSION["user"]["id"]){
-					$image_stuff_array_string = ' ';
+				$image_stuff_array_string = ' ';
 
 				
 
-					foreach (extractImageUrls($text) as $pos_img_stuff) {
-						if ($pos_img_stuff != ' '){
-							$image_stuff = '<br><br><img src="'.$pos_img_stuff.'" style="height: 100px; width: auto;" alt=" Image"> ';
-							$image_stuff_array_string = $image_stuff_array_string . ' ' . $image_stuff;
-						}
+				foreach (extractImageUrls($text) as $pos_img_stuff) {
+					if ($pos_img_stuff != ' '){
+						$image_stuff = '<br><br><img src="'.$pos_img_stuff.'" style="height: 100px; width: auto;" alt=" Image"> ';
+						$image_stuff_array_string = $image_stuff_array_string . ' ' . $image_stuff;
 					}
+				}
+
+				if ($senderid == $_SESSION["user"]["id"]){
+					
 					
 					echo '
 						<div class="chat chat-end">
@@ -266,7 +268,7 @@
 						<div class="chat-header">
 						<b>'.$name.'</b>
 						</div>
-						<div class="chat-bubble">'.$text.'</div>			
+							<div class="chat-bubble">'.removeImageUrls($text). $image_stuff_array_string.'</div>			
 						</div>
 					'; 
 				}
