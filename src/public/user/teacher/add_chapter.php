@@ -15,15 +15,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
-
-$book_access = fetch(
-    'SELECT *,count(*) AS "amount" 
-    FROM book_connections 
-    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
-    ['type' => 'i', 'value' => $_GET["bookid"]]
-);
-
-$books = fetch_as_array('SELECT * FROM books INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid = ?', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
+$books = fetch_as_array('SELECT *, books.id AS "idbook" FROM books INNER JOIN book_connections ON (books.id = book_connections.bookid) WHERE book_connections.userid = ? AND isBlocked = 0', ['type' => 'i', 'value' => $_SESSION["user"]["id"]]);
 ?>
 
 
@@ -77,7 +69,7 @@ $books = fetch_as_array('SELECT * FROM books INNER JOIN book_connections ON (boo
                 <option disabled selected value="">Boek</option>
                 <?php
                 foreach ($books as $book) {
-                    echo '<option value="' . $book["id"] . '">' . $book["title"] . '</option>';
+                    echo '<option value="' . $book["idbook"] . '">' . $book["title"] . '</option>';
                 }
                 ;
                 ?>
