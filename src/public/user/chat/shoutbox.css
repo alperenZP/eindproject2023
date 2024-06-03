@@ -19,7 +19,8 @@ A:hover {
 }
 .cssShoutForm {
   font-family: Arial, Helvetica;
-  font-size: 11px;
+  font-size: 20px;
+  color: black;
   background-color: #E0F0FF;
   border: 2px solid #EEEEEE;
   border-radius: 2%;
