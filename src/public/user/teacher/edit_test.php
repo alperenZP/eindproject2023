@@ -15,6 +15,7 @@ require_once DATABASE . '/connect.php';
 require_once LIB . '/util/util.php';
 $theme = 'dark';
 
+
 if (!isset($_SESSION["questions_add_amount"])){
     $_SESSION["questions_amount"] = 0;
 }
@@ -23,6 +24,18 @@ $test = fetch(
     'SELECT * FROM tests WHERE id = ?',
     ['type' => 'i', 'value' => $_GET["testid"]]
 );
+
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+    ['type' => 'i', 'value' => $test["bookid"]]
+);
+
+if ($book_access["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+    }
 
 $questions = fetch_as_array(
     'SELECT * FROM questions WHERE testid = ? ORDER BY id ASC',
