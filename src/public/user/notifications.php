@@ -81,7 +81,7 @@ if (!$_SESSION["user"]["isTeacher"]){
                     <th>Van</th>
                     <th>Boek</th>
                     <th>Vraag</th>
-                    <th>Nieuw berichten</th>
+                    <th>Aantal Berichten</th>
                 </tr>
             </thead>
             
