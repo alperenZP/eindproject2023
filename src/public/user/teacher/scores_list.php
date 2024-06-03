@@ -12,6 +12,19 @@ $test = fetch(
     ['type' => 'i', 'value' => $testid]
 );
 
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+    ['type' => 'i', 'value' => $test["bookid"]]
+);
+
+
+if ($book_access["amount"] == 0) {
+    header('Location: https://bibliotheek.live');
+    exit();
+}
+
 $users = fetch_as_array('SELECT *, book_connections.id AS "bookconnectionid", users.id AS "userid" FROM `users` INNER JOIN book_connections ON (book_connections.userid = users.id) INNER JOIN books ON (books.id = book_connections.bookid) WHERE bookid = ? AND isTeacher = 0 AND isBlocked = 0',
     ['type' => 'i', 'value' => $test["bookid"]],
 );
