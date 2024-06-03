@@ -21,6 +21,25 @@ $book = fetch(
     ['type' => 'i', 'value' => $_GET["bookid"]]
 );
 
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND hasBeenReviewed = 1 AND bookid = ?',
+    ['type' => 'i', 'value' => $_GET["bookid"]]
+);
+$book_access = fetch(
+    'SELECT *,count(*) AS "amount" 
+    FROM book_connections 
+    WHERE userid = ' . $_SESSION['user']['id'] . ' AND isBlocked = 0 AND bookid = ?',
+    ['type' => 'i', 'value' => $_GET["bookid"]]
+);
+
+
+if ($book_access["amount"] == 0) {
+header('Location: https://bibliotheek.live');
+exit();
+}
+
 if (isset($_POST["addquestions"])){
     $_SESSION["questions_amount"] = $_POST["aantal_vragen"];
 }
